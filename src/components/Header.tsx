@@ -1,5 +1,17 @@
 import React from 'react';
-import { Shield, Sparkles, Sliders, Smartphone, ListFilter, Wrench, ShieldAlert } from 'lucide-react';
+import { 
+  Shield, 
+  Sparkles, 
+  Sliders, 
+  Smartphone, 
+  ListFilter, 
+  Wrench, 
+  ShieldAlert, 
+  Wifi, 
+  Store, 
+  History, 
+  HelpCircle 
+} from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
 interface HeaderProps {
@@ -12,6 +24,10 @@ interface HeaderProps {
   onOpenBlocklists: () => void;
   onOpenPrivacyTools: () => void;
   onOpenBlockPagePreview: () => void;
+  onOpenFakeOnlineStudio: () => void;
+  onOpenGoogleDefense: () => void;
+  onOpenTimeMachine: () => void;
+  onOpenOnboarding: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -28,6 +44,10 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenBlocklists,
   onOpenPrivacyTools,
   onOpenBlockPagePreview,
+  onOpenFakeOnlineStudio,
+  onOpenGoogleDefense,
+  onOpenTimeMachine,
+  onOpenOnboarding,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -87,58 +107,85 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Zone 3: 1 Primary Action (Test Offline App Launch) */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={onOpenOfflineTester}
-            className="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 transition-all flex items-center gap-1.5 shadow-sm shadow-emerald-500/20 whitespace-nowrap shrink-0"
+            className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 transition-all flex items-center gap-1.5 shadow-sm shadow-emerald-500/20 whitespace-nowrap shrink-0"
           >
             <Smartphone className="w-3.5 h-3.5" />
             <span>Test Offline Launch</span>
           </button>
+
+          <button
+            onClick={onOpenOnboarding}
+            title="Open Guided Setup Wizard (F186)"
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+          >
+            <HelpCircle className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
-      {/* Sub-toolbar: Quick-Access Tier 1 Controls & Mode Toggles */}
+      {/* Sub-toolbar: Quick-Access Tier 1 & Tier 2 Controls */}
       <div className="bg-slate-900/60 border-t border-slate-800/60 px-4 sm:px-6 py-2 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 overflow-x-auto">
           <button
             onClick={onOpenProfiles}
-            className="flex items-center gap-1.5 hover:text-slate-200 transition-colors"
+            className="flex items-center gap-1.5 hover:text-slate-200 transition-colors shrink-0"
           >
             <span className="text-slate-500">Profile:</span>
             <span className="font-semibold text-slate-200 underline decoration-slate-600 underline-offset-4">{activeProfile.name}</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
           
+          {/* Tier 2 Core Engine Triggers */}
+          <button
+            onClick={onOpenFakeOnlineStudio}
+            className="flex items-center gap-1 hover:text-emerald-300 transition-colors shrink-0"
+          >
+            <Wifi className="w-3 h-3 text-emerald-400" />
+            <span>Fake-Online Studio (F01–F07)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          <button
+            onClick={onOpenGoogleDefense}
+            className="flex items-center gap-1 hover:text-indigo-300 transition-colors shrink-0"
+          >
+            <Store className="w-3 h-3 text-indigo-400" />
+            <span>Source Doctor &amp; Play Defense (F96/F97)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          <button
+            onClick={onOpenTimeMachine}
+            className="flex items-center gap-1 hover:text-amber-300 transition-colors shrink-0"
+          >
+            <History className="w-3 h-3 text-amber-400" />
+            <span>Update Time Machine (F228)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
           {/* Quick-Access Tier 1 Modals */}
           <button
             onClick={onOpenBlocklists}
-            className="flex items-center gap-1 hover:text-sky-300 transition-colors"
+            className="flex items-center gap-1 hover:text-sky-300 transition-colors shrink-0"
           >
             <ListFilter className="w-3 h-3 text-sky-400" />
-            <span>Blocklists (F224)</span>
+            <span>Blocklists</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 
           <button
             onClick={onOpenPrivacyTools}
-            className="flex items-center gap-1 hover:text-emerald-300 transition-colors"
+            className="flex items-center gap-1 hover:text-emerald-300 transition-colors shrink-0"
           >
             <Wrench className="w-3 h-3 text-emerald-400" />
             <span>Privacy Tools</span>
           </button>
-          <span aria-hidden="true" className="text-slate-700">·</span>
-
-          <button
-            onClick={onOpenBlockPagePreview}
-            className="flex items-center gap-1 hover:text-rose-300 transition-colors"
-          >
-            <ShieldAlert className="w-3 h-3 text-rose-400" />
-            <span>Block Page (F191)</span>
-          </button>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           {/* F94 Tiered UI (Newbie vs Expert) */}
           <button
             onClick={onToggleExpertMode}

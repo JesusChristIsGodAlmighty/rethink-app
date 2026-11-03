@@ -28,6 +28,10 @@ import { ForkSetupModal } from './components/ForkSetupModal';
 import { BlocklistManagerModal } from './components/BlocklistManagerModal';
 import { BlockPageModal } from './components/BlockPageModal';
 import { PrivacyToolsModal } from './components/PrivacyToolsModal';
+import { FakeOnlineStudioModal } from './components/FakeOnlineStudioModal';
+import { GoogleIsolationModal } from './components/GoogleIsolationModal';
+import { UpdateTimeMachineModal } from './components/UpdateTimeMachineModal';
+import { OnboardingModal } from './components/OnboardingModal';
 
 import { 
   INITIAL_MODULES, 
@@ -98,6 +102,10 @@ export default function App() {
   const [isBlocklistsOpen, setIsBlocklistsOpen] = useState(false);
   const [isBlockPagePreviewOpen, setIsBlockPagePreviewOpen] = useState(false);
   const [isPrivacyToolsOpen, setIsPrivacyToolsOpen] = useState(false);
+  const [isFakeOnlineStudioOpen, setIsFakeOnlineStudioOpen] = useState(false);
+  const [isGoogleDefenseOpen, setIsGoogleDefenseOpen] = useState(false);
+  const [isTimeMachineOpen, setIsTimeMachineOpen] = useState(false);
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
   const [selfTestFeedback, setSelfTestFeedback] = useState<string | null>(null);
 
   // Periodic network packet synthesis
@@ -224,6 +232,10 @@ export default function App() {
         onOpenBlocklists={() => setIsBlocklistsOpen(true)}
         onOpenPrivacyTools={() => setIsPrivacyToolsOpen(true)}
         onOpenBlockPagePreview={() => setIsBlockPagePreviewOpen(true)}
+        onOpenFakeOnlineStudio={() => setIsFakeOnlineStudioOpen(true)}
+        onOpenGoogleDefense={() => setIsGoogleDefenseOpen(true)}
+        onOpenTimeMachine={() => setIsTimeMachineOpen(true)}
+        onOpenOnboarding={() => setIsOnboardingOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -528,6 +540,38 @@ export default function App() {
         <PrivacyToolsModal
           isOpen={isPrivacyToolsOpen}
           onClose={() => setIsPrivacyToolsOpen(false)}
+        />
+      )}
+
+      {isFakeOnlineStudioOpen && (
+        <FakeOnlineStudioModal
+          isOpen={isFakeOnlineStudioOpen}
+          onClose={() => setIsFakeOnlineStudioOpen(false)}
+        />
+      )}
+
+      {isGoogleDefenseOpen && (
+        <GoogleIsolationModal
+          isOpen={isGoogleDefenseOpen}
+          onClose={() => setIsGoogleDefenseOpen(false)}
+        />
+      )}
+
+      {isTimeMachineOpen && (
+        <UpdateTimeMachineModal
+          isOpen={isTimeMachineOpen}
+          onClose={() => setIsTimeMachineOpen(false)}
+        />
+      )}
+
+      {isOnboardingOpen && (
+        <OnboardingModal
+          isOpen={isOnboardingOpen}
+          onClose={() => setIsOnboardingOpen(false)}
+          onSelectPosture={(posture) => {
+            setSelfTestFeedback(`Selected ${posture} protection posture.`);
+          }}
+          onLaunchOfflineTest={() => setIsOfflineTesterOpen(true)}
         />
       )}
 
