@@ -1658,8 +1658,279 @@ export const INITIAL_MODULES: SerfModule[] = [
         reversible: true
       }
     }
+  },
+  // TIER 4: PRIVACY & ROUTING CORE MODULES
+  {
+    id: 'F30',
+    name: 'Tor Onion Circuit Router',
+    category: 'Routing & Privacy',
+    priority: 'P1',
+    difficulty: 3,
+    cost: 'L',
+    description: 'Routes traffic through a multi-hop cryptographic Onion circuit with SOCKS5 stream isolation and bridge transports.',
+    oneParagraphDoc: 'Wraps outbound TCP streams into 3-layer encrypted Tor circuits (Guard, Middle, Exit relays). Isolates application streams by client UID on local SOCKS5 loopback 127.0.0.1:9050 with obfs4 and Snowflake pluggable transports.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE', 'android.permission.INTERNET'],
+    breaksIfDisabled: 'Direct egress exposes your true public IP, ISP location, and cellular tower coordinates to all web destinations.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.8, batteryPerHourPercent: 0.15, ramMb: 24, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Tor Circuit Health',
+        metrics: [
+          { label: 'Circuit State', value: '3 Hops Active' },
+          { label: 'Round-Trip Latency', value: '142ms' },
+          { label: 'Active Streams', value: '4' }
+        ],
+        statusNote: 'Circuit routed through Iceland Guard and Netherlands Exit.'
+      },
+      detect: { threatsFound: 18, details: ['Prevented 18 IP correlation attempts by ad trackers'] },
+      explain: {
+        summary: 'Layered Onion Encryption',
+        mechanism: 'Encapsulates data in three concentric cryptographic layers, stripping each hop at the respective relay so no single node knows both source and destination.',
+        risksMitigated: 'Defeats ISP surveillance, nation-state censorship, and geo-profiling.'
+      },
+      describe: {
+        plainSummary: 'Bounces your internet connection through three encrypted relays so websites cannot see who or where you are.',
+        whyItMatters: 'Websites and ad trackers record your IP address to build a permanent file on everything you do online. Tor masks your real identity behind a changing global network.',
+        consequencesIfEnabled: 'Your web traffic is strongly anonymous. Connections may take a fraction of a second longer to load.'
+      },
+      suggest: {
+        recommendation: 'Pair with F124 Split-Tunneling to route browsers through Tor while keeping bank apps on direct VPN.',
+        authorityLevel: 2,
+        actionLabel: 'Rotate Circuit Identity',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F34',
+    name: 'RFC 7686 .onion Resolver',
+    category: 'Routing & Privacy',
+    priority: 'P1',
+    difficulty: 2,
+    cost: 'L',
+    description: 'Resolves special-use .onion domain names via local SOCKS5 Tor daemon into loopback 127.192.0.0/10 virtual mappings.',
+    oneParagraphDoc: 'Intercepts RFC 7686 pseudo-TLD .onion queries before they reach upstream public DNS servers, assigning ephemeral virtual IPs and establishing encrypted end-to-end Hidden Service rendezvous circuits.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE'],
+    breaksIfDisabled: '.onion hidden service domains fail with NXDOMAIN or leak unencrypted queries to public DNS resolvers.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 4, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: '.onion Virtual Mapping',
+        metrics: [
+          { label: 'Onion Lookups', value: '14' },
+          { label: 'Virtual Subnet', value: '127.192.0.0/10' }
+        ],
+        statusNote: 'Resolving onion cryptographic descriptors on loopback.'
+      },
+      detect: { threatsFound: 0, details: ['Zero .onion queries leaked to public DNS servers'] },
+      explain: {
+        summary: 'RFC 7686 Local Loopback Synthesis',
+        mechanism: 'Maps incoming .onion domains to loopback address space and binds TCP connections to SOCKS5 rendezvous tunnels.',
+        risksMitigated: 'Prevents catastrophic deanonymization from public DNS server leaks.'
+      },
+      describe: {
+        plainSummary: 'Lets you open .onion privacy websites safely without leaking searches to your internet provider.',
+        whyItMatters: 'If your phone sends a .onion lookup to Google DNS or your cable company, they immediately flag your connection. This answers lookups entirely on your own phone.',
+        consequencesIfEnabled: '.onion sites open cleanly in your web browser.'
+      },
+      suggest: {
+        recommendation: 'Keep active at all times.',
+        authorityLevel: 2,
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F124',
+    name: 'Per-App Split Tunneling Matrix',
+    category: 'Routing & Privacy',
+    priority: 'P0',
+    difficulty: 2,
+    cost: 'L',
+    description: 'Fine-grained egress policy matrix assigning apps to Direct internet, WireGuard VPN, Tor Circuit, Fake-Online, or Block.',
+    oneParagraphDoc: 'Leverages Linux UID routing and Android VpnService package inclusion/exclusion filters to route each application through custom network paths based on trust levels and functional requirements.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE'],
+    breaksIfDisabled: 'All applications are forced through a single egress route, causing banking app blocks or leaking untrusted app traffic.',
+    enabled: true,
+    defaultTileSize: '4x2',
+    currentTileSize: '4x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.2, batteryPerHourPercent: 0.02, ramMb: 6, dataSavedKb: 2100 },
+    fiveLenses: {
+      monitor: {
+        title: 'App Routing Policy Matrix',
+        metrics: [
+          { label: 'Configured Apps', value: '9' },
+          { label: 'Bypass (Direct)', value: '2 (Banking)' },
+          { label: 'Tor Circuits', value: '2 (Browsers)' },
+          { label: 'Fake Stubs', value: '2 (Google GMS)' }
+        ],
+        statusNote: 'Per-UID routing active across all app sandboxes.'
+      },
+      detect: { threatsFound: 8, details: ['Isolated Google Play Services telemetry while permitting Chase Banking direct access'] },
+      explain: {
+        summary: 'Multi-Path Egress Policy Engine',
+        mechanism: 'Applies Linux ip-rule and socket fwmark tagging to route traffic based on UID credentials to WireGuard, Tor, or local loopback.',
+        risksMitigated: 'Eliminates all-or-nothing VPN limitations.'
+      },
+      describe: {
+        plainSummary: 'Choose exactly how each app connects to the internet.',
+        whyItMatters: 'Some apps (like mobile banking) complain if you use a VPN, while others (like web browsers) should always use Tor for privacy. This lets you give each app its own connection rule.',
+        consequencesIfEnabled: 'Banking apps work smoothly on direct internet while browsers stay fully encrypted and anonymous.'
+      },
+      suggest: {
+        recommendation: 'Use one-tap "Banking Bypass" preset for zero checkout friction.',
+        authorityLevel: 2,
+        actionLabel: 'Open Split Matrix',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F126',
+    name: 'GPS Gaussian Fuzzing Shield',
+    category: 'Routing & Privacy',
+    priority: 'P1',
+    difficulty: 2,
+    cost: 'L',
+    description: 'Injects controlled Gaussian coordinate displacement jitter to prevent apps from triangulating room-level locations.',
+    oneParagraphDoc: 'Intercepts Android LocationManager coordinates and injects parameterized Gaussian scatter (±50m to ±25km radius) while stripping BSSID Wi-Fi network beacon scanning.',
+    requiredPermissions: ['android.permission.ACCESS_FINE_LOCATION'],
+    breaksIfDisabled: 'Installed apps can pinpoint your exact street address, apartment unit, and movement history.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 3, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Coordinate Fuzzing State',
+        metrics: [
+          { label: 'Jitter Radius', value: '±500m' },
+          { label: 'Active Offset', value: 'Δ248m' },
+          { label: 'BSSID Scans Stripped', value: '42' }
+        ],
+        statusNote: 'Reporting city-block level coordinates to background apps.'
+      },
+      detect: { threatsFound: 14, details: ['Neutralized 14 high-precision background location queries'] },
+      explain: {
+        summary: 'Gaussian Coordinate Perturbation',
+        mechanism: 'Applies normal distribution mathematical offsets to latitude and longitude coordinates before returning values to third-party SDKs.',
+        risksMitigated: 'Prevents physical location stalking and behavioral habit profiling.'
+      },
+      describe: {
+        plainSummary: 'Fuzzes your location so apps only know your general neighborhood, not your front door.',
+        whyItMatters: 'Shopping and social apps constantly poll GPS in the background to build a map of everywhere you walk and sleep. This gives them a fuzzy area so your home remains private.',
+        consequencesIfEnabled: 'Weather apps still give you accurate forecasts, but trackers cannot see what building you are inside.'
+      },
+      suggest: {
+        recommendation: 'Use ±500m for daily balance, or ±5km for maximum citywide cloaking.',
+        authorityLevel: 2,
+        actionLabel: 'Adjust Fuzzing Radius',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F277',
+    name: 'Decoy Traffic & Packet Padding Engine',
+    category: 'Routing & Privacy',
+    priority: 'P1',
+    difficulty: 2,
+    cost: 'L',
+    description: 'Generates synthetic background dummy traffic with randomized TLS padding to defeat ISP packet flow watermarking.',
+    oneParagraphDoc: 'Transmits Poisson-distributed synthetic encrypted TLS requests to neutral high-reputation CDN endpoints, appending 128-512 bytes of padding to mask user idle-versus-active browsing patterns.',
+    requiredPermissions: ['android.permission.INTERNET'],
+    breaksIfDisabled: 'ISPs and cellular carriers can infer what you are doing online by observing packet timing bursts and packet lengths.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.2, batteryPerHourPercent: 0.04, ramMb: 5, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Decoy Traffic Generator',
+        metrics: [
+          { label: 'Decoys Sent', value: '342' },
+          { label: 'Avg Interval', value: '15s Poisson' },
+          { label: 'Padding Added', value: '+240B Avg' }
+        ],
+        statusNote: 'Active dummy flows obscuring device activity state.'
+      },
+      detect: { threatsFound: 0, details: ['Masked traffic shape against ISP deep packet inspection'] },
+      explain: {
+        summary: 'Traffic Flow Camouflage',
+        mechanism: 'Injects low-frequency HTTP GET requests to Wikipedia and Debian mirrors with variable TLS padding, smoothing the packet timing graph.',
+        risksMitigated: 'Defeats machine learning traffic analysis and website fingerprinting attacks.'
+      },
+      describe: {
+        plainSummary: 'Sends tiny fake signals in the background so your internet provider cannot guess what you are reading.',
+        whyItMatters: 'Even with encryption, internet companies can tell when you click a link by watching bursts of data. This sends random background whispers so your real activity blends into the background noise.',
+        consequencesIfEnabled: 'Zero personal data cost, complete flow-analysis privacy.'
+      },
+      suggest: {
+        recommendation: 'Keep active on public Wi-Fi and hotel connections.',
+        authorityLevel: 2,
+        actionLabel: 'Trigger Decoy Burst',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F367',
+    name: 'Browser & Hardware Fingerprint Shield',
+    category: 'Routing & Privacy',
+    priority: 'P1',
+    difficulty: 2,
+    cost: 'L',
+    description: 'Injects noise into Canvas, WebGL, AudioContext, and WebRTC local IP APIs to lower browser identifiability entropy.',
+    oneParagraphDoc: 'Applies subtle mathematical perturbations to HTML5 Canvas font rendering, WebGL GPU vendor strings, AudioContext compressor dynamics, and mDNS candidate cloaking to reduce entropy from 33.4 bits down to under 8 bits.',
+    requiredPermissions: [],
+    breaksIfDisabled: 'Websites can uniquely identify and track your browser across incognito sessions without using any cookies.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 2, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Fingerprint Entropy Cloak',
+        metrics: [
+          { label: 'Entropy Bits', value: '6.8 bits' },
+          { label: 'Uniqueness Pool', value: '1 in 110' },
+          { label: 'Status', value: 'SOVEREIGN CLOAKED' }
+        ],
+        statusNote: 'Canvas, WebGL, and AudioContext noise active.'
+      },
+      detect: { threatsFound: 32, details: ['Neutralized 32 fingerprinting canvas extraction probes'] },
+      explain: {
+        summary: 'Synthetic Hardware Noise Layer',
+        mechanism: 'Alters the least-significant bits of canvas pixel arrays and web audio buffers, generating a fresh non-trackable fingerprint on every session.',
+        risksMitigated: 'Defeats cross-site tracking and cookie-less identity tracking.'
+      },
+      describe: {
+        plainSummary: 'Stops websites from secretly recognizing your device without cookies.',
+        whyItMatters: 'Websites inspect tiny quirks in how your computer draws text and shapes to give you a secret tracking barcode. This adds invisible noise so your device looks just like millions of other devices.',
+        consequencesIfEnabled: 'You blend in with the crowd. Web pages look and work completely normally.'
+      },
+      suggest: {
+        recommendation: 'Keep active on all browsers.',
+        authorityLevel: 2,
+        actionLabel: 'Inspect Entropy Score',
+        reversible: true
+      }
+    }
   }
 ];
+
 
 export const INITIAL_PROFILES: ActiveProfile[] = [
   {

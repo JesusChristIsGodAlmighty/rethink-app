@@ -35,6 +35,7 @@ import { OnboardingModal } from './components/OnboardingModal';
 import { FirewallDepthModal } from './components/FirewallDepthModal';
 import { ConnectionPromptModal } from './components/ConnectionPromptModal';
 import { FloatingHud } from './components/FloatingHud';
+import { PrivacyRoutingModal } from './components/PrivacyRoutingModal';
 
 import { 
   INITIAL_MODULES, 
@@ -110,6 +111,7 @@ export default function App() {
   const [isTimeMachineOpen, setIsTimeMachineOpen] = useState(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
   const [isFirewallDepthOpen, setIsFirewallDepthOpen] = useState(false);
+  const [isPrivacyRoutingOpen, setIsPrivacyRoutingOpen] = useState(false);
   const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
   const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
   const [floatingHudActive, setFloatingHudActive] = useState(false);
@@ -293,6 +295,7 @@ export default function App() {
         onOpenTimeMachine={() => setIsTimeMachineOpen(true)}
         onOpenOnboarding={() => setIsOnboardingOpen(true)}
         onOpenFirewallDepth={() => setIsFirewallDepthOpen(true)}
+        onOpenPrivacyRouting={() => setIsPrivacyRoutingOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -682,6 +685,14 @@ export default function App() {
           onTriggerConnectionPrompt={handleTriggerConnectionPrompt}
           floatingHudActive={floatingHudActive}
           onToggleFloatingHud={() => setFloatingHudActive(!floatingHudActive)}
+        />
+      )}
+
+      {isPrivacyRoutingOpen && (
+        <PrivacyRoutingModal
+          isOpen={isPrivacyRoutingOpen}
+          onClose={() => setIsPrivacyRoutingOpen(false)}
+          onEmitPacket={(pkt) => setPackets((prev) => [pkt, ...prev.slice(0, 99)])}
         />
       )}
 

@@ -121,3 +121,78 @@ export interface ActiveProfile {
   torRouting: boolean;
   randomizeIdentities: boolean;
 }
+
+export type TorBridgeType = 'direct' | 'obfs4' | 'snowflake' | 'meek';
+
+export interface TorRelayNode {
+  nickname: string;
+  ip: string;
+  countryCode: string;
+  countryName: string;
+  fingerprint: string;
+  flags: string[];
+  bandwidthKbps: number;
+}
+
+export interface TorCircuit {
+  id: string;
+  status: 'building' | 'ready' | 'rotating' | 'failed';
+  guardNode: TorRelayNode;
+  middleNode: TorRelayNode;
+  exitNode: TorRelayNode;
+  latencyMs: number;
+  streamCount: number;
+  bytesTransferred: number;
+  bridgeTransport: TorBridgeType;
+  socksProxyAddress: string;
+  controlPort: number;
+}
+
+export type SplitTunnelMode = 'DIRECT' | 'VPN' | 'TOR' | 'LOOPBACK_STUB' | 'BLOCK';
+
+export interface SplitTunnelAppRule {
+  packageName: string;
+  appName: string;
+  icon: string;
+  category: 'Browser' | 'Social' | 'Banking' | 'System' | 'Game' | 'Media';
+  routingMode: SplitTunnelMode;
+  bytesRouted: number;
+  packetsCount: number;
+}
+
+export interface LocationFuzzConfig {
+  enabled: boolean;
+  mode: 'jitter' | 'fixed_spoof';
+  jitterRadiusMeters: number;
+  spoofPreset: string;
+  spoofCoordinates: {
+    lat: number;
+    lng: number;
+    altitude: number;
+    timezone: string;
+    label: string;
+  };
+  timezoneSync: boolean;
+  stripBssidTriangulation: boolean;
+}
+
+export interface DecoyTrafficConfig {
+  enabled: boolean;
+  mode: 'poisson' | 'constant_jitter' | 'burst';
+  intervalSeconds: number;
+  paddingEnabled: boolean;
+  targetPool: string[];
+  totalDecoysSent: number;
+  totalDecoyBytes: number;
+}
+
+export interface FingerprintShieldConfig {
+  canvasNoise: boolean;
+  webGlDisguise: boolean;
+  audioNoise: boolean;
+  userAgentDisguise: boolean;
+  webrtcCloaking: boolean;
+  currentEntropyBits: number;
+  uniquenessScore: number;
+}
+
