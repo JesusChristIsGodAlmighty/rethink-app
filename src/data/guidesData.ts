@@ -108,6 +108,48 @@ What we permanently decline:
       'No piracy, no jamming, no unconsenting interception'
     ],
     externalKeywords: ['DMCA 1201 interoperability exemption', 'CFAA network auditing boundary', 'ECPA wiretap']
+  },
+  {
+    id: 'cdr-zero-trust-architecture',
+    title: 'Zero-Trust CDR vs. Legacy Antivirus',
+    subtitle: 'Why signature-based AV fails on zero-days and how pixel extraction eliminates exploits',
+    category: 'Networking',
+    readTime: '3 min read',
+    content: `Traditional antivirus software relies on signatures: recognizing known malware hashes. When advanced adversaries deploy zero-day memory corruption exploits (such as WebP libwebp heap overflows or font parsing flaws used by Pegasus spyware), legacy AV scanners see only an innocent image file.
+
+Content Disarm and Reconstruction (CDR) inverts this model:
+1. Zero-trust assumption: All incoming files and media streams are treated as hostile, regardless of origin or extension.
+2. Deconstruction: SERF decodes incoming image bytes directly into a raw in-memory bitmap array (pure RGB values).
+3. Metadata purge: All EXIF tags, GPS location markers, camera hardware serials, and auxiliary chunks (where malicious payloads hide) are discarded.
+4. Reconstruction: A fresh, pristine file is synthesized from raw pixels. The output is mathematically incapable of carrying memory corruption exploits.`,
+    keyTakeaways: [
+      'Eliminates zero-day exploits without relying on signature databases',
+      'Strips hidden steganography and GPS metadata permanently',
+      'Outputs standardized clean bitstreams compliant with ISO specifications'
+    ],
+    externalKeywords: ['Content Disarm Reconstruction CDR', 'CVE-2023-4863 libwebp zero-day', 'zero-trust sanitization']
+  },
+  {
+    id: 'radio-telephony-defense',
+    title: 'Defending the Radio: IMSI-Catchers & Wi-Fi Probes',
+    subtitle: 'How cell towers, Wi-Fi routers, and BLE tags track you—and how SERF blinds them',
+    category: 'Phone Freedom',
+    readTime: '4 min read',
+    content: `Even with GPS turned off, phones constantly broadcast identifying radio fingerprints:
+1. Wi-Fi Directed Probes: When searching for networks, your phone broadcasts the exact names (SSIDs) of your home and workplace Wi-Fi networks in plain text. Commercial aggregators match these to map your movements.
+2. IMSI-Catchers (Stingrays): Rogue cellular base stations force your radio to drop encryption to A5/0 or A5/1, querying your unique IMSI subscriber identifier and eavesdropping on unencrypted SMS.
+3. BLE Trackers & Ultrasonic Beacons: AirTags and in-store high-frequency audio speakers (18–22 kHz) communicate with phone sensors across apps without user notification.
+
+The SERF Radio Shield:
+- Ephemeral MAC Rotation: Cycles locally-administered unicast MACs while suppressing directed SSID probes (F51–F55).
+- Cellular Sentry: Detects forced A5/0 downgrades, flags suspicious neighborless cell towers, and silently drops Type-0 ping SMS (F39–F47).
+- Ultrasonic Jammer: Filters inaudible acoustic tracking frequencies at the audio HAL (F48).`,
+    keyTakeaways: [
+      'Stops phone from advertising private home SSIDs in public',
+      'Alerts on forced A5/0 cipher downgrades from rogue towers',
+      'Filters ultrasonic 18–22 kHz cross-device advertising trackers'
+    ],
+    externalKeywords: ['IMSI catcher Stingray detection', 'Wi-Fi directed probe request privacy', 'ultrasonic audio beacon filter']
   }
 ];
 
