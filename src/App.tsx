@@ -36,6 +36,8 @@ import { FirewallDepthModal } from './components/FirewallDepthModal';
 import { ConnectionPromptModal } from './components/ConnectionPromptModal';
 import { FloatingHud } from './components/FloatingHud';
 import { PrivacyRoutingModal } from './components/PrivacyRoutingModal';
+import { HardwareRadioShieldModal } from './components/HardwareRadioShieldModal';
+import { ZeroTrustComplianceModal } from './components/ZeroTrustComplianceModal';
 
 import { 
   INITIAL_MODULES, 
@@ -112,6 +114,8 @@ export default function App() {
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
   const [isFirewallDepthOpen, setIsFirewallDepthOpen] = useState(false);
   const [isPrivacyRoutingOpen, setIsPrivacyRoutingOpen] = useState(false);
+  const [isHardwareRadioShieldOpen, setIsHardwareRadioShieldOpen] = useState(false);
+  const [isZeroTrustComplianceOpen, setIsZeroTrustComplianceOpen] = useState(false);
   const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
   const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
   const [floatingHudActive, setFloatingHudActive] = useState(false);
@@ -296,6 +300,8 @@ export default function App() {
         onOpenOnboarding={() => setIsOnboardingOpen(true)}
         onOpenFirewallDepth={() => setIsFirewallDepthOpen(true)}
         onOpenPrivacyRouting={() => setIsPrivacyRoutingOpen(true)}
+        onOpenHardwareRadioShield={() => setIsHardwareRadioShieldOpen(true)}
+        onOpenZeroTrustCompliance={() => setIsZeroTrustComplianceOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -693,6 +699,20 @@ export default function App() {
           isOpen={isPrivacyRoutingOpen}
           onClose={() => setIsPrivacyRoutingOpen(false)}
           onEmitPacket={(pkt) => setPackets((prev) => [pkt, ...prev.slice(0, 99)])}
+        />
+      )}
+
+      {isHardwareRadioShieldOpen && (
+        <HardwareRadioShieldModal
+          isOpen={isHardwareRadioShieldOpen}
+          onClose={() => setIsHardwareRadioShieldOpen(false)}
+        />
+      )}
+
+      {isZeroTrustComplianceOpen && (
+        <ZeroTrustComplianceModal
+          isOpen={isZeroTrustComplianceOpen}
+          onClose={() => setIsZeroTrustComplianceOpen(false)}
         />
       )}
 

@@ -11,7 +11,9 @@ import {
   Store, 
   History, 
   HelpCircle,
-  Shuffle
+  Shuffle,
+  Radio,
+  ShieldCheck
 } from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
@@ -31,6 +33,8 @@ interface HeaderProps {
   onOpenOnboarding: () => void;
   onOpenFirewallDepth: () => void;
   onOpenPrivacyRouting: () => void;
+  onOpenHardwareRadioShield: () => void;
+  onOpenZeroTrustCompliance: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -53,6 +57,8 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenOnboarding,
   onOpenFirewallDepth,
   onOpenPrivacyRouting,
+  onOpenHardwareRadioShield,
+  onOpenZeroTrustCompliance,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -189,6 +195,26 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Shuffle className="w-3 h-3 text-indigo-400" />
             <span>Privacy &amp; Routing (Tier 4)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* Tier 5 Telephony, Radio & Hardware Shields */}
+          <button
+            onClick={onOpenHardwareRadioShield}
+            className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors shrink-0 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30"
+          >
+            <Radio className="w-3 h-3 text-emerald-400" />
+            <span>Radio &amp; Hardware (Tier 5)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* Tier 6 Zero-Trust, Compliance & Export Studio */}
+          <button
+            onClick={onOpenZeroTrustCompliance}
+            className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors shrink-0 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-500/30"
+          >
+            <ShieldCheck className="w-3 h-3 text-cyan-400" />
+            <span>Zero Trust &amp; Export (Tier 6)</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 

@@ -196,3 +196,138 @@ export interface FingerprintShieldConfig {
   uniquenessScore: number;
 }
 
+// ==========================================
+// TIER 5: TELEPHONY, RADIO & HARDWARE SHIELDS
+// ==========================================
+
+export interface ImsiCatcherDetection {
+  cellId: number;
+  mcc: number;
+  mnc: number;
+  lac: number;
+  signalStrengthDbm: number;
+  anomalyScore: number; // 0 - 100
+  encryptionCipher: 'A5/0 (Unencrypted/Hostile)' | 'A5/1 (Weak/Vulnerable)' | 'A5/3 (Kasumi/Secure)' | 'EEA2/AES (LTE/5G)';
+  silentSmsCount: number;
+  isStingraySuspected: boolean;
+  neighborCellMismatch: boolean;
+  unsolicitedPagingActive: boolean;
+  lastThreatTimestamp?: number;
+  towerHistory: Array<{
+    cellId: number;
+    lac: number;
+    signalStrength: number;
+    cipher: string;
+    flag: string;
+    timestamp: number;
+  }>;
+}
+
+export interface WifiProbeShieldConfig {
+  enabled: boolean;
+  macRotationIntervalMin: number;
+  suppressDirectedProbes: boolean;
+  randomizeSequenceNumbers: boolean;
+  stripIeFingerprint: boolean;
+  currentVirtualMac: string;
+  realHardwareMac: string;
+  probesBlindedCount: number;
+  macRotationHistory: Array<{
+    mac: string;
+    timestamp: number;
+    reason: string;
+  }>;
+}
+
+export interface BleTrackerDevice {
+  id: string;
+  name: string;
+  mac: string;
+  rssi: number;
+  proximity: 'Immediate (<1m)' | 'Near (1-3m)' | 'Far (>3m)';
+  firstSeen: number;
+  lastSeen: number;
+  isFollowingUser: boolean;
+  threatScore: number;
+}
+
+export interface BleCloakConfig {
+  enabled: boolean;
+  randomizeBleMac: boolean;
+  antiTrackerSweeperEnabled: boolean;
+  suppressBeaconBroadcast: boolean;
+  detectedTrackers: BleTrackerDevice[];
+  trackersBlockedCount: number;
+}
+
+export interface HardwareSensorsGuard {
+  micHardwareCutoff: boolean;
+  cameraHardwareLock: boolean;
+  ultrasonicShieldActive: boolean;
+  ultrasonicBeaconsNeutralized: number;
+  motionSensorRateLimit: boolean;
+  lightSensorBlinding: boolean;
+}
+
+export interface BasebandRilAudit {
+  emergencyRadioKillActive: boolean;
+  firmwareHashStatus: 'VERIFIED' | 'TAMPERED' | 'CHECKING';
+  firmwareChecksum: string;
+  atCommandLog: Array<{
+    id: string;
+    timestamp: number;
+    command: string;
+    response: string;
+    riskLevel: 'benign' | 'suspicious' | 'hostile';
+    details: string;
+  }>;
+  silentSmsLog: Array<{
+    id: string;
+    timestamp: number;
+    sender: string;
+    smsType: 'Type-0 (Silent Ping)' | 'MWI (Message Waiting)' | 'Flash SMS';
+    payloadHex: string;
+    actionTaken: 'DROPPED_AND_LOGGED' | 'QUARANTINED';
+  }>;
+}
+
+// ==========================================
+// TIER 6: ZERO TRUST, COMPLIANCE & EXPORT
+// ==========================================
+
+export interface ZeroTrustComplianceStandard {
+  id: string;
+  name: string;
+  passedRules: number;
+  totalRules: number;
+  status: 'COMPLIANT' | 'WARNING' | 'FAIL';
+}
+
+export interface ZeroTrustPeerNode {
+  nodeId: string;
+  name: string;
+  role: 'Fleet Controller' | 'Peer Sentinel' | 'Backup Bastion';
+  address: string;
+  status: 'ONLINE' | 'OFFLINE' | 'SYNCING';
+  lastSync: number;
+}
+
+export interface ZeroTrustPosture {
+  deviceHealthScore: number;
+  rootIntegrity: 'SECURE_UNROOTED' | 'ROOT_DETECTED' | 'CUSTOM_ROM_ATTESTED';
+  selinuxMode: 'Enforcing' | 'Permissive' | 'Disabled';
+  patchLevel: string;
+  trustTier: 'Tier 0: Untrusted' | 'Tier 1: Basic' | 'Tier 2: Hardened Sovereign' | 'Tier 3: Air-Gapped High Assurance';
+  complianceStandards: ZeroTrustComplianceStandard[];
+  syncPeerNodes: ZeroTrustPeerNode[];
+}
+
+export interface ExportImportConfig {
+  exportProfiles: boolean;
+  exportFirewallRules: boolean;
+  exportDnsPresets: boolean;
+  exportHardwarePolicies: boolean;
+  encryptionPassphrase: string;
+  exportFormat: 'JSON' | 'YAML' | 'ENCRYPTED_SERF_BUNDLE' | 'SECURE_QR';
+}
+
