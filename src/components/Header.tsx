@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Sparkles, Sliders, Smartphone } from 'lucide-react';
+import { Shield, Sparkles, Sliders, Smartphone, ListFilter, Wrench, ShieldAlert } from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
 interface HeaderProps {
@@ -9,6 +9,9 @@ interface HeaderProps {
   onOpenProfiles: () => void;
   onOpenSettings: () => void;
   onOpenOfflineTester: () => void;
+  onOpenBlocklists: () => void;
+  onOpenPrivacyTools: () => void;
+  onOpenBlockPagePreview: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -22,6 +25,9 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenProfiles,
   onOpenSettings,
   onOpenOfflineTester,
+  onOpenBlocklists,
+  onOpenPrivacyTools,
+  onOpenBlockPagePreview,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -92,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Sub-toolbar: Active Profile & Mode Toggles (kept strictly below header fold) */}
+      {/* Sub-toolbar: Quick-Access Tier 1 Controls & Mode Toggles */}
       <div className="bg-slate-900/60 border-t border-slate-800/60 px-4 sm:px-6 py-2 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <button
@@ -103,9 +109,33 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="font-semibold text-slate-200 underline decoration-slate-600 underline-offset-4">{activeProfile.name}</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
-          <span>DNS: <strong className="text-slate-300 font-medium">{activeProfile.dnsResolver}</strong></span>
+          
+          {/* Quick-Access Tier 1 Modals */}
+          <button
+            onClick={onOpenBlocklists}
+            className="flex items-center gap-1 hover:text-sky-300 transition-colors"
+          >
+            <ListFilter className="w-3 h-3 text-sky-400" />
+            <span>Blocklists (F224)</span>
+          </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
-          <span>Firewall: <strong className="text-slate-300 font-medium">{activeProfile.firewallStrictness}</strong></span>
+
+          <button
+            onClick={onOpenPrivacyTools}
+            className="flex items-center gap-1 hover:text-emerald-300 transition-colors"
+          >
+            <Wrench className="w-3 h-3 text-emerald-400" />
+            <span>Privacy Tools</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          <button
+            onClick={onOpenBlockPagePreview}
+            className="flex items-center gap-1 hover:text-rose-300 transition-colors"
+          >
+            <ShieldAlert className="w-3 h-3 text-rose-400" />
+            <span>Block Page (F191)</span>
+          </button>
         </div>
 
         <div className="flex items-center gap-3">

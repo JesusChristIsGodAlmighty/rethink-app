@@ -557,9 +557,396 @@ export const INITIAL_MODULES: SerfModule[] = [
         consequencesIfEnabled: 'Lets you read and post neighborhood notices without an internet provider.'
       },
       suggest: {
-        recommendation: 'View detailed specification in Section 5.37.',
+        recommendation: 'Track progress in Build Order Tier 10.',
         authorityLevel: 1,
         reversible: true
+      }
+    }
+  },
+  // TIER 1 MODULES (Easiest Real Wins per Section 9)
+  {
+    id: 'F191',
+    name: 'Interactive Block Page',
+    category: 'Firewall & Blocking',
+    priority: 'P1',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Informative, friendly block page explaining why a site was blocked, naming the filter list, and providing one-tap unblocking.',
+    oneParagraphDoc: 'Intercepts HTTP/HTTPS blocked requests for browser viewports and serves a lightweight local HTML page explaining why access was prevented with an immediate whitelist bypass option.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE'],
+    breaksIfDisabled: 'Blocked websites will show generic browser "Connection reset" or "Cannot reach site" errors without explanation.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 3, dataSavedKb: 40 },
+    fiveLenses: {
+      monitor: {
+        title: 'Block Page Renderer',
+        metrics: [
+          { label: 'Pages Served', value: '84' },
+          { label: 'Avg Render Time', value: '0.4ms' }
+        ],
+        statusNote: 'Serving local zero-dependency template on loopback.'
+      },
+      detect: { threatsFound: 84, details: ['Served block page for 84 malware, phishing, and ad-tech domains'] },
+      explain: {
+        summary: 'In-Band Explanation Page',
+        mechanism: 'Returns a synthetic HTTP 200 containing a local, zero-tracking HTML page when an HTTP/HTTPS domain matches an active blocklist rule.',
+        risksMitigated: 'Eliminates confusion when a legitimate service is unexpectedly blocked.'
+      },
+      describe: {
+        plainSummary: 'Shows a friendly explanation instead of an ugly error screen when a bad site is blocked.',
+        whyItMatters: 'Normally when an ad blocker stops a site, you just get a broken browser screen saying "Server not found". This page tells you "Blocked by EasyPrivacy because it is a tracker" and lets you unblock it in one tap if you need to.',
+        consequencesIfEnabled: 'You always know why a connection was stopped and have immediate control to override it.'
+      },
+      suggest: {
+        recommendation: 'Keep active. Pairs with F192 for immediate temporary whitelisting.',
+        authorityLevel: 2,
+        actionLabel: 'Preview Block Page',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F192',
+    name: 'One-Tap Unblock From Log',
+    category: 'Firewall & Blocking',
+    priority: 'P1',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Instant unblock button on any blocked connection with 10-minute, 1-hour, or permanent whitelist options.',
+    oneParagraphDoc: 'Enables quick override rules from the connection tracker log without manually editing raw text hosts files or re-compiling blocklists.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE'],
+    breaksIfDisabled: 'Unblocking an inadvertently blocked domain requires manually entering complex rule syntax.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 2, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Temporary Whitelist Rules',
+        metrics: [
+          { label: 'Active Unblocks', value: '2', change: '1 expiring in 4m' },
+          { label: 'Permanent Rules', value: '5' }
+        ],
+        statusNote: 'Timer engine automatically re-engages protection after expiry.'
+      },
+      detect: { threatsFound: 0, details: ['Zero expired rules left lingering'] },
+      explain: {
+        summary: 'Dynamic Rule Override Table',
+        mechanism: 'Injects high-priority permit exceptions into the front of the radix tree evaluation path with an in-memory TTL timer.',
+        risksMitigated: 'Prevents users from permanently disabling their firewall just to get past one stubborn website.'
+      },
+      describe: {
+        plainSummary: 'Fix broken websites with one tap, and automatically turn protection back on later.',
+        whyItMatters: 'If a site you need is blocked by mistake, you can unblock it for 10 minutes to finish what you are doing. You do not have to remember to turn the filter back on—it relocks itself automatically.',
+        consequencesIfEnabled: 'Zero friction when encountering rare false positives.'
+      },
+      suggest: {
+        recommendation: 'Use 10-minute temporary unblock for single payment checkouts.',
+        authorityLevel: 2,
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F224',
+    name: 'Blocklist Manager',
+    category: 'Firewall & Blocking',
+    priority: 'P1',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Add, remove, search, and toggle trusted community blocklists (OISD, StevenBlack, EasyPrivacy, custom URLs).',
+    oneParagraphDoc: 'Single-screen management interface for external filter subscriptions with automatic deduplication and conflict resolution.',
+    requiredPermissions: ['android.permission.INTERNET'],
+    breaksIfDisabled: 'Blocklist sources cannot be toggled or customized.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.2, batteryPerHourPercent: 0.02, ramMb: 8, dataSavedKb: 3400 },
+    fiveLenses: {
+      monitor: {
+        title: 'List Subscriptions',
+        metrics: [
+          { label: 'Active Lists', value: '5 / 7' },
+          { label: 'Total Rules', value: '284,520' },
+          { label: 'Last Synced', value: '2 hours ago' }
+        ],
+        statusNote: 'All active lists compiled and cached locally.'
+      },
+      detect: { threatsFound: 0, details: ['Deduplicated 41,200 redundant rules across lists'] },
+      explain: {
+        summary: 'Multi-Source Filter Aggregator',
+        mechanism: 'Parses standard hosts, AdGuard, and uBlock rule formats into an optimized radix tree with zero memory bloat.',
+        risksMitigated: 'Protects against stale filter definitions and format incompatibilities.'
+      },
+      describe: {
+        plainSummary: 'Choose which protection lists you want to use from the world’s best privacy researchers.',
+        whyItMatters: 'Lets you pick exactly how strict your protection is—from basic malware blocking to strict tracking prevention—with simple on/off switches.',
+        consequencesIfEnabled: 'Keeps your phone protected against newly discovered scam domains automatically.'
+      },
+      suggest: {
+        recommendation: 'Keep OISD Full and EasyPrivacy active for balanced daily protection.',
+        authorityLevel: 2,
+        actionLabel: 'Manage Lists',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F411',
+    name: 'Tracking Parameter Stripper',
+    category: 'Routing & Privacy',
+    priority: 'P2',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Strips tracking identifiers (utm_source, fbclid, gclid, ref) from outgoing URLs to prevent link correlation.',
+    oneParagraphDoc: 'Sanitizes HTTP GET parameters and redirect headers, removing cross-site click IDs while preserving essential page routing queries.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE'],
+    breaksIfDisabled: 'URLs shared between apps or clicked in emails will carry unique advertising IDs.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 2, dataSavedKb: 12 },
+    fiveLenses: {
+      monitor: {
+        title: 'URL Sanitization',
+        metrics: [
+          { label: 'Parameters Stripped', value: '142', change: '+18 today' },
+          { label: 'Common Tokens', value: 'fbclid, utm' }
+        ],
+        statusNote: 'Active on all outbound HTTP/HTTPS requests.'
+      },
+      detect: { threatsFound: 142, details: ['Stripped tracking tokens from Instagram, Google, and Amazon links'] },
+      explain: {
+        summary: 'URL Query Sanitizer',
+        mechanism: 'Inspects HTTP Request-URI and strips blacklisted query tokens via regex pattern matching before connection establishment.',
+        risksMitigated: 'Prevents companies from linking which friend sent you a link or which email newsletter you opened.'
+      },
+      describe: {
+        plainSummary: 'Cleans ugly tracking junk off web links when you tap them.',
+        whyItMatters: 'Ever notice how links on Facebook or Twitter are a mile long? Those extra characters are spy codes that tell advertisers who clicked what. This scrubs them off automatically.',
+        consequencesIfEnabled: 'Cleaner web links that protect your privacy when sharing.'
+      },
+      suggest: {
+        recommendation: 'Enable on all apps to stop cross-platform click tracking.',
+        authorityLevel: 2,
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F113',
+    name: 'Metadata Scrubber',
+    category: 'Tools & Diagnostics',
+    priority: 'P2',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Strips EXIF GPS coordinates, camera serial numbers, and device timestamps from photos before upload.',
+    oneParagraphDoc: 'Inspects media files passed through system shares and strips metadata headers in local memory with zero external transmission.',
+    requiredPermissions: [],
+    breaksIfDisabled: 'Photos posted online or sent via messaging apps may disclose your exact home GPS location.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 4, dataSavedKb: 140 },
+    fiveLenses: {
+      monitor: {
+        title: 'EXIF Sanitizer',
+        metrics: [
+          { label: 'Files Cleaned', value: '28' },
+          { label: 'GPS Tags Removed', value: '24' }
+        ],
+        statusNote: 'Zero-loss lossless image header scrubbing.'
+      },
+      detect: { threatsFound: 24, details: ['Removed precise GPS latitude/longitude tags from 24 camera photos'] },
+      explain: {
+        summary: 'Lossless EXIF/XMP Scrubber',
+        mechanism: 'Parses JPEG, PNG, and WebP binary headers, zeroing out Exif.GPSInfo and camera serial tags while keeping raw image pixels untouched.',
+        risksMitigated: 'Prevents physical location disclosure from uploaded photos.'
+      },
+      describe: {
+        plainSummary: 'Removes your home address and camera serial number from photos you share.',
+        whyItMatters: 'Every photo your phone takes includes invisible data showing the exact GPS coordinates where you stood. This removes that information so strangers cannot find where you live.',
+        consequencesIfEnabled: 'Peace of mind when uploading pictures to social media or messaging groups.'
+      },
+      suggest: {
+        recommendation: 'Keep active for all camera uploads.',
+        authorityLevel: 1,
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F155',
+    name: 'Clipboard Guard',
+    category: 'Tools & Diagnostics',
+    priority: 'P3',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Auto-clears sensitive clipboard items after 60 seconds and notifies when background apps read clipboard.',
+    oneParagraphDoc: 'Monitors Android ClipboardManager and enforces automatic memory wiping for copied passwords, credit cards, and recovery keys.',
+    requiredPermissions: [],
+    breaksIfDisabled: 'Copied passwords remain accessible to any third-party app with clipboard permissions indefinitely.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.05, batteryPerHourPercent: 0.01, ramMb: 2, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Clipboard Protection',
+        metrics: [
+          { label: 'Auto-Clear TTL', value: '60 seconds' },
+          { label: 'Snooping Alerts', value: '3' }
+        ],
+        statusNote: 'Clipboard clear queue armed.'
+      },
+      detect: { threatsFound: 3, details: ['Shopping app queried clipboard in background while not in foreground'] },
+      explain: {
+        summary: 'Ephemeral Clipboard Scrubbing',
+        mechanism: 'Hooks clipboard state changes and schedules a zero-overwrite job after user-configurable timeout.',
+        risksMitigated: 'Neutralizes clipboard-stealing malware and snooping SDKs.'
+      },
+      describe: {
+        plainSummary: 'Erases passwords and copied text after one minute so other apps cannot steal them.',
+        whyItMatters: 'When you copy a password, it sits in your phone’s memory forever until you copy something else. Sneaky apps read your clipboard when they open. This wipes it clean after 60 seconds.',
+        consequencesIfEnabled: 'Your passwords and private messages cannot be scooped up by background apps.'
+      },
+      suggest: {
+        recommendation: 'Set 60-second auto-clear timer.',
+        authorityLevel: 2,
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F503',
+    name: 'Screen-Off Lockdown',
+    category: 'Device & System',
+    priority: 'P1',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Cuts unnecessary background network traffic the instant the phone screen turns off, saving battery and data.',
+    oneParagraphDoc: 'Listens for Intent.ACTION_SCREEN_OFF and temporarily suspends non-whitelisted background app networking until screen unlock.',
+    requiredPermissions: ['android.permission.BIND_VPN_SERVICE'],
+    breaksIfDisabled: 'Background apps continue transmitting telemetry, ads, and location updates when the phone is in your pocket.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: -0.8, ramMb: 2, dataSavedKb: 5200 },
+    fiveLenses: {
+      monitor: {
+        title: 'Screen-Off Energy Saver',
+        metrics: [
+          { label: 'Battery Saved', value: '~12% / day' },
+          { label: 'Silent Pings Blocked', value: '419' }
+        ],
+        statusNote: 'Whitelisted VoIP (Signal, Phone) allowed through.'
+      },
+      detect: { threatsFound: 419, details: ['Blocked 419 background analytics pings while screen was locked'] },
+      explain: {
+        summary: 'Display State Conditional Firewall',
+        mechanism: 'Switches netfilter routing to high-strictness whitelist when display turns off, keeping device deep-sleep active.',
+        risksMitigated: 'Prevents battery drain and stops apps from snooping while you are not using your phone.'
+      },
+      describe: {
+        plainSummary: 'Puts your apps to sleep when you put your phone in your pocket.',
+        whyItMatters: 'Apps continue phoning home to advertisers all night long while your phone is sitting on your nightstand. This closes the network door when your screen is off, saving battery.',
+        consequencesIfEnabled: 'Extends your battery life significantly and stops background data waste.'
+      },
+      suggest: {
+        recommendation: 'Enable Screen-Off Lockdown with messaging apps whitelisted.',
+        authorityLevel: 2,
+        actionLabel: 'Configure Whitelist',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F448',
+    name: 'Guest Wi-Fi QR Generator',
+    category: 'Tools & Diagnostics',
+    priority: 'P2',
+    difficulty: 1,
+    cost: 'L',
+    description: 'Generate instant Wi-Fi connection QR codes for friends without handing out your plaintext password.',
+    oneParagraphDoc: 'Creates standardized WIFI:S:ssid;T:WPA;P:password;; QR codes entirely offline with zero cloud transmission.',
+    requiredPermissions: [],
+    breaksIfDisabled: 'You must manually type complex Wi-Fi passwords on guest devices.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0, batteryPerHourPercent: 0, ramMb: 1, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: { title: 'QR Engine', metrics: [{ label: 'Format', value: 'WPA3 / WPA2' }], statusNote: 'Local offline renderer.' },
+      detect: { threatsFound: 0, details: [] },
+      explain: {
+        summary: 'Standard Wi-Fi Protocol QR',
+        mechanism: 'Encodes network SSID and pre-shared key into the official standard barcode format recognized by Android and iOS cameras.',
+        risksMitigated: 'Eliminates need to write passwords on sticky notes or speak them aloud.'
+      },
+      describe: {
+        plainSummary: 'Let guests connect to your Wi-Fi by scanning your phone screen with their camera.',
+        whyItMatters: 'No more reading 20-character passwords out loud or having guests mistype them. They point their camera and are connected in two seconds.',
+        consequencesIfEnabled: 'Quick, secure, password-less sharing.'
+      },
+      suggest: {
+        recommendation: 'Generate QR code for your home guest network.',
+        authorityLevel: 1,
+        actionLabel: 'Create QR Code',
+        reversible: true
+      }
+    }
+  },
+  {
+    id: 'F624',
+    name: 'Universal Cache Clear',
+    category: 'Tools & Diagnostics',
+    priority: 'P1',
+    difficulty: 1,
+    cost: 'L',
+    description: 'One-tap junk cache clearer across apps with an ironclad guarantee never to touch SERF check-once profiles.',
+    oneParagraphDoc: 'Clears accumulated temporary app cache files while explicitly protecting SERF’s F510/F514 verified evaluation caches and offline profiles.',
+    requiredPermissions: [],
+    breaksIfDisabled: 'Temporary tracking caches and cached ad banners accumulate on storage.',
+    enabled: true,
+    defaultTileSize: '2x2',
+    currentTileSize: '2x2',
+    status: 'active',
+    resourceCost: { cpuPercent: 0.1, batteryPerHourPercent: 0.01, ramMb: 2, dataSavedKb: 0 },
+    fiveLenses: {
+      monitor: {
+        title: 'Storage Cleaning',
+        metrics: [
+          { label: 'Junk Cleared', value: '1.4 GB' },
+          { label: 'SERF Profiles', value: 'Protected' }
+        ],
+        statusNote: 'Check-once evaluation caches safeguarded.'
+      },
+      detect: { threatsFound: 0, details: ['Cleaned 340 MB of stale ad video preloads'] },
+      explain: {
+        summary: 'Selective App Cache Scrubber',
+        mechanism: 'Iterates application cache directories, purging temporary thumbnails and tracking blobs while preserving essential offline app profiles.',
+        risksMitigated: 'Reclaims storage and purges persistent tracking cookies stored in webview caches.'
+      },
+      describe: {
+        plainSummary: 'Frees up phone storage by deleting junk files while keeping your settings safe.',
+        whyItMatters: 'Apps store gigabytes of old video ads and tracking files in hidden cache folders. This sweeps them away without logging you out of your favorite apps.',
+        consequencesIfEnabled: 'Reclaims storage space and speeds up app launching.'
+      },
+      suggest: {
+        recommendation: 'Run weekly cache sweep.',
+        authorityLevel: 2,
+        actionLabel: 'Clear Cache Now',
+        reversible: false
       }
     }
   }

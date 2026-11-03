@@ -25,6 +25,9 @@ import { SettingsModal } from './components/SettingsModal';
 import { ProfilesModal } from './components/ProfilesModal';
 import { GuideLibraryModal } from './components/GuideLibraryModal';
 import { ForkSetupModal } from './components/ForkSetupModal';
+import { BlocklistManagerModal } from './components/BlocklistManagerModal';
+import { BlockPageModal } from './components/BlockPageModal';
+import { PrivacyToolsModal } from './components/PrivacyToolsModal';
 
 import { 
   INITIAL_MODULES, 
@@ -92,6 +95,9 @@ export default function App() {
   const [isTileGalleryOpen, setIsTileGalleryOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isProfilesOpen, setIsProfilesOpen] = useState(false);
+  const [isBlocklistsOpen, setIsBlocklistsOpen] = useState(false);
+  const [isBlockPagePreviewOpen, setIsBlockPagePreviewOpen] = useState(false);
+  const [isPrivacyToolsOpen, setIsPrivacyToolsOpen] = useState(false);
   const [selfTestFeedback, setSelfTestFeedback] = useState<string | null>(null);
 
   // Periodic network packet synthesis
@@ -215,6 +221,9 @@ export default function App() {
         onOpenProfiles={() => setIsProfilesOpen(true)}
         onOpenSettings={() => setIsSettingsOpen(true)}
         onOpenOfflineTester={() => setIsOfflineTesterOpen(true)}
+        onOpenBlocklists={() => setIsBlocklistsOpen(true)}
+        onOpenPrivacyTools={() => setIsPrivacyToolsOpen(true)}
+        onOpenBlockPagePreview={() => setIsBlockPagePreviewOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -495,6 +504,30 @@ export default function App() {
           isOpen={isProfilesOpen}
           onClose={() => setIsProfilesOpen(false)}
           onSelectProfile={(p) => setActiveProfile(p)}
+        />
+      )}
+
+      {isBlocklistsOpen && (
+        <BlocklistManagerModal
+          isOpen={isBlocklistsOpen}
+          onClose={() => setIsBlocklistsOpen(false)}
+        />
+      )}
+
+      {isBlockPagePreviewOpen && (
+        <BlockPageModal
+          isOpen={isBlockPagePreviewOpen}
+          onClose={() => setIsBlockPagePreviewOpen(false)}
+          onUnblockDomain={(domain, mins) => {
+            setSelfTestFeedback(`F192 One-Tap Unblock: Whitelisted ${domain} ${mins > 0 ? `for ${mins} mins` : 'permanently'}.`);
+          }}
+        />
+      )}
+
+      {isPrivacyToolsOpen && (
+        <PrivacyToolsModal
+          isOpen={isPrivacyToolsOpen}
+          onClose={() => setIsPrivacyToolsOpen(false)}
         />
       )}
 
