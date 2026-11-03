@@ -1,0 +1,6 @@
+{
+  "name": "SERF",
+  "description": "Sovereign network-control and privacy suite for Android. A hardened RethinkDNS fork featuring Fake-Online offline play, tile-based control, and zero-telemetry firewall.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
