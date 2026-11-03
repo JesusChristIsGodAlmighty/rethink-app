@@ -200,3 +200,25 @@ export function simulateOfflineAppLaunch(appName: string, fakeOnlineEnabled: boo
     };
   }
 }
+
+/**
+ * Tier 3 Done-Test (STATE.md section 10.2):
+ * "Firewall blocks a known test domain and the block is visible in the log with the correct filter named."
+ */
+export function simulateTier3DoneTestPacket(): NetworkPacket {
+  return {
+    id: `pkt-tier3-${Date.now()}`,
+    timestamp: Date.now(),
+    app: 'Test Harness (Tier 3 Verifier)',
+    domain: 'adservice.google-analytics.tracking.evil-test.com',
+    destinationIp: '198.51.100.42',
+    protocol: 'HTTPS',
+    status: 'blocked',
+    reason: 'Blocked by SERF Tier-3 Core Filter (uBlock Engine F10)',
+    ruleMatched: 'SERF Tier-3 Core Filter (uBlock Engine F10)',
+    payloadSize: 312,
+    isAdTracker: true,
+    leakRisk: 'critical'
+  };
+}
+

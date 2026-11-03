@@ -32,6 +32,9 @@ import { FakeOnlineStudioModal } from './components/FakeOnlineStudioModal';
 import { GoogleIsolationModal } from './components/GoogleIsolationModal';
 import { UpdateTimeMachineModal } from './components/UpdateTimeMachineModal';
 import { OnboardingModal } from './components/OnboardingModal';
+import { FirewallDepthModal } from './components/FirewallDepthModal';
+import { ConnectionPromptModal } from './components/ConnectionPromptModal';
+import { FloatingHud } from './components/FloatingHud';
 
 import { 
   INITIAL_MODULES, 
@@ -46,7 +49,7 @@ import {
   ActiveProfile,
   TileSize 
 } from './types/serf';
-import { createRandomPacket, SimulatorState } from './services/networkSimulator';
+import { createRandomPacket, SimulatorState, simulateTier3DoneTestPacket } from './services/networkSimulator';
 
 export default function App() {
   // Navigation
@@ -106,6 +109,12 @@ export default function App() {
   const [isGoogleDefenseOpen, setIsGoogleDefenseOpen] = useState(false);
   const [isTimeMachineOpen, setIsTimeMachineOpen] = useState(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
+  const [isFirewallDepthOpen, setIsFirewallDepthOpen] = useState(false);
+  const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
+  const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
+  const [floatingHudActive, setFloatingHudActive] = useState(false);
+  const [stealthModeActive, setStealthModeActive] = useState(true);
+  const [tier3DoneTestPassed, setTier3DoneTestPassed] = useState(false);
   const [selfTestFeedback, setSelfTestFeedback] = useState<string | null>(null);
 
   // Periodic network packet synthesis
@@ -218,6 +227,53 @@ export default function App() {
     return 'text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/30'; // pink <=60m
   };
 
+  // Tier 3 Handlers
+  const handleRunTier3DoneTest = () => {
+    const pkt = simulateTier3DoneTestPacket();
+    setPackets((prev) => [pkt, ...prev]);
+    setTier3DoneTestPassed(true);
+    setSelfTestFeedback(`Tier 3 Done-Test PASSED: Firewall blocked "${pkt.domain}" via "${pkt.ruleMatched}". Visible in live stream.`);
+  };
+
+  const handleTriggerConnectionPrompt = () => {
+    const samplePacket: NetworkPacket = {
+      id: `pkt-prompt-${Date.now()}`,
+      timestamp: Date.now(),
+      app: 'Spotify Music',
+      domain: 'spclient.wg.spotify.com/telemetry-events/v2',
+      destinationIp: '35.186.224.25',
+      protocol: 'HTTPS',
+      status: 'blocked',
+      reason: 'Unclassified outbound socket (held by F12 gatekeeper)',
+      payloadSize: 640,
+      leakRisk: 'suspicious'
+    };
+    setPendingPromptPacket(samplePacket);
+    setIsConnectionPromptOpen(true);
+  };
+
+  const handleResolveConnectionPrompt = (
+    action: 'allow_always' | 'allow_once' | 'block' | 'fake_synthesis',
+    domain: string
+  ) => {
+    setIsConnectionPromptOpen(false);
+    if (action === 'fake_synthesis') {
+      setSelfTestFeedback(`F12 Gatekeeper: Returning synthetic HTTP 200 OK for ${domain} (F03 Dynamic Synthesis).`);
+    } else if (action === 'block') {
+      setSelfTestFeedback(`F12 Gatekeeper: Blocked socket and saved permanent rule for ${domain}.`);
+    } else if (action === 'allow_once') {
+      setSelfTestFeedback(`F12 Gatekeeper: Temporary 5-minute pinhole allowed for ${domain}.`);
+    } else {
+      setSelfTestFeedback(`F12 Gatekeeper: Permanently whitelisted ${domain}.`);
+    }
+  };
+
+  const handleEmergencyPanic = () => {
+    setMasterProtectionActive(false);
+    setPackets([]);
+    setSelfTestFeedback(`F20 Antitheft Lockdown Activated: All sockets severed, ephemeral keys zeroized.`);
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500/30">
       
@@ -236,6 +292,7 @@ export default function App() {
         onOpenGoogleDefense={() => setIsGoogleDefenseOpen(true)}
         onOpenTimeMachine={() => setIsTimeMachineOpen(true)}
         onOpenOnboarding={() => setIsOnboardingOpen(true)}
+        onOpenFirewallDepth={() => setIsFirewallDepthOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -378,6 +435,48 @@ export default function App() {
                   </div>
                 </div>
 
+              </div>
+            </div>
+
+            {/* Tier Build Progress & Tier 3 Done-Test Interlock (STATE.md section 10.2) */}
+            <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span className="font-semibold text-slate-300">Tier Status:</span>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 font-mono text-[11px]">
+                  <CheckCircle2 className="w-3 h-3" /> Tier 0: Foundation
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 font-mono text-[11px]">
+                  <CheckCircle2 className="w-3 h-3" /> Tier 1: Quick Wins
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 font-mono text-[11px]">
+                  <CheckCircle2 className="w-3 h-3" /> Tier 2: v0.1 Core
+                </span>
+                <span className={`px-2 py-0.5 rounded-full border flex items-center gap-1 font-mono text-[11px] ${
+                  tier3DoneTestPassed 
+                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' 
+                    : 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30'
+                }`}>
+                  <Shield className="w-3 h-3" />
+                  {tier3DoneTestPassed ? 'Tier 3: Verified' : 'Tier 3: Ready for Test'}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleRunTier3DoneTest}
+                  className="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                >
+                  <Play className="w-3.5 h-3.5" />
+                  Run Tier 3 Done-Test
+                </button>
+
+                <button
+                  onClick={() => setIsFirewallDepthOpen(true)}
+                  className="px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                >
+                  <Sliders className="w-3.5 h-3.5" />
+                  Firewall Depth Suite
+                </button>
               </div>
             </div>
 
@@ -574,6 +673,40 @@ export default function App() {
           onLaunchOfflineTest={() => setIsOfflineTesterOpen(true)}
         />
       )}
+
+      {isFirewallDepthOpen && (
+        <FirewallDepthModal
+          isOpen={isFirewallDepthOpen}
+          onClose={() => setIsFirewallDepthOpen(false)}
+          onRunTier3DoneTest={handleRunTier3DoneTest}
+          onTriggerConnectionPrompt={handleTriggerConnectionPrompt}
+          floatingHudActive={floatingHudActive}
+          onToggleFloatingHud={() => setFloatingHudActive(!floatingHudActive)}
+        />
+      )}
+
+      {isConnectionPromptOpen && (
+        <ConnectionPromptModal
+          isOpen={isConnectionPromptOpen}
+          packet={pendingPromptPacket}
+          onClose={() => setIsConnectionPromptOpen(false)}
+          onResolve={handleResolveConnectionPrompt}
+        />
+      )}
+
+      <FloatingHud
+        isVisible={floatingHudActive}
+        onToggle={() => setFloatingHudActive(false)}
+        socketCount={packets.filter((p) => p.status === 'allowed').length}
+        blockedCount={packets.filter((p) => p.status === 'blocked').length}
+        stealthMode={stealthModeActive}
+        onToggleStealth={() => {
+          setStealthModeActive(!stealthModeActive);
+          setSelfTestFeedback(`F13 Stealth Mode: ${!stealthModeActive ? 'ENGAGED (Zero ICMP/Broadcast signature)' : 'DEACTIVATED'}`);
+        }}
+        onEmergencyPanic={handleEmergencyPanic}
+        onOpenFirewallDepth={() => setIsFirewallDepthOpen(true)}
+      />
 
     </div>
   );

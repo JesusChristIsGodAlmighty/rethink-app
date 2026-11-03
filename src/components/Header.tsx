@@ -28,6 +28,7 @@ interface HeaderProps {
   onOpenGoogleDefense: () => void;
   onOpenTimeMachine: () => void;
   onOpenOnboarding: () => void;
+  onOpenFirewallDepth: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -48,6 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenGoogleDefense,
   onOpenTimeMachine,
   onOpenOnboarding,
+  onOpenFirewallDepth,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -163,6 +165,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <History className="w-3 h-3 text-amber-400" />
             <span>Update Time Machine (F228)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* Tier 3 Advanced Firewall & Soul Suite */}
+          <button
+            onClick={onOpenFirewallDepth}
+            className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors shrink-0 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-500/30"
+          >
+            <Shield className="w-3 h-3 text-cyan-400" />
+            <span>Firewall Depth &amp; Soul (Tier 3)</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 
