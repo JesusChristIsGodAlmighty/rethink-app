@@ -13,7 +13,9 @@ import {
   HelpCircle,
   Shuffle,
   Radio,
-  ShieldCheck
+  ShieldCheck,
+  Layers,
+  Scale
 } from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
@@ -35,6 +37,8 @@ interface HeaderProps {
   onOpenPrivacyRouting: () => void;
   onOpenHardwareRadioShield: () => void;
   onOpenZeroTrustCompliance: () => void;
+  onOpenContentDisarm: () => void;
+  onOpenLegalDisclaimer: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -59,6 +63,8 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenPrivacyRouting,
   onOpenHardwareRadioShield,
   onOpenZeroTrustCompliance,
+  onOpenContentDisarm,
+  onOpenLegalDisclaimer,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -218,6 +224,16 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 
+          {/* F927-F938 Content Disarm & Reconstruction Studio */}
+          <button
+            onClick={onOpenContentDisarm}
+            className="flex items-center gap-1 text-purple-400 hover:text-purple-300 font-semibold transition-colors shrink-0 bg-purple-950/40 px-2 py-0.5 rounded border border-purple-500/30"
+          >
+            <Layers className="w-3 h-3 text-purple-400" />
+            <span>CDR &amp; Media Proxy (F927)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
           {/* Quick-Access Tier 1 Modals */}
           <button
             onClick={onOpenBlocklists}
@@ -238,6 +254,16 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         <div className="flex items-center gap-3 shrink-0">
+          {/* F988 Legal Boundary & Responsibility Notice */}
+          <button
+            onClick={onOpenLegalDisclaimer}
+            className="flex items-center gap-1 text-amber-400 hover:text-amber-300 transition-colors text-xs font-semibold"
+            title="Sovereign Responsibility Notice (Section 15 / F988)"
+          >
+            <Scale className="w-3.5 h-3.5" />
+            <span>Notice (F988)</span>
+          </button>
+
           {/* F94 Tiered UI (Newbie vs Expert) */}
           <button
             onClick={onToggleExpertMode}

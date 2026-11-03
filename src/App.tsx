@@ -38,6 +38,8 @@ import { FloatingHud } from './components/FloatingHud';
 import { PrivacyRoutingModal } from './components/PrivacyRoutingModal';
 import { HardwareRadioShieldModal } from './components/HardwareRadioShieldModal';
 import { ZeroTrustComplianceModal } from './components/ZeroTrustComplianceModal';
+import { ContentDisarmModal } from './components/ContentDisarmModal';
+import { LegalDisclaimerModal } from './components/LegalDisclaimerModal';
 
 import { 
   INITIAL_MODULES, 
@@ -116,6 +118,8 @@ export default function App() {
   const [isPrivacyRoutingOpen, setIsPrivacyRoutingOpen] = useState(false);
   const [isHardwareRadioShieldOpen, setIsHardwareRadioShieldOpen] = useState(false);
   const [isZeroTrustComplianceOpen, setIsZeroTrustComplianceOpen] = useState(false);
+  const [isContentDisarmOpen, setIsContentDisarmOpen] = useState(false);
+  const [isLegalDisclaimerOpen, setIsLegalDisclaimerOpen] = useState(false);
   const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
   const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
   const [floatingHudActive, setFloatingHudActive] = useState(false);
@@ -302,6 +306,8 @@ export default function App() {
         onOpenPrivacyRouting={() => setIsPrivacyRoutingOpen(true)}
         onOpenHardwareRadioShield={() => setIsHardwareRadioShieldOpen(true)}
         onOpenZeroTrustCompliance={() => setIsZeroTrustComplianceOpen(true)}
+        onOpenContentDisarm={() => setIsContentDisarmOpen(true)}
+        onOpenLegalDisclaimer={() => setIsLegalDisclaimerOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -713,6 +719,20 @@ export default function App() {
         <ZeroTrustComplianceModal
           isOpen={isZeroTrustComplianceOpen}
           onClose={() => setIsZeroTrustComplianceOpen(false)}
+        />
+      )}
+
+      {isContentDisarmOpen && (
+        <ContentDisarmModal
+          isOpen={isContentDisarmOpen}
+          onClose={() => setIsContentDisarmOpen(false)}
+        />
+      )}
+
+      {isLegalDisclaimerOpen && (
+        <LegalDisclaimerModal
+          isOpen={isLegalDisclaimerOpen}
+          onClose={() => setIsLegalDisclaimerOpen(false)}
         />
       )}
 
