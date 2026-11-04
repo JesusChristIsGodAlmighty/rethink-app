@@ -17,6 +17,7 @@ package com.celzero.bravedns.ui.bottomsheet
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.celzero.bravedns.R
 import com.celzero.bravedns.database.CustomBlocklistEntry
+import com.celzero.bravedns.database.CustomBlocklistEntryRepository
 import com.celzero.bravedns.databinding.BottomSheetBlocklistManagerBinding
 import com.celzero.bravedns.databinding.ItemBlocklistManagerBinding
 import com.celzero.bravedns.service.PersistentState
@@ -36,6 +38,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.Date
 
 /**
  * F224 Blocklist Manager: one-screen curator for blocklists - add custom
@@ -83,12 +86,47 @@ class BlocklistManagerBottomSheet : BaseBottomSheetDialogFragment() {
         b.blmbsAdd.setOnClickListener { showAddDialog() }
 
         viewModel.entries.observe(viewLifecycleOwner, Observer { updateUi(it) })
+        // F225 Explicit Update Indicator: visible "last updated" status line
+        viewModel.updateStatus.observe(
+            viewLifecycleOwner,
+            Observer { renderUpdateStatus(it) }
+        )
         viewModel.lastError.observe(viewLifecycleOwner, Observer { err ->
             if (err != null) {
                 Toast.makeText(requireContext(), R.string.f224_bm_invalid_input, Toast.LENGTH_SHORT)
                     .show()
             }
         })
+    }
+
+    /**
+     * F225: translate the freshness state into plain, honest words (STATE_v2
+     * 14.3 no-jargon rule). NEVER/STALE are surfaced loudly because silently
+     * stale blocklists are a false sense of safety.
+     */
+    private fun renderUpdateStatus(status: CustomBlocklistViewModel.UpdateStatus?) {
+        if (_binding == null || status == null) return
+        val res = when (status.freshness) {
+            CustomBlocklistEntryRepository.UpdateFreshness.NEVER ->
+                getString(R.string.f225_status_never)
+            CustomBlocklistEntryRepository.UpdateFreshness.FRESH ->
+                getString(R.string.f225_status_fresh)
+            CustomBlocklistEntryRepository.UpdateFreshness.TODAY ->
+                getString(R.string.f225_status_today)
+            CustomBlocklistEntryRepository.UpdateFreshness.THIS_WEEK ->
+                getString(R.string.f225_status_this_week)
+            CustomBlocklistEntryRepository.UpdateFreshness.STALE ->
+                getString(R.string.f225_status_stale)
+        }
+        // append the concrete date for transparency (F423: no hidden defaults)
+        val text = if (status.lastRefreshTs > 0) {
+            val date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
+                .format(Date(status.lastRefreshTs))
+            "$res ($date)"
+        } else {
+            res
+        }
+        b.blmbsUpdateStatus.text = text
     }
 
     private fun updateUi(entries: List<CustomBlocklistEntry>) {

@@ -34,6 +34,42 @@ class CustomBlocklistEntryRepository(private val customBlocklistEntryDao: Custom
         // hostnames are capped well below the RFC 1035 253-octet limit
         const val MAX_HOST_LENGTH = 253
 
+        /** F225 Explicit Update Indicator: freshness thresholds (ms). */
+        const val ONE_HOUR_MS = 60L * 60L * 1000L
+        const val ONE_DAY_MS = 24L * ONE_HOUR_MS
+        const val SEVEN_DAYS_MS = 7L * ONE_DAY_MS
+
+        /**
+         * F225 Explicit Update Indicator: derive an honest freshness state from
+         * the last SUCCESSFUL refresh time. Pure function (no Android deps) so
+         * it is unit-testable and reusable by any surface (blocklists screen,
+         * resource monitor F424-F426, notifications).
+         *  - NEVER     : no successful refresh recorded yet
+         *  - FRESH     : refreshed within the last hour
+         *  - TODAY     : refreshed today (< 24h)
+         *  - THIS_WEEK : refreshed within 7 days
+         *  - STALE     : older than a week — the data may no longer reflect
+         *                current threat lists; say so plainly (STATE_v2
+         *                section 3: no hidden defaults / no silent decay)
+         * A future-dated ts (clock skew) counts as FRESH, never as an error.
+         */
+        fun updateFreshness(lastRefreshTs: Long, nowMs: Long): UpdateFreshness {
+            if (lastRefreshTs <= 0L) return UpdateFreshness.NEVER
+            val age = nowMs - lastRefreshTs
+            if (age <= ONE_HOUR_MS) return UpdateFreshness.FRESH
+            if (age <= ONE_DAY_MS) return UpdateFreshness.TODAY
+            if (age <= SEVEN_DAYS_MS) return UpdateFreshness.THIS_WEEK
+            return UpdateFreshness.STALE
+        }
+
+        enum class UpdateFreshness {
+            NEVER,
+            FRESH,
+            TODAY,
+            THIS_WEEK,
+            STALE
+        }
+
         /**
          * Module Contract 4.2.7: user-entered URLs are attacker-influenced
          * data. Sanitize before storing: trim, length-cap, require an

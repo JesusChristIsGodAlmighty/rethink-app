@@ -109,15 +109,40 @@ object RethinkBlocklistManager : KoinComponent {
     val SECURITY = RethinkBlockType(SECURITY_TAG, R.string.rbl_security, R.string.rbl_security_desc)
     val PRIVACY = RethinkBlockType(PRIVACY_TAG, R.string.rbl_privacy, R.string.rbl_privacy_desc)
 
+    // F225 Explicit Update Indicator: record the wall-clock time of the last
+    // SUCCESSFUL blocklist refresh so the UI can show an honest "updated <when>"
+    // status. Failures are deliberately not recorded — a failed refresh must
+    // never masquerade as fresh data (STATE_v2 section 3; Module Contract 4.2:
+    // every failure path degrades to pre-feature behavior). koin-free: uses
+    // android.util.Log like BlockPageManager, so pure-logic tests need no graph.
+    private fun recordSuccessfulRefresh(type: DownloadType, ok: Boolean) {
+        if (!ok) return
+        try {
+            val now = System.currentTimeMillis()
+            if (type.isRemote()) {
+                persistentState.lastRemoteBlocklistRefreshTs = now
+            } else {
+                persistentState.lastLocalBlocklistRefreshTs = now
+            }
+        } catch (e: Exception) {
+            // indicator is informational only; never fail the refresh over it
+            android.util.Log.w("RethinkBm", "F225: could not record refresh ts", e)
+        }
+    }
+
     // read and parse the json file, either remote or local blocklist
     // returns the parsed FileTag list, on error return empty array list
     suspend fun readJson(context: Context, type: DownloadType, timestamp: Long): Boolean {
         // TODO: merge both the remote and local json parsing into one
-        return if (type.isRemote()) {
-            readRemoteJson(context, timestamp)
-        } else {
-            readLocalJson(context, timestamp)
-        }
+        // F225: record success for the explicit update indicator
+        val ok =
+            if (type.isRemote()) {
+                readRemoteJson(context, timestamp)
+            } else {
+                readLocalJson(context, timestamp)
+            }
+        recordSuccessfulRefresh(type, ok)
+        return ok
     }
 
     private suspend fun readLocalJson(context: Context, timestamp: Long): Boolean {

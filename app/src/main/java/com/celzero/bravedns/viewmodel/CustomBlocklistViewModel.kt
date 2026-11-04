@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.celzero.bravedns.database.CustomBlocklistEntry
 import com.celzero.bravedns.database.CustomBlocklistEntryRepository
+import com.celzero.bravedns.service.PersistentState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,13 +31,27 @@ import kotlinx.coroutines.withContext
  * sanitizes user input (Module Contract 4.2.7) before touching the DB.
  * The list is refreshed after each successful mutation; UI observes
  * `entries`.
+ * F225 Explicit Update Indicator: also exposes `updateStatus` — an honest,
+ * visible summary of when the blocklists were last successfully refreshed.
  */
-class CustomBlocklistViewModel(private val customBlocklistRepository: CustomBlocklistEntryRepository) :
-    ViewModel() {
+class CustomBlocklistViewModel(
+    private val customBlocklistRepository: CustomBlocklistEntryRepository,
+    // default arg keeps existing construction sites compiling if any pass only
+    // the repository; Koin injects both (see DatabaseModule wiring in VM factory)
+    private val persistentState: PersistentState? = null,
+) : ViewModel() {
 
     val entries: MutableLiveData<List<CustomBlocklistEntry>> = MutableLiveData()
     // one-shot event channel for user feedback (invalid url, add failure...)
     val lastError: MutableLiveData<String?> = MutableLiveData(null)
+    // F225: latest known refresh state; null until first computed
+    val updateStatus: MutableLiveData<UpdateStatus> = MutableLiveData()
+
+    /** F225 view-model payload: freshness + the underlying wall-clock ts. */
+    data class UpdateStatus(
+        val freshness: CustomBlocklistEntryRepository.UpdateFreshness,
+        val lastRefreshTs: Long,
+    )
 
     init {
         refresh()
@@ -46,7 +61,23 @@ class CustomBlocklistViewModel(private val customBlocklistRepository: CustomBloc
         viewModelScope.launch {
             val all = withContext(Dispatchers.IO) { customBlocklistRepository.fetchAll() }
             entries.value = all
+            computeUpdateStatus()
         }
+    }
+
+    /**
+     * F225: pick the freshest of remote/local last-successful-refresh stamps
+     * (whichever blocklist kind was updated most recently answers "when were my
+     * blocklists last updated?"). No persistentState (e.g., tests) => NEVER.
+     */
+    fun computeUpdateStatus() {
+        val ps = persistentState
+        val remote = runCatching { ps?.lastRemoteBlocklistRefreshTs ?: 0L }.getOrDefault(0L)
+        val local = runCatching { ps?.lastLocalBlocklistRefreshTs ?: 0L }.getOrDefault(0L)
+        val newest = maxOf(remote, local)
+        val freshness =
+            CustomBlocklistEntryRepository.updateFreshness(newest, System.currentTimeMillis())
+        updateStatus.value = UpdateStatus(freshness, newest)
     }
 
     fun addUserList(title: String, url: String) {

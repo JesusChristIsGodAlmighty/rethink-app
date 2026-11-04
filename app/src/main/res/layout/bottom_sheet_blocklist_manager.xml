@@ -55,6 +55,19 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/blmbs_add" />
 
+    <!-- F225 Explicit Update Indicator: honest "last updated" status line -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/blmbs_update_status"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        app:layout_constraintTop_toBottomOf="@id/blmbs_add" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/blmbs_recycler"
         android:layout_width="match_parent"

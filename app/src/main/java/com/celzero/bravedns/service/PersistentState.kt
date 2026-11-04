@@ -288,6 +288,16 @@ class PersistentState(context: Context) : SimpleKrate(context), KoinComponent {
     var lastDownloadFailureReason by
         stringPref("last_download_failure_reason").withDefault<String>("")
 
+    // F225 Explicit Update Indicator: wall-clock ms of the last SUCCESSFUL
+    // blocklist refresh (0 = never). Recorded by RethinkBlocklistManager.readJson
+    // only when parsing+insertion actually succeeded; failures leave the previous
+    // value intact so a failed refresh can never masquerade as fresh data.
+    var lastRemoteBlocklistRefreshTs by
+        longPref("f225_last_remote_refresh_ts").withDefault<Long>(0)
+
+    var lastLocalBlocklistRefreshTs by
+        longPref("f225_last_local_refresh_ts").withDefault<Long>(0)
+
     // android download manager's active download ids (comma-separated)
     var androidDownloadManagerIds by
         stringPref("android_download_manager_ids").withDefault<String>("")

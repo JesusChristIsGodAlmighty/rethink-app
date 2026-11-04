@@ -35,8 +35,9 @@ object ViewModelModule {
         viewModel { RethinkEndpointViewModel(get()) }
         viewModel { AppCustomIpViewModel(get()) }
         viewModel { RethinkRemoteFileTagViewModel(get()) }
-        // F224 Blocklist Manager
-        viewModel { CustomBlocklistViewModel(get()) }
+        // F224 Blocklist Manager; F225 also gets PersistentState for the
+        // explicit update indicator (last successful refresh timestamp)
+        viewModel { CustomBlocklistViewModel(get(), get()) }
         viewModel { RethinkLocalFileTagViewModel(get()) }
         viewModel { AppConnectionsViewModel(get(), get(), get(), get()) }
         viewModel { SummaryStatisticsViewModel(get(), get()) }

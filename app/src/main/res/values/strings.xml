@@ -3112,4 +3112,10 @@
     <string name="f224_bm_remove" translatable="false">Remove</string>
     <string name="f224_bm_remove_confirm_title" translatable="false">Remove blocklist?</string>
     <string name="f224_bm_remove_confirm_message" translatable="false">%s will be removed from the manager. Existing downloaded data is untouched.</string>
+    <!-- F225 Explicit Update Indicator: honest blocklist freshness status -->
+    <string name="f225_status_never" translatable="false">Blocklists have never finished updating on this device</string>
+    <string name="f225_status_fresh" translatable="false">Updated just now</string>
+    <string name="f225_status_today" translatable="false">Updated today</string>
+    <string name="f225_status_this_week" translatable="false">Updated this week</string>
+    <string name="f225_status_stale" translatable="false">Outdated — over a week old. Open Downloads to refresh</string>
 </resources>
