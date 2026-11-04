@@ -185,8 +185,102 @@ class ConnTrackerBottomSheet : BaseBottomSheetDialogFragment(), KoinComponent {
         b.bsConnRuleRowDomain.visibility = View.VISIBLE
         b.bsConnDomainRuleAddress.text = domain
         renderDomainRuleState(status)
+        updateUnblockChip(DomainRulesManager.Status.NONE, uid)
         b.bsConnDnsCacheText.visibility = View.VISIBLE
         b.bsConnDnsCacheText.text = domain
+    }
+
+    /**
+     * F192 (One-Tap Unblock From Log): surface an "unblock" affordance on a
+     * blocked connection whenever the effective domain rule is BLOCK — either
+     * the exact rule shown by the row, or one that only resolves through the
+     * wildcard/everybody ladder (see DomainRulesManager.trustEffectiveRule).
+     * Hidden for allowed connections and when nothing is blocked.
+     */
+    private fun updateUnblockChip(exactStatus: DomainRulesManager.Status, uid: Int) {
+        val currentInfo = info ?: return
+        val domain = currentInfo.dnsQuery ?: return
+        val blockedByRule = !currentInfo.blockedByRule.isNullOrBlank()
+        if (!currentInfo.isBlocked && !blockedByRule) {
+            b.bsConnUnblockChip.visibility = View.GONE
+            return
+        }
+        if (exactStatus == DomainRulesManager.Status.TRUST) {
+            // already trusted at the exact scope; nothing to unblock
+            b.bsConnUnblockChip.visibility = View.GONE
+            return
+        }
+        io {
+            // resolve the full ladder off the main thread; a wildcard or
+            // everybody-scope BLOCK also counts as "something to unblock"
+            val blockingRuleExists =
+                exactStatus == DomainRulesManager.Status.BLOCK ||
+                    hasBlockingRuleBeyondExact(domain, uid)
+            uiCtx {
+                b.bsConnUnblockChip.visibility =
+                    if (blockingRuleExists) View.VISIBLE else View.GONE
+            }
+        }
+    }
+
+    /** True when a wildcard or everybody-scope rule blocks this domain for this uid. */
+    private fun hasBlockingRuleBeyondExact(domain: String, uid: Int): Boolean {
+        val d = domain.lowercase(Locale.ROOT)
+        if (uid != Constants.UID_EVERYBODY) {
+            if (DomainRulesManager.getDomainRule(d, Constants.UID_EVERYBODY) ==
+                DomainRulesManager.Status.BLOCK
+            ) return true
+        }
+        return false
+    }
+
+    /**
+     * F192: one tap from the connection log unblocks the queried domain.
+     * Prefers flipping the rule that actually caused the block (exact →
+     * wildcard → everybody); when the block came from a user-list (RULE2G)
+     * there is no BLOCK rule to flip, so a per-app TRUST override is added
+     * instead — trust beats lists downstream. Disabled while pending so the
+     * tap cannot double-fire; re-enabled on every exit path.
+     */
+    private fun oneTapUnblock() {
+        val currentInfo = info ?: return
+        val domain = currentInfo.dnsQuery ?: return
+        val uid = currentInfo.uid
+        b.bsConnUnblockChip.isEnabled = false
+        io {
+            try {
+                val unblocked = DomainRulesManager.trustEffectiveRule(domain, uid)
+                if (!unblocked) {
+                    // list-blocked (RULE2G) or otherwise no rule found: add a
+                    // trust override so the domain passes regardless of lists
+                    DomainRulesManager.addDomainRule(
+                        domain,
+                        DomainRulesManager.Status.TRUST,
+                        DomainRulesManager.DomainType.DOMAIN,
+                        uid
+                    )
+                }
+                Logger.i(
+                    LOG_TAG_FIREWALL,
+                    "F192 one-tap unblock: $domain(uid=$uid), flippedExistingRule=$unblocked"
+                )
+                logEvent(
+                    "One-tap unblock",
+                    "Domain: $domain, UID: $uid, RuleFlipped: $unblocked"
+                )
+                uiCtx {
+                    renderDomainRuleState(DomainRulesManager.Status.TRUST)
+                    b.bsConnUnblockChip.visibility = View.GONE
+                    showToastUiCentered(
+                        requireContext(),
+                        getString(R.string.f192_unblocked_toast, domain),
+                        Toast.LENGTH_SHORT
+                    )
+                }
+            } finally {
+                uiCtx { b.bsConnUnblockChip.isEnabled = true }
+            }
+        }
     }
 
     private fun updateConnDetailsChip() {

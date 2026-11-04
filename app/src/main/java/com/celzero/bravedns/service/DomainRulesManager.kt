@@ -378,6 +378,65 @@ object DomainRulesManager : KoinComponent {
         maybeUpdateTrustedMap(uid, d, status)
     }
 
+    /**
+     * F192 (One-Tap Unblock From Log): resolve the domain rule that actually
+     * applies to (domain, uid) — exact user rule first, then wildcard, then the
+     * everybody (-1000) scope — and set it to TRUST at that same scope. Returns
+     * true when a blocking rule was found and trusted, false when nothing was
+     * blocked (no write performed). Used by the connection-log bottom sheet so
+     * one tap unblocks a domain regardless of whether it was blocked by a
+     * per-app rule, a wildcard, or an all-apps rule; domains blocked purely by
+     * a user-list (RULE2G) are never matched here (they have no BLOCK rule),
+     * so the caller can fall back to adding a trust override instead.
+     */
+    suspend fun trustEffectiveRule(domain: String, uid: Int): Boolean {
+        // normalize like status()/getDomainRule() do, so mixed-case queries
+        // from the connection log still match stored rules
+        val d = domain.lowercase(Locale.ROOT)
+        // exact rule for this app takes precedence
+        when (val r = getDomainRule(d, uid)) {
+            Status.BLOCK -> {
+                addDomainRule(d, Status.TRUST, DomainType.DOMAIN, uid)
+                Logger.i(LOG_TAG_DNS, "trustEffectiveRule: $d(uid=$uid) exact BLOCK -> TRUST")
+                return true
+            }
+            Status.TRUST -> {
+                if (DEBUG) Logger.d(LOG_TAG_DNS, "trustEffectiveRule: $d(uid=$uid) already TRUST")
+                return false
+            }
+            Status.NONE -> {}
+        }
+        // wildcard rule covering this app?
+        when (val wc = matchesWildcard(d, uid)) {
+            Status.BLOCK -> {
+                addDomainRule(d, Status.TRUST, DomainType.DOMAIN, uid)
+                Logger.i(LOG_TAG_DNS, "trustEffectiveRule: $d(uid=$uid) wildcard BLOCK -> exact TRUST")
+                return true
+            }
+            Status.TRUST -> return false
+            Status.NONE -> {}
+        }
+        // everybody-scope rules (uid < 0 covers UID_EVERYBODY and unknown apps)
+        if (uid != Constants.UID_EVERYBODY) {
+            when (val r = getDomainRule(d, Constants.UID_EVERYBODY)) {
+                Status.BLOCK -> {
+                    addDomainRule(d, Status.TRUST, DomainType.DOMAIN, Constants.UID_EVERYBODY)
+                    Logger.i(LOG_TAG_DNS, "trustEffectiveRule: $d(everybody) BLOCK -> TRUST")
+                    return true
+                }
+                Status.TRUST -> return false
+                Status.NONE -> {}
+            }
+            if (matchesWildcard(d, Constants.UID_EVERYBODY) == Status.BLOCK) {
+                addDomainRule(d, Status.TRUST, DomainType.DOMAIN, Constants.UID_EVERYBODY)
+                Logger.i(LOG_TAG_DNS, "trustEffectiveRule: $d(everybody) wildcard BLOCK -> exact TRUST")
+                return true
+            }
+        }
+        if (DEBUG) Logger.d(LOG_TAG_DNS, "trustEffectiveRule: $d(uid=$uid), no blocking rule found")
+        return false
+    }
+
     private fun maybeUpdateTrustedMap(uid: Int, domain: String, status: Status) {
         val d = domain.lowercase(Locale.ROOT)
 
