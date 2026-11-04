@@ -17,7 +17,6 @@ package com.celzero.bravedns.ui.bottomsheet
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +26,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.celzero.bravedns.R
 import com.celzero.bravedns.database.CustomBlocklistEntry
-import com.celzero.bravedns.database.CustomBlocklistEntryRepository
+import com.celzero.bravedns.database.CustomBlocklistEntryRepository.Companion.UpdateFreshness
 import com.celzero.bravedns.databinding.BottomSheetBlocklistManagerBinding
 import com.celzero.bravedns.databinding.ItemBlocklistManagerBinding
 import com.celzero.bravedns.service.PersistentState
@@ -38,6 +37,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.DateFormat
 import java.util.Date
 
 /**
@@ -107,16 +107,11 @@ class BlocklistManagerBottomSheet : BaseBottomSheetDialogFragment() {
     private fun renderUpdateStatus(status: CustomBlocklistViewModel.UpdateStatus?) {
         if (_binding == null || status == null) return
         val res = when (status.freshness) {
-            CustomBlocklistEntryRepository.UpdateFreshness.NEVER ->
-                getString(R.string.f225_status_never)
-            CustomBlocklistEntryRepository.UpdateFreshness.FRESH ->
-                getString(R.string.f225_status_fresh)
-            CustomBlocklistEntryRepository.UpdateFreshness.TODAY ->
-                getString(R.string.f225_status_today)
-            CustomBlocklistEntryRepository.UpdateFreshness.THIS_WEEK ->
-                getString(R.string.f225_status_this_week)
-            CustomBlocklistEntryRepository.UpdateFreshness.STALE ->
-                getString(R.string.f225_status_stale)
+            UpdateFreshness.NEVER -> getString(R.string.f225_status_never)
+            UpdateFreshness.FRESH -> getString(R.string.f225_status_fresh)
+            UpdateFreshness.TODAY -> getString(R.string.f225_status_today)
+            UpdateFreshness.THIS_WEEK -> getString(R.string.f225_status_this_week)
+            UpdateFreshness.STALE -> getString(R.string.f225_status_stale)
         }
         // append the concrete date for transparency (F423: no hidden defaults)
         val text = if (status.lastRefreshTs > 0) {
