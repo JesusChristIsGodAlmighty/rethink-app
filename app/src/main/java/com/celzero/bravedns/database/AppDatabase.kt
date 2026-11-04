@@ -1747,4 +1747,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     fun subscriptionStatusRepository() = SubscriptionStatusRepository(subscriptionStatusDao())
 
+    // F224 Blocklist Manager
+    fun customBlocklistEntryRepository() = CustomBlocklistEntryRepository(customBlocklistEntryDao())
+
 }

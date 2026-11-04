@@ -469,6 +469,9 @@ class DnsSettingsFragment : Fragment(R.layout.fragment_dns_configure),
         b.dcRestoreDefaults.setOnClickListener { showRestoreDefaultsDialog() }
 
         b.dcLocalBlocklistRl.setOnClickListener { openLocalBlocklist() }
+        // F224 Blocklist Manager: one-screen curator (add/remove/reorder/toggle)
+        b.dcBlocklistManagerRl.setOnClickListener { openBlocklistManager() }
+        b.dcBlocklistManagerImg.setOnClickListener { openBlocklistManager() }
 
         b.dcLocalBlocklistImg.setOnClickListener { openLocalBlocklist() }
 
@@ -813,6 +816,12 @@ class DnsSettingsFragment : Fragment(R.layout.fragment_dns_configure),
     private fun openLocalBlocklist() {
         val bottomSheetFragment = LocalBlocklistsBottomSheet()
         bottomSheetFragment.setDismissListener(this)
+        bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+    }
+
+    // F224 Blocklist Manager: one-screen curator bottom sheet
+    private fun openBlocklistManager() {
+        val bottomSheetFragment = BlocklistManagerBottomSheet()
         bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
     }
 

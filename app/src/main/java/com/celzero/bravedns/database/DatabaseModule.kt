@@ -93,6 +93,9 @@ object DatabaseModule {
         single { get<AppDatabase>().subscriptionStateHistoryDao() }
         single { get<AppDatabase>().countryConfigRepository() }
         single { get<AppDatabase>().smartDnsEndpointRepository() }
+        // F224 Blocklist Manager
+        single { get<AppDatabase>().customBlocklistEntryDao() }
+        single { get<AppDatabase>().customBlocklistEntryRepository() }
 
         single { get<LogDatabase>().rethinkConnectionLogRepository() }
         single { get<LogDatabase>().connectionTrackerRepository() }

@@ -35,6 +35,8 @@ object ViewModelModule {
         viewModel { RethinkEndpointViewModel(get()) }
         viewModel { AppCustomIpViewModel(get()) }
         viewModel { RethinkRemoteFileTagViewModel(get()) }
+        // F224 Blocklist Manager
+        viewModel { CustomBlocklistViewModel(get()) }
         viewModel { RethinkLocalFileTagViewModel(get()) }
         viewModel { AppConnectionsViewModel(get(), get(), get(), get()) }
         viewModel { SummaryStatisticsViewModel(get(), get()) }
