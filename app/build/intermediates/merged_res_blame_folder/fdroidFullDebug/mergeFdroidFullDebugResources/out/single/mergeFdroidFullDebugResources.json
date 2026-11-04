@@ -1,0 +1,2142 @@
+[
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_configure.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_configure.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_dns_logs.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_dns_logs.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_heart.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_heart.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_data_on_grey.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_data_on_grey.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_firewall_app.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_firewall_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_dns_welcome.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_dns_welcome.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_rethink_plus_sparkle.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_rethink_plus_sparkle.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_dns_record_types.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_dns_record_types.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_layout_entitlement_row.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/layout_entitlement_row.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_orbot.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_orbot.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dis_allowed.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dis_allowed.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_backup_restore.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_backup_restore.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_block_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_block_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_doh_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_doh_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_summary_statistics.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_summary_statistics.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_recent_routed_apps.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_recent_routed_apps.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_minus.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_minus.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_meter_mobile_only.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_meter_mobile_only.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_lockdown_check.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_lockdown_check.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_capacity_pill.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_capacity_pill.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_show_notification.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/show_notification.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_anti_dpi.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_anti_dpi.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_view_home_logs_apps.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/view_home_logs_apps.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_tasker.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_tasker.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_proxy_white.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_proxy_white.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_waves.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_waves.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_custom_ip.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_custom_ip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_purchase_history.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_purchase_history.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_anti_censorship.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_anti_censorship.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_github.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_github.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_server_order.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_server_order.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_sad_3.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_sad_3.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_use_fallback_bypass.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_use_fallback_bypass.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_window_background.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/window_background.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout-w600dp_fragment_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout-w600dp/fragment_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_plus.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_rethink_plus.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_avatar_circle.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_avatar_circle.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_arrow_down_small.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_arrow_down_small.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_dns_log.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_dns_log.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_set_custom_odoh.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_set_custom_odoh.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_exclude_off.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_exclude_off.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_home_screen_button_start_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/home_screen_button_start_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_rethink_blocklist_simple.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_rethink_blocklist_simple.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_fast_scroll_thumb_drawable.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/fast_scroll_thumb_drawable.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_basic.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_rethink_basic.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_fav_icon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_fav_icon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_view_tour_tooltip.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/view_tour_tooltip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_server_loading.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_server_loading.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_guarantee_sunburst.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_guarantee_sunburst.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_smart_dns_list.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_smart_dns_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_console_log.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_console_log.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_wireguard_welcome.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_wireguard_welcome.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_hop.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_hop.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_country_avatar.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_country_avatar.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_custom_domain.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_custom_domain.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_share.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_share.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_add_custom_domain.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_add_custom_domain.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_ipv6.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_ipv6.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_dot_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_dot_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_right_arrow_small.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_right_arrow_small.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_foreground.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_foreground.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_allow_bypass.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_allow_bypass.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_decision_step.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_decision_step.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_dnscrypt_relays.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_dnscrypt_relays.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_about_sponsor_blend.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/about_sponsor_blend.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_conn_tracker_segment_stroke.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/conn_tracker_segment_stroke.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_set_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_set_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xxhdpi_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xxhdpi/ic_notification_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_wireguard_main.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_wireguard_main.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_wireguard_icon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_wireguard_icon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_copy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_copy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_configure_other_dns.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_configure_other_dns.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_shield_green.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/shield_green.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_expand_more_24.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_expand_more_24.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_happy_relay.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_happy_relay.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_exclude_country.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_exclude_country.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_dns_configure.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_dns_configure.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_domain_item_bottom_sheet.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/domain_item_bottom_sheet.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_local_blocklist.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_local_blocklist.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_subscription_anim.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_subscription_anim.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_app_lock.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_app_lock.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_bug_report_files.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_bug_report_files.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_universal_ip_rule.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/universal_ip_rule.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_unknown_app.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_unknown_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_idle_timeout.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_idle_timeout.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_rpn_win_proxy_detail.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_rpn_win_proxy_detail.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_dive.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_dive.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_refresh.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_welcome.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_welcome.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_plus_dashboard.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_rethink_plus_dashboard.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_lockdown_off.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_lockdown_off.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_recent_routed_app.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_recent_routed_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_delete.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_delete.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_wifi_on_grey.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_wifi_on_grey.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dot_red.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dot_red.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_set_dns_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_set_dns_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_whatsnew.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_whatsnew.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_rpn_remote_service.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_rpn_remote_service.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_heatmap_surface.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_heatmap_surface.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_welcome_gradient_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/welcome_gradient_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_set_dns_crypt.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_set_dns_crypt.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_home_black_24dp.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_tun_nw_policy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_tun_nw_policy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_sponsor_success.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_sponsor_success.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_rethink_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_filter.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_filter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_stack_trace.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_stack_trace.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_blocklist_app_row.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_blocklist_app_row.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_app_domain_details.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_app_domain_details.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_new_badge.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_new_badge.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_fast_scroll_line_drawable.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/fast_scroll_line_drawable.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_edittext_error.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/edittext_error.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_sad_1.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_sad_1.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_star_filled.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_star_filled.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_logs_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_logs_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_vpn_server_chip.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_vpn_server_chip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_vpn_server_chip_positive.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_vpn_server_chip_positive.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_chip_toggle_text.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/chip_toggle_text.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xxhdpi_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xxhdpi/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dot_green.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dot_green.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_server_group.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_server_group.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_loopback.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_loopback.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_block_free_dns.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_block_free_dns.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_configure.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_configure.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_rpn_bypass_apps.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_rpn_bypass_apps.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_bypass_dns_firewall_off.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_bypass_dns_firewall_off.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_randomize_wg_port.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_randomize_wg_port.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_reddit.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_reddit.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_time_segment_text_color.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/time_segment_text_color.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-hdpi_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-hdpi/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_twitter.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_twitter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_proxy_configure.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_proxy_configure.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_authors.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_authors.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_exclude_on.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_exclude_on.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_accept_incoming_wg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_accept_incoming_wg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_block_grey.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_block_grey.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_shimmer_server_row.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_shimmer_server_row.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_illustrations_no_record.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/illustrations_no_record.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_welcome_slide1.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/welcome_slide1.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_firewall_action_outlined.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_firewall_action_outlined.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_statistics.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_statistics.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_import_confirm.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_import_confirm.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-mdpi_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-mdpi/ic_notification_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_view_home_logs_activity.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/view_home_logs_activity.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_app_connections.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_app_connections.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_update.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_update.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_refresh_white.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_refresh_white.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_tick_normal.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_tick_normal.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_blocklist_update_check.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_blocklist_update_check.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_welcome_slide2.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/welcome_slide2.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xxxhdpi_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xxxhdpi/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_country_card.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_country_card.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_smart_dns_list.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_smart_dns_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_vpn_server_add_tile.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_vpn_server_add_tile.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_sponsor.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_sponsor.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_vpn_server_add.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_vpn_server_add.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_ip_address.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_ip_address.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_info.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_info.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_welcome_slide3.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/welcome_slide3.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_blocklist.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_rethink_blocklist.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_rectangle_border_sharp_background.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/rectangle_border_sharp_background.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_spinner_both.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/spinner_both.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_global_lockdown.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_global_lockdown.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/xml_network_security_config.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_keyboard_arrow_down.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_keyboard_arrow_down.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_rpn_stat_app.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_rpn_stat_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_device_auth_error.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_device_auth_error.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_app_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_app_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_android_icon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_android_icon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_translate.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_translate.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_pause.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_pause.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_purchase_conflict.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_purchase_conflict.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_auto_dial.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_auto_dial.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_log_activity_interval.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_log_activity_interval.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_check_circle.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_check_circle.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_folder.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_folder.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_edit_icon_grey.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_edit_icon_grey.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_prevent_dns_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_prevent_dns_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_fast_scroll_line.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/fast_scroll_line.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_wg_hop.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_wg_hop.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_cross_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_cross_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_premium_sky_gradient.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_premium_sky_gradient.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-v24_orbot_disabled.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-v24/orbot_disabled.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_auto_exclude_countries.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_auto_exclude_countries.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_edittext_default.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/edittext_default.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_app_ip_details.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_app_ip_details.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_wg_ssid.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_wg_ssid.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_wg_peers.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_wg_peers.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_logs.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_logs.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_firewall_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_firewall_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_qs_action_pill.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_qs_action_pill.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_protocol_translations.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_protocol_translations.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_qs_tile.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_qs_tile.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_nav_menu_background.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/nav_menu_background.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_about_key.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_about_key.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_about.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_about.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_universal_firewall_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_universal_firewall_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_user_icon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_user_icon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_stability_improvement.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_stability_improvement.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_app_icon_circle.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_app_icon_circle.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_rinr_warning.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_rinr_warning.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_rethink_plus_filter.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_rethink_plus_filter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_server_order_history.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_server_order_history.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_view_chart.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_view_chart.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_event_note.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_event_note.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_vpn_status_chip.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_vpn_status_chip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_bandwidth_booster.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_bandwidth_booster.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_server_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_server_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_proxies_list.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_proxies_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_sad_4.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_sad_4.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_pcap_file.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_pcap_file.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_conn_track.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_conn_track.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_filter_error.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_filter_error.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_entitlement_detail.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_entitlement_detail.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_bug_report_file.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_bug_report_file.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_private_network.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_private_network.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bs_firewall_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bs_firewall_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_fab_without_border.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_fab_without_border.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_relay.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_relay.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_block_unknown_dns.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_block_unknown_dns.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_connection_check.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_connection_check.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_device_lock.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_device_lock.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_import_conf.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_import_conf.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_statistics_summary.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_statistics_summary.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_selection_orbital.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_selection_orbital.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_alerts.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_alerts.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_about.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_about.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_ping_test.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_ping_test.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_tcp_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_tcp_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-v24_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-v24/ic_notification_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_dns_cache.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_dns_cache.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_socket_buffer_size.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_socket_buffer_size.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_pause.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_pause.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xhdpi_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xhdpi/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_udp.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_udp.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_welcome_slide4.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/welcome_slide4.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_blocked_app.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_blocked_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_firewall.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_firewall.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_secure.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_secure.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_no_network.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_no_network.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_dns_log.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_dns_log.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/xml_backup_rules.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_bypass.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_bypass.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_server_avatar_circle.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_server_avatar_circle.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_glass.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_glass.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_snackbar_background.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/snackbar_background.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_allowed_app.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_allowed_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_rethink_blocklist_adv.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_rethink_blocklist_adv.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_star_outline.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_star_outline.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_wg_apps.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_wg_apps.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_bottom_sheet_dialog_fragment.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_bottom_sheet_dialog_fragment.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_laptop.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_laptop.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_network.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_network.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_socks5.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_socks5.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_advanced_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_advanced_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_default_app_icon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/default_app_icon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_summary_stats_filter.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_summary_stats_filter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_search.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_tick.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_tick.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_input_ips.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_input_ips.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_happy_shield.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_happy_shield.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_removed_server.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_removed_server.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_pcap.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_pcap.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_foss_logo.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/foss_logo.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_view_list.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_view_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_add.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_bypass_on.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_bypass_on.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_selection_switch.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_selection_switch.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_fragment_host.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_fragment_host.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_undelegated_domain.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_undelegated_domain.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_welcome.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_welcome.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_rpn_stats.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_rpn_stats.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_prevent_dns_leaks.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_prevent_dns_leaks.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_checkout_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_checkout_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_proc.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_proc.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_advanced_setting.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_advanced_setting.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dns_proxy_list_item.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dns_proxy_list_item.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_pcap_files.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_pcap_files.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_data_on.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_data_on.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xhdpi_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xhdpi/ic_notification_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_lockdown_on.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_lockdown_on.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_network_tunnel.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_network_tunnel.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_dns_record_type.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_dns_record_type.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_shield.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_shield.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_view_insights_rank_row.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/view_insights_rank_row.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_log_level.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_log_level.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_chip_text_color.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/chip_text_color.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_timer.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_timer.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_bypass_off.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_bypass_off.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_device_not_registered.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_device_not_registered.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_arrow_down.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_arrow_down.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_plus.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_plus.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_tcp_keep_alive.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_tcp_keep_alive.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/xml_file_provider_paths.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/xml/file_provider_paths.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_faq.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_faq.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_search_pill.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_search_pill.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_person.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_person.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_qs_tile_badge.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_qs_tile_badge.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_wg_config_editor.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_wg_config_editor.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_circle.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_circle.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_conn_track.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_conn_track.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_dns_crypt_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_dns_crypt_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_update_small.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_update_small.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_fallback.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_fallback.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_plus_manage_purchase.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_rethink_plus_manage_purchase.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_block_free_dns.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_block_free_dns.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_floss_fund_badge.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_floss_fund_badge.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_spinner_outline.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/spinner_outline.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_log_lifespan.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_log_lifespan.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_backup.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_backup.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_firewall_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/firewall_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_app_country_details.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_app_country_details.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dot_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dot_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_rectangle_border_background.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/rectangle_border_background.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_dns_detail.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_dns_detail.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_rethink_plus_premium.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_rethink_plus_premium.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_vpn.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_vpn.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_bubble.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_bubble.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_mozilla.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/mozilla.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_notification.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_shimmer_subscription_loading.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/shimmer_subscription_loading.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_block.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_block.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_home_screen_button_stop_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/home_screen_button_stop_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_chip_filter.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_chip_filter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/xml_accessibility_service_config.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_plus_action_tile.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_plus_action_tile.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_other_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_other_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_stop.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_stop.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_rpn_ssid.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_rpn_ssid.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_dns_proxy_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_dns_proxy_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_set_custom_doh.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_set_custom_doh.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_rpn_bypass_app.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_rpn_bypass_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_qs_tile_off_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/color/qs_tile_off_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_mail.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_mail.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_wifi_on.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_wifi_on.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_other_dns_list.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_other_dns_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_event.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_event.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_spinner_outline_with_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/spinner_outline_with_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_notification_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_wg_one_interface.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_wg_one_interface.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_local_blocklists.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_local_blocklists.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_odoh_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_odoh_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_domain_connections.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_domain_connections.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_allow_metered.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_allow_metered.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_server_wg_peers.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_server_wg_peers.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-v24_orbot_enabled.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-v24/orbot_enabled.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_cross.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_cross.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_wg_detail.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_wg_detail.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_connectivity_checks.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_connectivity_checks.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_fast_scroll_thumb.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/fast_scroll_thumb.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_biometric.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_biometric.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_tasker_automation.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_tasker_automation.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_chip_bg_positive.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/chip_bg_positive.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_cloud_error.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_cloud_error.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_proxy_cc_wg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_proxy_cc_wg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_app_info.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_app_info.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_detailed_statistics.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_detailed_statistics.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_purchase_history.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_purchase_history.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_info_white_16.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_info_white_16.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_time_segment_fill.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/time_segment_fill.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_terms_service.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_terms_service.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_log_activity_app.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_log_activity_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-v24_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-v24/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_right_arrow_secondary.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_right_arrow_secondary.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_ssid.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_ssid.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/xml_data_extraction_rules.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_connection_tracker.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_connection_tracker.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_app_wise_domain_logs.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_app_wise_domain_logs.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_chip_state_list.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_chip_state_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_play_subs.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_play_subs.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_happy_swirl.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_happy_swirl.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_wifi_off.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_wifi_off.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_endpoint.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_endpoint.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_dns_firewall.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_dns_firewall.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_network_logs.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_network_logs.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_ip_details_layout.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_ip_details_layout.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_network_policy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_network_policy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_wg_include_apps.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_wg_include_apps.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_home_firewall_rules_page.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_home_firewall_rules_page.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_sponsor_info.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_sponsor_info.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_trust_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_trust_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_time_segment_stroke.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/time_segment_stroke.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_card_ripple.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_card_ripple.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_add_custom_ip.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_add_custom_ip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_right_arrow_white.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_right_arrow_white.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_premium_border_gradient.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/premium_border_gradient.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_happy_globe.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_happy_globe.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_plus_status_chip.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_plus_status_chip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-v24_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-v24/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_blog.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_blog.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_heatmap_swatch.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_heatmap_swatch.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_status_dot.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/drawable/bg_status_dot.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_ip_network.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_ip_network.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_trust.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_trust.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_heart_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_heart_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_rounded_corners_button_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/rounded_corners_button_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_persistent_notification.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/persistent_notification.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_fab_uninstall.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_fab_uninstall.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_data_off.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_data_off.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_custom_rules.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_custom_rules.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_auto_start.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_auto_start.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_shimmer_card.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_shimmer_card.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_blocklist_domain_row.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_blocklist_domain_row.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bs_dns_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bs_dns_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_whats_new.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_whats_new.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_custom_all_domain.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_custom_all_domain.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_universal_firewall.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/universal_firewall.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_tunnel_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_tunnel_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_ping_test_history.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_ping_test_history.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_adv_dns_filter.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_adv_dns_filter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_qr_code_scanner.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_qr_code_scanner.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_custom_domain.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_custom_domain.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_server_selection.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_server_selection.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_orbot_enabled.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/orbot_enabled.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dot_yellow.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dot_yellow.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_delete_small.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_delete_small.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_server_removal_notification.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_server_removal_notification.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_experimental.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_experimental.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_recycler_view_header_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/recycler_view_header_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_visibility.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_visibility.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_wg_general_interface.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_wg_general_interface.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_block_free_dns_mode.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_block_free_dns_mode.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_rethink_list.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_rethink_list.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_captive_portal_setting.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_captive_portal_setting.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_tombstone.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_tombstone.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_plus_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_plus_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_backup_restore.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_backup_restore.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_profile_memory.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_profile_memory.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_loopback_proxy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_loopback_proxy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_server.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_server.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_rpn_config_detail.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_rpn_config_detail.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_plus_hero_gradient.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_plus_hero_gradient.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_http.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_http.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_chip_toggle_stroke.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/chip_toggle_stroke.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_shield_check.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_shield_check.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_filter_badge.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_filter_badge.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_events.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_events.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_accent_btn_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/accent_btn_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_mastodon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_mastodon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_activity_avatar.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/drawable/bg_activity_avatar.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_loop_back_app.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_loop_back_app.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_configure_icon_container.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_configure_icon_container.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_app_log.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_app_log.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_misc_settings.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_misc_settings.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_custom_lan_ip.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_custom_lan_ip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_section_header.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/item_section_header.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_info_firewall_rules.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_info_firewall_rules.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_error_state.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_error_state.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/xml_locale_config.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/xml/locale_config.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_sponsor_badge.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_sponsor_badge.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_rpn_auto.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_rpn_auto.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_timeout.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_timeout.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_view_sponsor_badge.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/view_sponsor_badge.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_univ_metered.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_univ_metered.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_custom_domains.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_custom_domains.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_home_screen_cards_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/home_screen_cards_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_badge_background.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/badge_background.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_customer_support.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_customer_support.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/color_conn_tracker_segment_text.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/color/conn_tracker_segment_text.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_gradient_premium_bg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/gradient_premium_bg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_console_log.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_console_log.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_app_wise_ip_logs.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/activity_app_wise_ip_logs.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_firewall_data_on_grey_alpha.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_firewall_data_on_grey_alpha.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_log_activity_conn.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_log_activity_conn.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_privacy_policy.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_privacy_policy.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_info_white.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_info_white.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_spinner_item_firewall_status.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/spinner_item_firewall_status.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_element.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_element.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_custom_all_ip.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/list_item_custom_all_ip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_flood_wg.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_flood_wg.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_orbot.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_orbot.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_endpoint_independent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_endpoint_independent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_app_details.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_app_details.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_shimmer_placeholder.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/shimmer_placeholder.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_appearance.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_appearance.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_bypass_dns_firewall_on.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_bypass_dns_firewall_on.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_split_dns.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_split_dns.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_wg_nw_stats.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/fragment_wg_nw_stats.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_sad_2.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_sad_2.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dns_home_screen.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dns_home_screen.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_allow_dns_records.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_allow_dns_records.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_tour_premium_stripe.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_tour_premium_stripe.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_orbot_disabled.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/orbot_disabled.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-xxxhdpi_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-xxxhdpi/ic_notification_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_custom_ips.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottom_sheet_custom_ips.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_restore.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_restore.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_fragment_custom_ip.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/fragment_custom_ip.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_item_lockdown_check.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/item_lockdown_check.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_edit_icon.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_edit_icon.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_free.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_free.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_activity_bubble.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/activity_bubble.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_dolphin_happy_waves.webp.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/dolphin_happy_waves.webp"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_wg_add_peer.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dialog_wg_add_peer.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-mdpi_dns_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-mdpi/dns_icon.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_rethink_plus.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_rethink_plus.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_bg_sponsor_emblem.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/bg_sponsor_emblem.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_website.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_website.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_wg_hop.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_wg_hop.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_app_info_accent.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_app_info_accent.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dns_crypt_endpoint_list_item.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/dns_crypt_endpoint_list_item.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottom_sheet_firewall_sort_filter.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/bottom_sheet_firewall_sort_filter.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_ip_info.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_ip_info.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_dialog_info_rules_layout.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/dialog_info_rules_layout.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_telegram.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_telegram.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_bottomsheet_purchase_processing.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/bottomsheet_purchase_processing.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_drawable_purple_gradient.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/drawable_purple_gradient.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_list_item_vpn_server.xml.flat",
+        "source": "com.celzero.bravedns.app-main-73:/layout/list_item_vpn_server.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/layout_rethink_endpoint_list_item.xml.flat",
+        "source": "com.celzero.bravedns.app-full-72:/layout/rethink_endpoint_list_item.xml"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable_ic_launcher.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable/ic_launcher.png"
+    },
+    {
+        "merged": "com.celzero.bravedns.app-fdroidFullDebug-67:/drawable-hdpi_ic_notification_icon.png.flat",
+        "source": "com.celzero.bravedns.app-main-73:/drawable-hdpi/ic_notification_icon.png"
+    }
+]

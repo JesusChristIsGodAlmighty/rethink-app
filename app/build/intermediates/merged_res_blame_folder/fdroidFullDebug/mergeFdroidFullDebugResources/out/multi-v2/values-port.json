@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.celzero.bravedns.app-mergeFdroidFullDebugResources-65:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/root/.gradle/caches/9.6.0/transforms/f37a09f3bd1a69c37782410bf4bf8ba1/transformed/appcompat-1.8.0/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

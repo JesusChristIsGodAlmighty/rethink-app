@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.celzero.bravedns"
+    android:versionCode="80000073"
+    android:versionName="aeac108" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="37" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 70 for v058, 73 for play v058 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- https://developer.android.com/about/versions/13/behavior-changes-all#notification-permission -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Allows applications to change network connectivity state -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- WiFi and Location permissions required for SSID access -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!--
+ Android 11 introduces changes related to package visibility. These changes affect
+    apps only if they target Android 11.
+    https://developer.android.com/training/package-visibility
+    -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" /> <!-- Allows the app to perform actions across different users on the device. -->
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" /> <!-- required by Window#setHideOverlayWindows (API 31+) on some builds -->
+    <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="com.celzero.bravedns.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.celzero.bravedns.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <application
+        android:name="com.celzero.bravedns.RethinkDnsApplication"
+        android:allowBackup="false"
+        android:allowNativeHeapPointerTagging="false"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:debuggable="true"
+        android:enableOnBackInvokedCallback="true"
+        android:extractNativeLibs="false"
+        android:fullBackupContent="@xml/backup_rules"
+        android:gwpAsanMode="never"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:memtagMode="off"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:pageSizeCompat="enabled"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeInitial" >
+        <meta-data
+            android:name="android.webkit.WebView.MetricsOptOut"
+            android:value="true" />
+
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.FirewallActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.HomeScreenActivity"
+            android:launchMode="singleTask" /> <!-- Alias for HomeScreenActivity -->
+        <activity-alias
+            android:name="com.celzero.bravedns.ui.LauncherAliasHome"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:targetActivity="com.celzero.bravedns.ui.HomeScreenActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AppLockActivity"
+            android:exported="true"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:pathPattern=".*\\.rbk" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity> <!-- Alias for AppLockActivity -->
+        <activity-alias
+            android:name="com.celzero.bravedns.ui.activity.LauncherAliasAppLock"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:targetActivity="com.celzero.bravedns.ui.activity.AppLockActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.DnsDetailActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.WelcomeActivity"
+            android:finishOnTaskLaunch="true"
+            android:noHistory="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AppInfoActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.PauseActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.DnsListActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.CustomRulesActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.ConfigureRethinkBasicActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.ProxySettingsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.MiscSettingsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.TunnelSettingsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AppListActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.DetailedStatisticsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.NetworkLogsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.WgMainActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.WgConfigEditorActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.WgConfigDetailActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.CheckoutActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.PurchaseHistoryActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.ServerOrderHistoryActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.CustomerSupportActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.TcpProxyMainActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.WgIncludeAppsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.RpnBypassAppsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.UniversalFirewallSettingsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.ConfigureOtherDnsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.SmartDnsListActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.BlockFreeDnsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AppWiseIpLogsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AppWiseDomainLogsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.ConsoleLogActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.EventsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.NotificationHandlerActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:theme="@style/AppThemeDialog" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AlertsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AntiCensorshipActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.TestDialogActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.AdvancedSettingActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.DomainConnectionsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.PingTestActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.ConnectionCheckActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.FragmentHostActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.RpnWinProxyDetailsActivity"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.BubbleActivity"
+            android:allowEmbedded="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="standard"
+            android:resizeableActivity="true"
+            android:taskAffinity="" />
+        <activity
+            android:name="com.celzero.bravedns.ui.activity.RpnConfigDetailActivity"
+            android:finishOnTaskLaunch="true" />
+
+        <receiver
+            android:name="com.celzero.bravedns.receiver.BraveAutoStartReceiver"
+            android:directBootAware="false"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.USER_UNLOCKED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.celzero.bravedns.receiver.VpnControlReceiver"
+            android:exported="true"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.celzero.bravedns.intent.action.VPN_START" />
+                <action android:name="com.celzero.bravedns.intent.action.VPN_STOP" />
+                <action android:name="com.celzero.bravedns.intent.action.WG_START" />
+                <action android:name="com.celzero.bravedns.intent.action.WG_STOP" />
+                <action android:name="com.celzero.bravedns.intent.action.WG_PAUSE" />
+                <action android:name="com.celzero.bravedns.intent.action.WG_RESUME" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.celzero.bravedns.receiver.NotificationActionReceiver"
+            android:exported="false"
+            android:label="@string/app_name" />
+        <receiver
+            android:name="com.celzero.bravedns.receiver.UserPresentReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.celzero.bravedns.receiver.BubbleDismissReceiver"
+            android:exported="false" />
+
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false" >
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
+        <service
+            android:name="com.celzero.bravedns.util.BackgroundAccessibilityService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.celzero.bravedns.provider;com.celzero.bravedns.backup.BackupAgent"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+        <service
+            android:name="com.celzero.bravedns.service.BraveVPNService"
+            android:exported="true"
+            android:foregroundServiceType="systemExempted|connectedDevice"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:stopWithTask="false" >
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_LOCKDOWN"
+                android:value="true" />
+        </service>
+        <service
+            android:name="com.celzero.bravedns.service.BraveTileService"
+            android:exported="true"
+            android:icon="@drawable/shield_green"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+        <!--
+ WorkManager uses on-demand initialization via Configuration.Provider
+             on the Application classes; remove the default initializer. #3195
+        -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.celzero.bravedns.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="okhttp3.internal.platform.PlatformInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <service
+            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+            android:directBootAware="false"
+            android:enabled="@bool/enable_system_job_service_default"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:directBootAware="false"
+            android:enabled="@bool/enable_system_foreground_service_default"
+            android:exported="false" />
+
+        <receiver
+            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+            android:directBootAware="false"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule" />
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

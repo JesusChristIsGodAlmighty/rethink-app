@@ -1,0 +1,12 @@
+com.celzero.bravedns.app-fdroidFull-0 /workspace/app/build/generated/res/resValues/fdroidFull/debug
+com.celzero.bravedns.app-updated_navigation_xml-1 /workspace/app/build/generated/updated_navigation_xml/fdroidFullDebug
+com.celzero.bravedns.app-packageFdroidFullDebugResources-2 /workspace/app/build/intermediates/incremental/fdroidFullDebug/packageFdroidFullDebugResources/merged.dir
+com.celzero.bravedns.app-packageFdroidFullDebugResources-3 /workspace/app/build/intermediates/incremental/fdroidFullDebug/packageFdroidFullDebugResources/stripped.dir
+com.celzero.bravedns.app-fdroidFullDebug-4 /workspace/app/build/intermediates/merged_res/fdroidFullDebug/mergeFdroidFullDebugResources
+com.celzero.bravedns.app-debug-5 /workspace/app/src/debug/res
+com.celzero.bravedns.app-fdroid-6 /workspace/app/src/fdroid/res
+com.celzero.bravedns.app-fdroidFull-7 /workspace/app/src/fdroidFull/res
+com.celzero.bravedns.app-fdroidFullDebug-8 /workspace/app/src/fdroidFullDebug/res
+com.celzero.bravedns.app-full-9 /workspace/app/src/full/res
+com.celzero.bravedns.app-main-10 /workspace/app/src/main/res
+gradleHome-0 /root/.gradle

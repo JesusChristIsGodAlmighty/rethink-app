@@ -1,0 +1,954 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.celzero.bravedns"
+4    android:versionCode="30000073"
+5    android:versionName="aeac108" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="23"
+8-->INJECTED
+9        android:targetSdkVersion="37" />
+9-->INJECTED
+10
+11    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+11-->/workspace/app/src/full/AndroidManifest.xml:5:5-81
+11-->/workspace/app/src/full/AndroidManifest.xml:5:22-78
+12    <!-- 70 for v058, 73 for play v058 -->
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+13-->/workspace/app/src/main/AndroidManifest.xml:7:5-77
+13-->/workspace/app/src/main/AndroidManifest.xml:7:22-74
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
+14-->/workspace/app/src/main/AndroidManifest.xml:8:5-93
+14-->/workspace/app/src/main/AndroidManifest.xml:8:22-90
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+15-->/workspace/app/src/main/AndroidManifest.xml:9:5-94
+15-->/workspace/app/src/main/AndroidManifest.xml:9:22-91
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+16-->/workspace/app/src/main/AndroidManifest.xml:10:5-89
+16-->/workspace/app/src/main/AndroidManifest.xml:10:22-86
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- https://developer.android.com/about/versions/13/behavior-changes-all#notification-permission -->
+17-->/workspace/app/src/main/AndroidManifest.xml:11:5-79
+17-->/workspace/app/src/main/AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Allows applications to change network connectivity state -->
+18-->/workspace/app/src/main/AndroidManifest.xml:13:5-77
+18-->/workspace/app/src/main/AndroidManifest.xml:13:22-74
+19    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+19-->/workspace/app/src/main/AndroidManifest.xml:16:5-79
+19-->/workspace/app/src/main/AndroidManifest.xml:16:22-76
+20    <uses-permission android:name="android.permission.INTERNET" /> <!-- WiFi and Location permissions required for SSID access -->
+20-->/workspace/app/src/main/AndroidManifest.xml:17:5-67
+20-->/workspace/app/src/main/AndroidManifest.xml:17:22-64
+21    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+21-->/workspace/app/src/main/AndroidManifest.xml:20:5-76
+21-->/workspace/app/src/main/AndroidManifest.xml:20:22-73
+22    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+22-->/workspace/app/src/main/AndroidManifest.xml:21:5-79
+22-->/workspace/app/src/main/AndroidManifest.xml:21:22-76
+23    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+23-->/workspace/app/src/main/AndroidManifest.xml:22:5-81
+23-->/workspace/app/src/main/AndroidManifest.xml:22:22-78
+24    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+24-->/workspace/app/src/main/AndroidManifest.xml:23:5-106
+24-->/workspace/app/src/main/AndroidManifest.xml:23:22-82
+25    <!--
+26 Android 11 introduces changes related to package visibility. These changes affect
+27    apps only if they target Android 11.
+28    https://developer.android.com/training/package-visibility
+29    -->
+30    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" /> <!-- Allows the app to perform actions across different users on the device. -->
+30-->/workspace/app/src/main/AndroidManifest.xml:28:5-30:53
+30-->/workspace/app/src/main/AndroidManifest.xml:29:9-61
+31    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+31-->/workspace/app/src/main/AndroidManifest.xml:32:5-34:47
+31-->/workspace/app/src/main/AndroidManifest.xml:33:9-64
+32    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" /> <!-- required by Window#setHideOverlayWindows (API 31+) on some builds -->
+32-->/workspace/app/src/main/AndroidManifest.xml:36:5-79
+32-->/workspace/app/src/main/AndroidManifest.xml:36:22-76
+33    <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
+33-->/workspace/app/src/main/AndroidManifest.xml:39:5-79
+33-->/workspace/app/src/main/AndroidManifest.xml:39:22-76
+34    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
+34-->[androidx.biometric:biometric:1.1.0] /root/.gradle/caches/9.6.0/transforms/e052f18894277601dcea8af4992635a0/transformed/biometric-1.1.0/AndroidManifest.xml:24:5-72
+34-->[androidx.biometric:biometric:1.1.0] /root/.gradle/caches/9.6.0/transforms/e052f18894277601dcea8af4992635a0/transformed/biometric-1.1.0/AndroidManifest.xml:24:22-69
+35    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+35-->[androidx.biometric:biometric:1.1.0] /root/.gradle/caches/9.6.0/transforms/e052f18894277601dcea8af4992635a0/transformed/biometric-1.1.0/AndroidManifest.xml:27:5-74
+35-->[androidx.biometric:biometric:1.1.0] /root/.gradle/caches/9.6.0/transforms/e052f18894277601dcea8af4992635a0/transformed/biometric-1.1.0/AndroidManifest.xml:27:22-71
+36    <uses-permission android:name="android.permission.WAKE_LOCK" />
+36-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:23:5-68
+36-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:23:22-65
+37
+38    <permission
+38-->[androidx.core:core:1.19.0] /root/.gradle/caches/9.6.0/transforms/ac13bb5ad40fee9d17bdf452d66a879e/transformed/core-1.19.0/AndroidManifest.xml:22:5-24:47
+39        android:name="com.celzero.bravedns.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+39-->[androidx.core:core:1.19.0] /root/.gradle/caches/9.6.0/transforms/ac13bb5ad40fee9d17bdf452d66a879e/transformed/core-1.19.0/AndroidManifest.xml:23:9-81
+40        android:protectionLevel="signature" />
+40-->[androidx.core:core:1.19.0] /root/.gradle/caches/9.6.0/transforms/ac13bb5ad40fee9d17bdf452d66a879e/transformed/core-1.19.0/AndroidManifest.xml:24:9-44
+41
+42    <uses-permission android:name="com.celzero.bravedns.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+42-->[androidx.core:core:1.19.0] /root/.gradle/caches/9.6.0/transforms/ac13bb5ad40fee9d17bdf452d66a879e/transformed/core-1.19.0/AndroidManifest.xml:26:5-97
+42-->[androidx.core:core:1.19.0] /root/.gradle/caches/9.6.0/transforms/ac13bb5ad40fee9d17bdf452d66a879e/transformed/core-1.19.0/AndroidManifest.xml:26:22-94
+43    <uses-permission android:name="android.permission.CAMERA" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+43-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:22:5-65
+43-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:22:22-62
+44    <uses-feature
+44-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:25:5-27:36
+45        android:name="android.hardware.camera"
+45-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:26:9-47
+46        android:required="false" />
+46-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:27:9-33
+47    <uses-feature
+47-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:28:5-30:36
+48        android:name="android.hardware.camera.front"
+48-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:29:9-53
+49        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+49-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:30:9-33
+50    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+51    <uses-feature
+51-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:33:5-35:36
+52        android:name="android.hardware.camera.autofocus"
+52-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:34:9-57
+53        android:required="false" />
+53-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:35:9-33
+54    <uses-feature
+54-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:36:5-38:36
+55        android:name="android.hardware.camera.flash"
+55-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:37:9-53
+56        android:required="false" />
+56-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:38:9-33
+57    <uses-feature
+57-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:39:5-41:36
+58        android:name="android.hardware.screen.landscape"
+58-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:40:9-57
+59        android:required="false" />
+59-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:41:9-33
+60    <uses-feature
+60-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:42:5-44:36
+61        android:name="android.hardware.wifi"
+61-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:43:9-45
+62        android:required="false" />
+62-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:44:9-33
+63
+64    <application
+64-->/workspace/app/src/main/AndroidManifest.xml:42:5-105:19
+65        android:name="com.celzero.bravedns.RethinkDnsApplication"
+65-->/workspace/app/src/main/AndroidManifest.xml:43:9-46
+66        android:allowBackup="false"
+66-->/workspace/app/src/main/AndroidManifest.xml:44:9-36
+67        android:allowNativeHeapPointerTagging="false"
+67-->/workspace/app/src/main/AndroidManifest.xml:50:9-54
+68        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+68-->[androidx.core:core:1.19.0] /root/.gradle/caches/9.6.0/transforms/ac13bb5ad40fee9d17bdf452d66a879e/transformed/core-1.19.0/AndroidManifest.xml:28:18-86
+69        android:dataExtractionRules="@xml/data_extraction_rules"
+69-->/workspace/app/src/main/AndroidManifest.xml:45:9-65
+70        android:debuggable="true"
+71        android:enableOnBackInvokedCallback="true"
+71-->/workspace/app/src/main/AndroidManifest.xml:54:9-51
+72        android:extractNativeLibs="false"
+72-->INJECTED
+73        android:fullBackupContent="@xml/backup_rules"
+73-->/workspace/app/src/main/AndroidManifest.xml:46:9-54
+74        android:gwpAsanMode="never"
+74-->/workspace/app/src/main/AndroidManifest.xml:51:9-36
+75        android:icon="@mipmap/ic_launcher"
+75-->/workspace/app/src/main/AndroidManifest.xml:47:9-43
+76        android:label="@string/app_name"
+76-->/workspace/app/src/main/AndroidManifest.xml:48:9-41
+77        android:largeHeap="true"
+77-->/workspace/app/src/main/AndroidManifest.xml:49:9-33
+78        android:memtagMode="off"
+78-->/workspace/app/src/main/AndroidManifest.xml:52:9-33
+79        android:networkSecurityConfig="@xml/network_security_config"
+79-->/workspace/app/src/main/AndroidManifest.xml:57:9-69
+80        android:pageSizeCompat="enabled"
+80-->/workspace/app/src/main/AndroidManifest.xml:53:9-41
+81        android:roundIcon="@mipmap/ic_launcher_round"
+81-->/workspace/app/src/main/AndroidManifest.xml:55:9-54
+82        android:supportsRtl="true"
+82-->/workspace/app/src/main/AndroidManifest.xml:56:9-35
+83        android:theme="@style/AppThemeInitial" >
+83-->/workspace/app/src/full/AndroidManifest.xml:9:9-47
+84        <meta-data
+84-->/workspace/app/src/full/AndroidManifest.xml:10:9-12:36
+85            android:name="android.webkit.WebView.MetricsOptOut"
+85-->/workspace/app/src/full/AndroidManifest.xml:11:13-64
+86            android:value="true" />
+86-->/workspace/app/src/full/AndroidManifest.xml:12:13-33
+87
+88        <activity
+88-->/workspace/app/src/full/AndroidManifest.xml:14:9-16:49
+89            android:name="com.celzero.bravedns.ui.activity.FirewallActivity"
+89-->/workspace/app/src/full/AndroidManifest.xml:15:13-57
+90            android:finishOnTaskLaunch="true" />
+90-->/workspace/app/src/full/AndroidManifest.xml:16:13-46
+91        <activity
+91-->/workspace/app/src/full/AndroidManifest.xml:17:9-18:47
+92            android:name="com.celzero.bravedns.ui.HomeScreenActivity"
+92-->/workspace/app/src/full/AndroidManifest.xml:17:19-56
+93            android:launchMode="singleTask" /> <!-- Alias for HomeScreenActivity -->
+93-->/workspace/app/src/full/AndroidManifest.xml:18:13-44
+94        <activity-alias
+94-->/workspace/app/src/full/AndroidManifest.xml:54:9-65:26
+95            android:name="com.celzero.bravedns.ui.LauncherAliasHome"
+95-->/workspace/app/src/full/AndroidManifest.xml:55:13-49
+96            android:enabled="false"
+96-->/workspace/app/src/full/AndroidManifest.xml:56:13-36
+97            android:exported="true"
+97-->/workspace/app/src/full/AndroidManifest.xml:57:13-36
+98            android:icon="@mipmap/ic_launcher"
+98-->/workspace/app/src/full/AndroidManifest.xml:58:13-47
+99            android:label="@string/app_name"
+99-->/workspace/app/src/full/AndroidManifest.xml:59:13-45
+100            android:targetActivity="com.celzero.bravedns.ui.HomeScreenActivity" >
+100-->/workspace/app/src/full/AndroidManifest.xml:60:13-60
+101            <intent-filter>
+101-->/workspace/app/src/full/AndroidManifest.xml:47:13-50:29
+102                <action android:name="android.intent.action.MAIN" />
+102-->/workspace/app/src/full/AndroidManifest.xml:48:17-69
+102-->/workspace/app/src/full/AndroidManifest.xml:48:25-66
+103
+104                <category android:name="android.intent.category.LAUNCHER" />
+104-->/workspace/app/src/full/AndroidManifest.xml:49:17-77
+104-->/workspace/app/src/full/AndroidManifest.xml:49:27-74
+105            </intent-filter>
+106        </activity-alias>
+107
+108        <activity
+108-->/workspace/app/src/full/AndroidManifest.xml:19:9-38:20
+109            android:name="com.celzero.bravedns.ui.activity.AppLockActivity"
+109-->/workspace/app/src/full/AndroidManifest.xml:20:13-56
+110            android:exported="true"
+110-->/workspace/app/src/full/AndroidManifest.xml:21:13-36
+111            android:launchMode="singleTask" >
+111-->/workspace/app/src/full/AndroidManifest.xml:22:13-44
+112            <intent-filter>
+112-->/workspace/app/src/full/AndroidManifest.xml:23:13-25:29
+113                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+113-->/workspace/app/src/full/AndroidManifest.xml:24:17-99
+113-->/workspace/app/src/full/AndroidManifest.xml:24:25-96
+114            </intent-filter>
+115            <intent-filter>
+115-->/workspace/app/src/full/AndroidManifest.xml:26:13-37:29
+116                <action android:name="android.intent.action.VIEW" />
+116-->/workspace/app/src/full/AndroidManifest.xml:27:17-69
+116-->/workspace/app/src/full/AndroidManifest.xml:27:25-66
+117
+118                <category android:name="android.intent.category.DEFAULT" />
+118-->/workspace/app/src/full/AndroidManifest.xml:29:17-76
+118-->/workspace/app/src/full/AndroidManifest.xml:29:27-73
+119                <category android:name="android.intent.category.BROWSABLE" />
+119-->/workspace/app/src/full/AndroidManifest.xml:30:17-78
+119-->/workspace/app/src/full/AndroidManifest.xml:30:27-75
+120
+121                <data android:scheme="content" />
+121-->/workspace/app/src/full/AndroidManifest.xml:32:17-50
+121-->/workspace/app/src/full/AndroidManifest.xml:32:23-47
+122                <data android:scheme="file" />
+122-->/workspace/app/src/full/AndroidManifest.xml:32:17-50
+122-->/workspace/app/src/full/AndroidManifest.xml:32:23-47
+123                <data android:mimeType="*/*" />
+123-->/workspace/app/src/full/AndroidManifest.xml:32:17-50
+123-->/workspace/app/src/full/AndroidManifest.xml:34:23-45
+124                <data android:pathPattern=".*\\.rbk" />
+124-->/workspace/app/src/full/AndroidManifest.xml:32:17-50
+124-->/workspace/app/src/full/AndroidManifest.xml:35:23-53
+125                <data android:host="*" />
+125-->/workspace/app/src/full/AndroidManifest.xml:32:17-50
+125-->/workspace/app/src/full/AndroidManifest.xml:36:23-39
+126            </intent-filter>
+127        </activity> <!-- Alias for AppLockActivity -->
+128        <activity-alias
+128-->/workspace/app/src/full/AndroidManifest.xml:40:9-51:26
+129            android:name="com.celzero.bravedns.ui.activity.LauncherAliasAppLock"
+129-->/workspace/app/src/full/AndroidManifest.xml:41:13-61
+130            android:enabled="true"
+130-->/workspace/app/src/full/AndroidManifest.xml:42:13-35
+131            android:exported="true"
+131-->/workspace/app/src/full/AndroidManifest.xml:43:13-36
+132            android:icon="@mipmap/ic_launcher"
+132-->/workspace/app/src/full/AndroidManifest.xml:44:13-47
+133            android:label="@string/app_name"
+133-->/workspace/app/src/full/AndroidManifest.xml:45:13-45
+134            android:targetActivity="com.celzero.bravedns.ui.activity.AppLockActivity" >
+134-->/workspace/app/src/full/AndroidManifest.xml:46:13-66
+135            <intent-filter>
+135-->/workspace/app/src/full/AndroidManifest.xml:47:13-50:29
+136                <action android:name="android.intent.action.MAIN" />
+136-->/workspace/app/src/full/AndroidManifest.xml:48:17-69
+136-->/workspace/app/src/full/AndroidManifest.xml:48:25-66
+137
+138                <category android:name="android.intent.category.LAUNCHER" />
+138-->/workspace/app/src/full/AndroidManifest.xml:49:17-77
+138-->/workspace/app/src/full/AndroidManifest.xml:49:27-74
+139            </intent-filter>
+140        </activity-alias>
+141
+142        <activity
+142-->/workspace/app/src/full/AndroidManifest.xml:66:9-68:49
+143            android:name="com.celzero.bravedns.ui.activity.DnsDetailActivity"
+143-->/workspace/app/src/full/AndroidManifest.xml:67:13-58
+144            android:finishOnTaskLaunch="true" />
+144-->/workspace/app/src/full/AndroidManifest.xml:68:13-46
+145        <activity
+145-->/workspace/app/src/full/AndroidManifest.xml:69:9-72:40
+146            android:name="com.celzero.bravedns.ui.activity.WelcomeActivity"
+146-->/workspace/app/src/full/AndroidManifest.xml:70:13-56
+147            android:finishOnTaskLaunch="true"
+147-->/workspace/app/src/full/AndroidManifest.xml:71:13-46
+148            android:noHistory="true" />
+148-->/workspace/app/src/full/AndroidManifest.xml:72:13-37
+149        <activity
+149-->/workspace/app/src/full/AndroidManifest.xml:73:9-75:49
+150            android:name="com.celzero.bravedns.ui.activity.AppInfoActivity"
+150-->/workspace/app/src/full/AndroidManifest.xml:74:13-56
+151            android:finishOnTaskLaunch="true" />
+151-->/workspace/app/src/full/AndroidManifest.xml:75:13-46
+152        <activity
+152-->/workspace/app/src/full/AndroidManifest.xml:76:9-78:51
+153            android:name="com.celzero.bravedns.ui.activity.PauseActivity"
+153-->/workspace/app/src/full/AndroidManifest.xml:77:13-54
+154            android:launchMode="singleInstance" />
+154-->/workspace/app/src/full/AndroidManifest.xml:78:13-48
+155        <activity
+155-->/workspace/app/src/full/AndroidManifest.xml:79:9-81:49
+156            android:name="com.celzero.bravedns.ui.activity.DnsListActivity"
+156-->/workspace/app/src/full/AndroidManifest.xml:80:13-56
+157            android:finishOnTaskLaunch="true" />
+157-->/workspace/app/src/full/AndroidManifest.xml:81:13-46
+158        <activity
+158-->/workspace/app/src/full/AndroidManifest.xml:82:9-84:49
+159            android:name="com.celzero.bravedns.ui.activity.CustomRulesActivity"
+159-->/workspace/app/src/full/AndroidManifest.xml:83:13-60
+160            android:finishOnTaskLaunch="true" />
+160-->/workspace/app/src/full/AndroidManifest.xml:84:13-46
+161        <activity
+161-->/workspace/app/src/full/AndroidManifest.xml:85:9-87:49
+162            android:name="com.celzero.bravedns.ui.activity.ConfigureRethinkBasicActivity"
+162-->/workspace/app/src/full/AndroidManifest.xml:86:13-70
+163            android:finishOnTaskLaunch="true" />
+163-->/workspace/app/src/full/AndroidManifest.xml:87:13-46
+164        <activity
+164-->/workspace/app/src/full/AndroidManifest.xml:88:9-90:49
+165            android:name="com.celzero.bravedns.ui.activity.ProxySettingsActivity"
+165-->/workspace/app/src/full/AndroidManifest.xml:89:13-62
+166            android:finishOnTaskLaunch="true" />
+166-->/workspace/app/src/full/AndroidManifest.xml:90:13-46
+167        <activity
+167-->/workspace/app/src/full/AndroidManifest.xml:91:9-93:49
+168            android:name="com.celzero.bravedns.ui.activity.MiscSettingsActivity"
+168-->/workspace/app/src/full/AndroidManifest.xml:92:13-61
+169            android:finishOnTaskLaunch="true" />
+169-->/workspace/app/src/full/AndroidManifest.xml:93:13-46
+170        <activity
+170-->/workspace/app/src/full/AndroidManifest.xml:94:9-96:49
+171            android:name="com.celzero.bravedns.ui.activity.TunnelSettingsActivity"
+171-->/workspace/app/src/full/AndroidManifest.xml:95:13-63
+172            android:finishOnTaskLaunch="true" />
+172-->/workspace/app/src/full/AndroidManifest.xml:96:13-46
+173        <activity
+173-->/workspace/app/src/full/AndroidManifest.xml:97:9-99:49
+174            android:name="com.celzero.bravedns.ui.activity.AppListActivity"
+174-->/workspace/app/src/full/AndroidManifest.xml:98:13-56
+175            android:finishOnTaskLaunch="true" />
+175-->/workspace/app/src/full/AndroidManifest.xml:99:13-46
+176        <activity
+176-->/workspace/app/src/full/AndroidManifest.xml:100:9-102:49
+177            android:name="com.celzero.bravedns.ui.activity.DetailedStatisticsActivity"
+177-->/workspace/app/src/full/AndroidManifest.xml:101:13-67
+178            android:finishOnTaskLaunch="true" />
+178-->/workspace/app/src/full/AndroidManifest.xml:102:13-46
+179        <activity
+179-->/workspace/app/src/full/AndroidManifest.xml:103:9-105:49
+180            android:name="com.celzero.bravedns.ui.activity.NetworkLogsActivity"
+180-->/workspace/app/src/full/AndroidManifest.xml:104:13-60
+181            android:finishOnTaskLaunch="true" />
+181-->/workspace/app/src/full/AndroidManifest.xml:105:13-46
+182        <activity
+182-->/workspace/app/src/full/AndroidManifest.xml:106:9-108:49
+183            android:name="com.celzero.bravedns.ui.activity.WgMainActivity"
+183-->/workspace/app/src/full/AndroidManifest.xml:107:13-55
+184            android:finishOnTaskLaunch="true" />
+184-->/workspace/app/src/full/AndroidManifest.xml:108:13-46
+185        <activity
+185-->/workspace/app/src/full/AndroidManifest.xml:109:9-111:49
+186            android:name="com.celzero.bravedns.ui.activity.WgConfigEditorActivity"
+186-->/workspace/app/src/full/AndroidManifest.xml:110:13-63
+187            android:finishOnTaskLaunch="true" />
+187-->/workspace/app/src/full/AndroidManifest.xml:111:13-46
+188        <activity
+188-->/workspace/app/src/full/AndroidManifest.xml:112:9-114:49
+189            android:name="com.celzero.bravedns.ui.activity.WgConfigDetailActivity"
+189-->/workspace/app/src/full/AndroidManifest.xml:113:13-63
+190            android:finishOnTaskLaunch="true" />
+190-->/workspace/app/src/full/AndroidManifest.xml:114:13-46
+191        <activity
+191-->/workspace/app/src/full/AndroidManifest.xml:115:9-117:49
+192            android:name="com.celzero.bravedns.ui.activity.CheckoutActivity"
+192-->/workspace/app/src/full/AndroidManifest.xml:116:13-57
+193            android:finishOnTaskLaunch="true" />
+193-->/workspace/app/src/full/AndroidManifest.xml:117:13-46
+194        <activity
+194-->/workspace/app/src/full/AndroidManifest.xml:118:9-120:49
+195            android:name="com.celzero.bravedns.ui.activity.PurchaseHistoryActivity"
+195-->/workspace/app/src/full/AndroidManifest.xml:119:13-64
+196            android:finishOnTaskLaunch="true" />
+196-->/workspace/app/src/full/AndroidManifest.xml:120:13-46
+197        <activity
+197-->/workspace/app/src/full/AndroidManifest.xml:121:9-123:49
+198            android:name="com.celzero.bravedns.ui.activity.ServerOrderHistoryActivity"
+198-->/workspace/app/src/full/AndroidManifest.xml:122:13-67
+199            android:finishOnTaskLaunch="true" />
+199-->/workspace/app/src/full/AndroidManifest.xml:123:13-46
+200        <activity
+200-->/workspace/app/src/full/AndroidManifest.xml:124:9-126:49
+201            android:name="com.celzero.bravedns.ui.activity.CustomerSupportActivity"
+201-->/workspace/app/src/full/AndroidManifest.xml:125:13-64
+202            android:finishOnTaskLaunch="true" />
+202-->/workspace/app/src/full/AndroidManifest.xml:126:13-46
+203        <activity
+203-->/workspace/app/src/full/AndroidManifest.xml:127:9-129:49
+204            android:name="com.celzero.bravedns.ui.activity.TcpProxyMainActivity"
+204-->/workspace/app/src/full/AndroidManifest.xml:128:13-61
+205            android:finishOnTaskLaunch="true" />
+205-->/workspace/app/src/full/AndroidManifest.xml:129:13-46
+206        <activity
+206-->/workspace/app/src/full/AndroidManifest.xml:130:9-132:49
+207            android:name="com.celzero.bravedns.ui.activity.WgIncludeAppsActivity"
+207-->/workspace/app/src/full/AndroidManifest.xml:131:13-62
+208            android:finishOnTaskLaunch="true" />
+208-->/workspace/app/src/full/AndroidManifest.xml:132:13-46
+209        <activity
+209-->/workspace/app/src/full/AndroidManifest.xml:133:9-135:49
+210            android:name="com.celzero.bravedns.ui.activity.RpnBypassAppsActivity"
+210-->/workspace/app/src/full/AndroidManifest.xml:134:13-62
+211            android:finishOnTaskLaunch="true" />
+211-->/workspace/app/src/full/AndroidManifest.xml:135:13-46
+212        <activity
+212-->/workspace/app/src/full/AndroidManifest.xml:136:9-138:49
+213            android:name="com.celzero.bravedns.ui.activity.UniversalFirewallSettingsActivity"
+213-->/workspace/app/src/full/AndroidManifest.xml:137:13-74
+214            android:finishOnTaskLaunch="true" />
+214-->/workspace/app/src/full/AndroidManifest.xml:138:13-46
+215        <activity
+215-->/workspace/app/src/full/AndroidManifest.xml:139:9-141:49
+216            android:name="com.celzero.bravedns.ui.activity.ConfigureOtherDnsActivity"
+216-->/workspace/app/src/full/AndroidManifest.xml:140:13-66
+217            android:finishOnTaskLaunch="true" />
+217-->/workspace/app/src/full/AndroidManifest.xml:141:13-46
+218        <activity
+218-->/workspace/app/src/full/AndroidManifest.xml:142:9-144:49
+219            android:name="com.celzero.bravedns.ui.activity.SmartDnsListActivity"
+219-->/workspace/app/src/full/AndroidManifest.xml:143:13-61
+220            android:finishOnTaskLaunch="true" />
+220-->/workspace/app/src/full/AndroidManifest.xml:144:13-46
+221        <activity
+221-->/workspace/app/src/full/AndroidManifest.xml:145:9-147:49
+222            android:name="com.celzero.bravedns.ui.activity.BlockFreeDnsActivity"
+222-->/workspace/app/src/full/AndroidManifest.xml:146:13-61
+223            android:finishOnTaskLaunch="true" />
+223-->/workspace/app/src/full/AndroidManifest.xml:147:13-46
+224        <activity
+224-->/workspace/app/src/full/AndroidManifest.xml:148:9-150:49
+225            android:name="com.celzero.bravedns.ui.activity.AppWiseIpLogsActivity"
+225-->/workspace/app/src/full/AndroidManifest.xml:149:13-62
+226            android:finishOnTaskLaunch="true" />
+226-->/workspace/app/src/full/AndroidManifest.xml:150:13-46
+227        <activity
+227-->/workspace/app/src/full/AndroidManifest.xml:151:9-153:49
+228            android:name="com.celzero.bravedns.ui.activity.AppWiseDomainLogsActivity"
+228-->/workspace/app/src/full/AndroidManifest.xml:152:13-66
+229            android:finishOnTaskLaunch="true" />
+229-->/workspace/app/src/full/AndroidManifest.xml:153:13-46
+230        <activity
+230-->/workspace/app/src/full/AndroidManifest.xml:154:9-155:49
+231            android:name="com.celzero.bravedns.ui.activity.ConsoleLogActivity"
+231-->/workspace/app/src/full/AndroidManifest.xml:154:19-65
+232            android:finishOnTaskLaunch="true" />
+232-->/workspace/app/src/full/AndroidManifest.xml:155:13-46
+233        <activity
+233-->/workspace/app/src/full/AndroidManifest.xml:156:9-157:49
+234            android:name="com.celzero.bravedns.ui.activity.EventsActivity"
+234-->/workspace/app/src/full/AndroidManifest.xml:156:19-61
+235            android:finishOnTaskLaunch="true" />
+235-->/workspace/app/src/full/AndroidManifest.xml:157:13-46
+236        <activity
+236-->/workspace/app/src/full/AndroidManifest.xml:158:9-163:53
+237            android:name="com.celzero.bravedns.ui.NotificationHandlerActivity"
+237-->/workspace/app/src/full/AndroidManifest.xml:159:13-59
+238            android:excludeFromRecents="true"
+238-->/workspace/app/src/full/AndroidManifest.xml:160:13-46
+239            android:launchMode="singleInstance"
+239-->/workspace/app/src/full/AndroidManifest.xml:161:13-48
+240            android:taskAffinity=""
+240-->/workspace/app/src/full/AndroidManifest.xml:162:13-36
+241            android:theme="@style/AppThemeDialog" />
+241-->/workspace/app/src/full/AndroidManifest.xml:163:13-50
+242        <activity
+242-->/workspace/app/src/full/AndroidManifest.xml:164:9-167:49
+243            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+243-->/workspace/app/src/full/AndroidManifest.xml:165:13-74
+244            android:clearTaskOnLaunch="true"
+244-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:49:13-45
+245            android:screenOrientation="fullSensor"
+245-->/workspace/app/src/full/AndroidManifest.xml:166:13-51
+246            android:stateNotNeeded="true"
+246-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:51:13-42
+247            android:theme="@style/zxing_CaptureTheme"
+247-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:52:13-54
+248            android:windowSoftInputMode="stateAlwaysHidden" />
+248-->[com.journeyapps:zxing-android-embedded:4.3.0] /root/.gradle/caches/9.6.0/transforms/75a4677b3dd2561dd7c3813f5f0ddb1d/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:53:13-60
+249        <activity
+249-->/workspace/app/src/full/AndroidManifest.xml:168:9-170:49
+250            android:name="com.celzero.bravedns.ui.activity.AlertsActivity"
+250-->/workspace/app/src/full/AndroidManifest.xml:169:13-55
+251            android:finishOnTaskLaunch="true" />
+251-->/workspace/app/src/full/AndroidManifest.xml:170:13-46
+252        <activity
+252-->/workspace/app/src/full/AndroidManifest.xml:171:9-173:49
+253            android:name="com.celzero.bravedns.ui.activity.AntiCensorshipActivity"
+253-->/workspace/app/src/full/AndroidManifest.xml:172:13-63
+254            android:finishOnTaskLaunch="true" />
+254-->/workspace/app/src/full/AndroidManifest.xml:173:13-46
+255        <activity
+255-->/workspace/app/src/full/AndroidManifest.xml:174:9-176:40
+256            android:name="com.celzero.bravedns.ui.TestDialogActivity"
+256-->/workspace/app/src/full/AndroidManifest.xml:175:13-50
+257            android:exported="false" />
+257-->/workspace/app/src/full/AndroidManifest.xml:176:13-37
+258        <activity
+258-->/workspace/app/src/full/AndroidManifest.xml:177:9-179:49
+259            android:name="com.celzero.bravedns.ui.activity.AdvancedSettingActivity"
+259-->/workspace/app/src/full/AndroidManifest.xml:178:13-64
+260            android:finishOnTaskLaunch="true" />
+260-->/workspace/app/src/full/AndroidManifest.xml:179:13-46
+261        <activity
+261-->/workspace/app/src/full/AndroidManifest.xml:180:9-182:49
+262            android:name="com.celzero.bravedns.ui.activity.DomainConnectionsActivity"
+262-->/workspace/app/src/full/AndroidManifest.xml:181:13-66
+263            android:finishOnTaskLaunch="true" />
+263-->/workspace/app/src/full/AndroidManifest.xml:182:13-46
+264        <activity
+264-->/workspace/app/src/full/AndroidManifest.xml:183:9-185:49
+265            android:name="com.celzero.bravedns.ui.activity.PingTestActivity"
+265-->/workspace/app/src/full/AndroidManifest.xml:184:13-57
+266            android:finishOnTaskLaunch="true" />
+266-->/workspace/app/src/full/AndroidManifest.xml:185:13-46
+267        <activity
+267-->/workspace/app/src/full/AndroidManifest.xml:186:9-188:49
+268            android:name="com.celzero.bravedns.ui.activity.ConnectionCheckActivity"
+268-->/workspace/app/src/full/AndroidManifest.xml:187:13-64
+269            android:finishOnTaskLaunch="true" />
+269-->/workspace/app/src/full/AndroidManifest.xml:188:13-46
+270        <activity
+270-->/workspace/app/src/full/AndroidManifest.xml:189:9-190:49
+271            android:name="com.celzero.bravedns.ui.activity.FragmentHostActivity"
+271-->/workspace/app/src/full/AndroidManifest.xml:189:19-67
+272            android:finishOnTaskLaunch="true" />
+272-->/workspace/app/src/full/AndroidManifest.xml:190:13-46
+273        <activity
+273-->/workspace/app/src/full/AndroidManifest.xml:191:9-192:49
+274            android:name="com.celzero.bravedns.ui.activity.RpnWinProxyDetailsActivity"
+274-->/workspace/app/src/full/AndroidManifest.xml:191:19-73
+275            android:finishOnTaskLaunch="true" />
+275-->/workspace/app/src/full/AndroidManifest.xml:192:13-46
+276        <activity
+276-->/workspace/app/src/full/AndroidManifest.xml:193:9-199:44
+277            android:name="com.celzero.bravedns.ui.activity.BubbleActivity"
+277-->/workspace/app/src/full/AndroidManifest.xml:193:19-61
+278            android:allowEmbedded="true"
+278-->/workspace/app/src/full/AndroidManifest.xml:194:13-41
+279            android:excludeFromRecents="true"
+279-->/workspace/app/src/full/AndroidManifest.xml:197:13-46
+280            android:exported="false"
+280-->/workspace/app/src/full/AndroidManifest.xml:196:13-37
+281            android:launchMode="standard"
+281-->/workspace/app/src/full/AndroidManifest.xml:199:13-42
+282            android:resizeableActivity="true"
+282-->/workspace/app/src/full/AndroidManifest.xml:195:13-46
+283            android:taskAffinity="" />
+283-->/workspace/app/src/full/AndroidManifest.xml:198:13-36
+284        <activity
+284-->/workspace/app/src/full/AndroidManifest.xml:200:9-201:57
+285            android:name="com.celzero.bravedns.ui.activity.RpnConfigDetailActivity"
+285-->/workspace/app/src/full/AndroidManifest.xml:200:19-70
+286            android:finishOnTaskLaunch="true" />
+286-->/workspace/app/src/full/AndroidManifest.xml:201:21-54
+287
+288        <receiver
+288-->/workspace/app/src/full/AndroidManifest.xml:203:9-215:20
+289            android:name="com.celzero.bravedns.receiver.BraveAutoStartReceiver"
+289-->/workspace/app/src/full/AndroidManifest.xml:204:13-60
+290            android:directBootAware="false"
+290-->/workspace/app/src/full/AndroidManifest.xml:205:13-44
+291            android:exported="true"
+291-->/workspace/app/src/full/AndroidManifest.xml:206:13-36
+292            android:label="@string/app_name"
+292-->/workspace/app/src/full/AndroidManifest.xml:207:13-45
+293            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+293-->/workspace/app/src/full/AndroidManifest.xml:208:13-75
+294            <intent-filter android:priority="999" >
+294-->/workspace/app/src/full/AndroidManifest.xml:209:13-214:29
+294-->/workspace/app/src/full/AndroidManifest.xml:209:28-50
+295                <action android:name="android.intent.action.BOOT_COMPLETED" />
+295-->/workspace/app/src/full/AndroidManifest.xml:210:17-79
+295-->/workspace/app/src/full/AndroidManifest.xml:210:25-76
+296                <action android:name="android.intent.action.REBOOT" />
+296-->/workspace/app/src/full/AndroidManifest.xml:211:17-71
+296-->/workspace/app/src/full/AndroidManifest.xml:211:25-68
+297                <action android:name="android.intent.action.USER_UNLOCKED" />
+297-->/workspace/app/src/full/AndroidManifest.xml:212:17-78
+297-->/workspace/app/src/full/AndroidManifest.xml:212:25-75
+298                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+298-->/workspace/app/src/full/AndroidManifest.xml:213:17-84
+298-->/workspace/app/src/full/AndroidManifest.xml:213:25-81
+299            </intent-filter>
+300        </receiver>
+301        <receiver
+301-->/workspace/app/src/full/AndroidManifest.xml:216:9-228:20
+302            android:name="com.celzero.bravedns.receiver.VpnControlReceiver"
+302-->/workspace/app/src/full/AndroidManifest.xml:217:13-56
+303            android:exported="true"
+303-->/workspace/app/src/full/AndroidManifest.xml:218:13-36
+304            android:label="@string/app_name" >
+304-->/workspace/app/src/full/AndroidManifest.xml:219:13-45
+305            <intent-filter>
+305-->/workspace/app/src/full/AndroidManifest.xml:220:13-227:29
+306                <action android:name="com.celzero.bravedns.intent.action.VPN_START" />
+306-->/workspace/app/src/full/AndroidManifest.xml:221:17-87
+306-->/workspace/app/src/full/AndroidManifest.xml:221:25-84
+307                <action android:name="com.celzero.bravedns.intent.action.VPN_STOP" />
+307-->/workspace/app/src/full/AndroidManifest.xml:222:17-86
+307-->/workspace/app/src/full/AndroidManifest.xml:222:25-83
+308                <action android:name="com.celzero.bravedns.intent.action.WG_START" />
+308-->/workspace/app/src/full/AndroidManifest.xml:223:17-86
+308-->/workspace/app/src/full/AndroidManifest.xml:223:25-83
+309                <action android:name="com.celzero.bravedns.intent.action.WG_STOP" />
+309-->/workspace/app/src/full/AndroidManifest.xml:224:17-85
+309-->/workspace/app/src/full/AndroidManifest.xml:224:25-82
+310                <action android:name="com.celzero.bravedns.intent.action.WG_PAUSE" />
+310-->/workspace/app/src/full/AndroidManifest.xml:225:17-86
+310-->/workspace/app/src/full/AndroidManifest.xml:225:25-83
+311                <action android:name="com.celzero.bravedns.intent.action.WG_RESUME" />
+311-->/workspace/app/src/full/AndroidManifest.xml:226:17-87
+311-->/workspace/app/src/full/AndroidManifest.xml:226:25-84
+312            </intent-filter>
+313        </receiver>
+314        <receiver
+314-->/workspace/app/src/full/AndroidManifest.xml:229:9-232:48
+315            android:name="com.celzero.bravedns.receiver.NotificationActionReceiver"
+315-->/workspace/app/src/full/AndroidManifest.xml:230:13-64
+316            android:exported="false"
+316-->/workspace/app/src/full/AndroidManifest.xml:231:13-37
+317            android:label="@string/app_name" />
+317-->/workspace/app/src/full/AndroidManifest.xml:232:13-45
+318        <receiver
+318-->/workspace/app/src/full/AndroidManifest.xml:233:9-238:20
+319            android:name="com.celzero.bravedns.receiver.UserPresentReceiver"
+319-->/workspace/app/src/full/AndroidManifest.xml:233:19-63
+320            android:exported="false" >
+320-->/workspace/app/src/full/AndroidManifest.xml:234:13-37
+321            <intent-filter>
+321-->/workspace/app/src/full/AndroidManifest.xml:235:13-237:29
+322                <action android:name="android.intent.action.USER_PRESENT" />
+322-->/workspace/app/src/full/AndroidManifest.xml:236:17-77
+322-->/workspace/app/src/full/AndroidManifest.xml:236:25-74
+323            </intent-filter>
+324        </receiver>
+325        <receiver
+325-->/workspace/app/src/full/AndroidManifest.xml:239:9-241:40
+326            android:name="com.celzero.bravedns.receiver.BubbleDismissReceiver"
+326-->/workspace/app/src/full/AndroidManifest.xml:240:13-59
+327            android:exported="false" />
+327-->/workspace/app/src/full/AndroidManifest.xml:241:13-37
+328
+329        <service
+329-->/workspace/app/src/full/AndroidManifest.xml:243:9-250:19
+330            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+330-->/workspace/app/src/full/AndroidManifest.xml:244:13-82
+331            android:enabled="false"
+331-->/workspace/app/src/full/AndroidManifest.xml:245:13-36
+332            android:exported="false" >
+332-->/workspace/app/src/full/AndroidManifest.xml:246:13-37
+333            <meta-data
+333-->/workspace/app/src/full/AndroidManifest.xml:247:13-249:40
+334                android:name="autoStoreLocales"
+334-->/workspace/app/src/full/AndroidManifest.xml:248:17-48
+335                android:value="true" />
+335-->/workspace/app/src/full/AndroidManifest.xml:249:17-37
+336        </service>
+337        <service
+337-->/workspace/app/src/full/AndroidManifest.xml:252:9-264:19
+338            android:name="com.celzero.bravedns.util.BackgroundAccessibilityService"
+338-->/workspace/app/src/full/AndroidManifest.xml:253:13-64
+339            android:exported="true"
+339-->/workspace/app/src/full/AndroidManifest.xml:254:13-36
+340            android:label="@string/app_name"
+340-->/workspace/app/src/full/AndroidManifest.xml:255:13-45
+341            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+341-->/workspace/app/src/full/AndroidManifest.xml:256:13-79
+342            <intent-filter>
+342-->/workspace/app/src/full/AndroidManifest.xml:257:13-259:29
+343                <action android:name="android.accessibilityservice.AccessibilityService" />
+343-->/workspace/app/src/full/AndroidManifest.xml:258:17-92
+343-->/workspace/app/src/full/AndroidManifest.xml:258:25-89
+344            </intent-filter>
+345
+346            <meta-data
+346-->/workspace/app/src/full/AndroidManifest.xml:261:13-263:72
+347                android:name="android.accessibilityservice"
+347-->/workspace/app/src/full/AndroidManifest.xml:262:17-60
+348                android:resource="@xml/accessibility_service_config" />
+348-->/workspace/app/src/full/AndroidManifest.xml:263:17-69
+349        </service>
+350
+351        <provider
+351-->/workspace/app/src/full/AndroidManifest.xml:266:9-274:20
+352            android:name="androidx.core.content.FileProvider"
+352-->/workspace/app/src/full/AndroidManifest.xml:267:13-62
+353            android:authorities="com.celzero.bravedns.provider;com.celzero.bravedns.backup.BackupAgent"
+353-->/workspace/app/src/full/AndroidManifest.xml:268:13-96
+354            android:exported="false"
+354-->/workspace/app/src/full/AndroidManifest.xml:269:13-37
+355            android:grantUriPermissions="true" >
+355-->/workspace/app/src/full/AndroidManifest.xml:270:13-47
+356            <meta-data
+356-->/workspace/app/src/full/AndroidManifest.xml:271:13-273:63
+357                android:name="android.support.FILE_PROVIDER_PATHS"
+357-->/workspace/app/src/full/AndroidManifest.xml:272:17-67
+358                android:resource="@xml/file_provider_paths" />
+358-->/workspace/app/src/full/AndroidManifest.xml:273:17-60
+359        </provider>
+360
+361        <service
+361-->/workspace/app/src/main/AndroidManifest.xml:60:9-75:19
+362            android:name="com.celzero.bravedns.service.BraveVPNService"
+362-->/workspace/app/src/main/AndroidManifest.xml:61:13-52
+363            android:exported="true"
+363-->/workspace/app/src/main/AndroidManifest.xml:62:13-36
+364            android:foregroundServiceType="systemExempted|connectedDevice"
+364-->/workspace/app/src/main/AndroidManifest.xml:63:13-75
+365            android:permission="android.permission.BIND_VPN_SERVICE"
+365-->/workspace/app/src/main/AndroidManifest.xml:64:13-69
+366            android:stopWithTask="false" >
+366-->/workspace/app/src/main/AndroidManifest.xml:65:13-41
+367            <intent-filter>
+367-->/workspace/app/src/main/AndroidManifest.xml:66:13-68:29
+368                <action android:name="android.net.VpnService" />
+368-->/workspace/app/src/main/AndroidManifest.xml:67:17-65
+368-->/workspace/app/src/main/AndroidManifest.xml:67:25-62
+369            </intent-filter>
+370
+371            <meta-data
+371-->/workspace/app/src/main/AndroidManifest.xml:69:13-71:40
+372                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+372-->/workspace/app/src/main/AndroidManifest.xml:70:17-73
+373                android:value="true" />
+373-->/workspace/app/src/main/AndroidManifest.xml:71:17-37
+374            <meta-data
+374-->/workspace/app/src/main/AndroidManifest.xml:72:13-74:40
+375                android:name="android.net.VpnService.SUPPORTS_LOCKDOWN"
+375-->/workspace/app/src/main/AndroidManifest.xml:73:17-72
+376                android:value="true" />
+376-->/workspace/app/src/main/AndroidManifest.xml:74:17-37
+377        </service>
+378        <service
+378-->/workspace/app/src/main/AndroidManifest.xml:76:9-90:19
+379            android:name="com.celzero.bravedns.service.BraveTileService"
+379-->/workspace/app/src/main/AndroidManifest.xml:77:13-53
+380            android:exported="true"
+380-->/workspace/app/src/main/AndroidManifest.xml:78:13-36
+381            android:icon="@drawable/shield_green"
+381-->/workspace/app/src/main/AndroidManifest.xml:79:13-50
+382            android:label="@string/app_name"
+382-->/workspace/app/src/main/AndroidManifest.xml:80:13-45
+383            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+383-->/workspace/app/src/main/AndroidManifest.xml:81:13-77
+384            <intent-filter>
+384-->/workspace/app/src/main/AndroidManifest.xml:83:13-85:29
+385                <action android:name="android.service.quicksettings.action.QS_TILE" />
+385-->/workspace/app/src/main/AndroidManifest.xml:84:17-87
+385-->/workspace/app/src/main/AndroidManifest.xml:84:25-84
+386            </intent-filter>
+387
+388            <meta-data
+388-->/workspace/app/src/main/AndroidManifest.xml:87:13-89:40
+389                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+389-->/workspace/app/src/main/AndroidManifest.xml:88:17-77
+390                android:value="true" />
+390-->/workspace/app/src/main/AndroidManifest.xml:89:17-37
+391        </service>
+392        <!--
+393 WorkManager uses on-demand initialization via Configuration.Provider
+394             on the Application classes; remove the default initializer. #3195
+395        -->
+396        <provider
+396-->INJECTED
+397            android:name="androidx.startup.InitializationProvider"
+398            android:authorities="com.celzero.bravedns.androidx-startup"
+398-->INJECTED
+399            android:exported="false" >
+400            <meta-data
+400-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/9.6.0/transforms/e1adc20e7689fdd58f60e2fe99a86baf/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+401                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+401-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/9.6.0/transforms/e1adc20e7689fdd58f60e2fe99a86baf/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+402                android:value="androidx.startup" />
+402-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/9.6.0/transforms/e1adc20e7689fdd58f60e2fe99a86baf/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+403            <meta-data
+403-->[androidx.lifecycle:lifecycle-process:2.11.0] /root/.gradle/caches/9.6.0/transforms/a116e2706d1435196c5e70f78a14d38e/transformed/lifecycle-process-2.11.0/AndroidManifest.xml:29:13-31:52
+404                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+404-->[androidx.lifecycle:lifecycle-process:2.11.0] /root/.gradle/caches/9.6.0/transforms/a116e2706d1435196c5e70f78a14d38e/transformed/lifecycle-process-2.11.0/AndroidManifest.xml:30:17-78
+405                android:value="androidx.startup" />
+405-->[androidx.lifecycle:lifecycle-process:2.11.0] /root/.gradle/caches/9.6.0/transforms/a116e2706d1435196c5e70f78a14d38e/transformed/lifecycle-process-2.11.0/AndroidManifest.xml:31:17-49
+406            <meta-data
+406-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+407                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+407-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+408                android:value="androidx.startup" />
+408-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+409            <meta-data
+409-->[com.squareup.okhttp3:okhttp-android:5.5.0] /root/.gradle/caches/9.6.0/transforms/4c48b448aaac2051a53fb81063a567ac/transformed/okhttp/AndroidManifest.xml:16:13-18:52
+410                android:name="okhttp3.internal.platform.PlatformInitializer"
+410-->[com.squareup.okhttp3:okhttp-android:5.5.0] /root/.gradle/caches/9.6.0/transforms/4c48b448aaac2051a53fb81063a567ac/transformed/okhttp/AndroidManifest.xml:17:17-77
+411                android:value="androidx.startup" />
+411-->[com.squareup.okhttp3:okhttp-android:5.5.0] /root/.gradle/caches/9.6.0/transforms/4c48b448aaac2051a53fb81063a567ac/transformed/okhttp/AndroidManifest.xml:18:17-49
+412        </provider>
+413
+414        <service
+414-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:39:9-45:35
+415            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+415-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:40:13-84
+416            android:directBootAware="false"
+416-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:41:13-44
+417            android:enabled="@bool/enable_system_job_service_default"
+417-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:42:13-70
+418            android:exported="true"
+418-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:43:13-36
+419            android:permission="android.permission.BIND_JOB_SERVICE" />
+419-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:44:13-69
+420        <service
+420-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:46:9-52:35
+421            android:name="androidx.work.impl.foreground.SystemForegroundService"
+421-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:47:13-81
+422            android:directBootAware="false"
+422-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:48:13-44
+423            android:enabled="@bool/enable_system_foreground_service_default"
+423-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:49:13-77
+424            android:exported="false" />
+424-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:50:13-37
+425
+426        <receiver
+426-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:54:9-59:35
+427            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+427-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:55:13-88
+428            android:directBootAware="false"
+428-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:56:13-44
+429            android:enabled="true"
+429-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:57:13-35
+430            android:exported="false" />
+430-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:58:13-37
+431        <receiver
+431-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:60:9-69:20
+432            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+432-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:61:13-88
+433            android:directBootAware="false"
+433-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:62:13-44
+434            android:enabled="false"
+434-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:63:13-36
+435            android:exported="false" >
+435-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:64:13-37
+436            <intent-filter>
+436-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:66:13-68:29
+437                <action android:name="android.intent.action.BOOT_COMPLETED" />
+437-->/workspace/app/src/full/AndroidManifest.xml:210:17-79
+437-->/workspace/app/src/full/AndroidManifest.xml:210:25-76
+438            </intent-filter>
+439        </receiver>
+440        <receiver
+440-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:70:9-80:20
+441            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+441-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:71:13-78
+442            android:directBootAware="false"
+442-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:72:13-44
+443            android:enabled="true"
+443-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:73:13-35
+444            android:exported="true"
+444-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:74:13-36
+445            android:permission="android.permission.DUMP" >
+445-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:75:13-57
+446            <intent-filter>
+446-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:77:13-79:29
+447                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+447-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:78:17-88
+447-->[androidx.work:work-runtime:2.11.2] /root/.gradle/caches/9.6.0/transforms/a14920e0582c332c5eb04d6d4b9a0549/transformed/work-runtime-2.11.2/AndroidManifest.xml:78:25-85
+448            </intent-filter>
+449        </receiver>
+450
+451        <service
+451-->[androidx.room:room-runtime-android:2.8.4] /root/.gradle/caches/9.6.0/transforms/548e82caa78ab6ff1e749247269b3a9f/transformed/room-runtime/AndroidManifest.xml:24:9-28:63
+452            android:name="androidx.room.MultiInstanceInvalidationService"
+452-->[androidx.room:room-runtime-android:2.8.4] /root/.gradle/caches/9.6.0/transforms/548e82caa78ab6ff1e749247269b3a9f/transformed/room-runtime/AndroidManifest.xml:25:13-74
+453            android:directBootAware="true"
+453-->[androidx.room:room-runtime-android:2.8.4] /root/.gradle/caches/9.6.0/transforms/548e82caa78ab6ff1e749247269b3a9f/transformed/room-runtime/AndroidManifest.xml:26:13-43
+454            android:exported="false" />
+454-->[androidx.room:room-runtime-android:2.8.4] /root/.gradle/caches/9.6.0/transforms/548e82caa78ab6ff1e749247269b3a9f/transformed/room-runtime/AndroidManifest.xml:27:13-37
+455
+456        <meta-data
+456-->[com.github.bumptech.glide:okhttp3-integration:5.0.9] /root/.gradle/caches/9.6.0/transforms/c3a6733dbfd72e9a310b3fb9dc85fc5a/transformed/okhttp3-integration-5.0.9/AndroidManifest.xml:8:9-10:43
+457            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+457-->[com.github.bumptech.glide:okhttp3-integration:5.0.9] /root/.gradle/caches/9.6.0/transforms/c3a6733dbfd72e9a310b3fb9dc85fc5a/transformed/okhttp3-integration-5.0.9/AndroidManifest.xml:9:13-84
+458            android:value="GlideModule" />
+458-->[com.github.bumptech.glide:okhttp3-integration:5.0.9] /root/.gradle/caches/9.6.0/transforms/c3a6733dbfd72e9a310b3fb9dc85fc5a/transformed/okhttp3-integration-5.0.9/AndroidManifest.xml:10:13-40
+459
+460        <uses-library
+460-->[androidx.window:window:1.0.0] /root/.gradle/caches/9.6.0/transforms/aa36b6dc93af3a0166934bd49bbe06c1/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+461            android:name="androidx.window.extensions"
+461-->[androidx.window:window:1.0.0] /root/.gradle/caches/9.6.0/transforms/aa36b6dc93af3a0166934bd49bbe06c1/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+462            android:required="false" />
+462-->[androidx.window:window:1.0.0] /root/.gradle/caches/9.6.0/transforms/aa36b6dc93af3a0166934bd49bbe06c1/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+463        <uses-library
+463-->[androidx.window:window:1.0.0] /root/.gradle/caches/9.6.0/transforms/aa36b6dc93af3a0166934bd49bbe06c1/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+464            android:name="androidx.window.sidecar"
+464-->[androidx.window:window:1.0.0] /root/.gradle/caches/9.6.0/transforms/aa36b6dc93af3a0166934bd49bbe06c1/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+465            android:required="false" />
+465-->[androidx.window:window:1.0.0] /root/.gradle/caches/9.6.0/transforms/aa36b6dc93af3a0166934bd49bbe06c1/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+466
+467        <receiver
+467-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+468            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+468-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+469            android:directBootAware="false"
+469-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+470            android:enabled="true"
+470-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+471            android:exported="true"
+471-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+472            android:permission="android.permission.DUMP" >
+472-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+473            <intent-filter>
+473-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+474                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+474-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+474-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+475            </intent-filter>
+476            <intent-filter>
+476-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+477                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+477-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+477-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+478            </intent-filter>
+479            <intent-filter>
+479-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+480                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+480-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+480-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+481            </intent-filter>
+482            <intent-filter>
+482-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+483                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+483-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+483-->[androidx.profileinstaller:profileinstaller:1.4.0] /root/.gradle/caches/9.6.0/transforms/133faa8ccc1ab81b8b43fb33087cdfd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+484            </intent-filter>
+485        </receiver>
+486    </application>
+487
+488</manifest>

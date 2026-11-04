@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ny notifikation</item>
+    <item quantity="other">%d nye notifikationer</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Find hjem"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Gå op"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Flere valgmuligheder"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Udfør"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Se alle"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Vælg en app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"FRA"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"TIL"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"slet"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"mellemrum"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Søg…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Ryd forespørgsel"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Søgeforespørgsel"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Søg"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Indsend forespørgsel"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Talesøgning"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Del med"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Del med <xliff:g id="APPLICATION_NAME">%s</xliff:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Skjul"</string>
+    <string name="about_title_desc" translatable="true">Opdag og blokér netværkssikkerhedstrusler</string>
+    <string name="accessibility_service_description" translatable="true">Rethink bruger tilgængelighedstjenester til at opdage baggrundsapplikationer og sætte en firewall op. Rethink indsamler eller sælger ingen oplysninger.</string>
+    <string name="alert_firewall_accessibility_exception" translatable="true">Kunne ikke åbne tilgængelighedsindstillinger. Prøv igen senere!</string>
+    <string name="alert_firewall_accessibility_explanation" translatable="true">Rethink bruger tilgængelighedstjenester til at spore, hvilke apps der er i brug (i forgrunden) mod dem, der ikke er i brug (i baggrunden).\n\nRethink indsamler ikke oplysninger eller spionerer på dig på nogen som helst måde.</string>
+    <string name="alert_firewall_accessibility_regrant_explanation" translatable="true">Rethink tilgængelighedstjeneste er stoppet eller brudt sammen. <i><b>Gå til indstillinger og gennemtving et stop</b></i> Rethink og opstart igen for at bruge <i>Blokér alle apps, der ikke er i brug</i>-funktionen.\n\nRethink bruger tilgængelighedstjenester til at spore, hvilke apps der er i brug (i forgrunden) mod dem, der ikke er i brug (i baggrunden).</string>
+    <string name="alert_permission_accessibility" translatable="true">Tilladelse - tilgængelighed</string>
+    <string name="allow" translatable="true">tillad</string>
+    <string name="always_on_dialog" translatable="true">\"Altid på-VPN\" er aktiveret på denne enhed. For at starte Rethink skal du gå til indstillinger og deaktivere \"Altid på-VPN\".</string>
+    <string name="always_on_dialog_heading" translatable="true">Deaktivér \"Altid på-VPN\"</string>
+    <string name="always_on_dialog_positive_btn" translatable="true">Gå til indstillinger</string>
+    <string name="apps_info_title" translatable="true">Apps</string>
+    <string name="block" translatable="true">blokér</string>
+    <string name="bottomsheet_action_collapse">Skjul</string>
+    <string name="bottomsheet_action_collapse_description">Skjul feltet i bunden</string>
+    <string name="bottomsheet_action_expand">Udvid</string>
+    <string name="bottomsheet_action_expand_description">Udvid feltet i bunden</string>
+    <string name="bottomsheet_action_expand_halfway">Udvid halvdelen</string>
+    <string name="bottomsheet_action_half_expand_description">Udvid feltet i bunden halvt</string>
+    <string name="bottomsheet_drag_handle_content_description">Håndtag</string>
+    <string name="bottomsheet_state_collapsed">Skjult</string>
+    <string name="bottomsheet_state_expanded">Udvidet</string>
+    <string name="bottomsheet_state_half_expanded">Halvt udvidet</string>
+    <string name="brave_dns_connect_mode_change_dns" translatable="true">Vælg tilstand.</string>
+    <string name="brave_dns_connect_mode_change_firewall" translatable="true">Vælg tilstand.</string>
+    <string name="bsct_app_info" translatable="true">App-information</string>
+    <string name="bsct_block" translatable="true">Blokér, omgå, ekskludér, isolér &lt;u>denne app&lt;/u></string>
+    <string name="bsct_block_domain" translatable="true">Blokér, stol på &lt;u>domæne(r)&lt;/u> for &lt;u>denne app&lt;/u></string>
+    <string name="bsct_block_ip" translatable="true">Blokér, stol på &lt;u>denne IP&lt;/u> for &lt;u>denne app&lt;/u></string>
+    <string name="bsct_conn_block_desc" translatable="true">blokerede %1$s af %2$s</string>
+    <string name="bsct_conn_block_desc_device" translatable="true">blokerede %1$s på enheden</string>
+    <string name="bsct_conn_desc_allowed" translatable="true">tilladt på %1$s%2$s</string>
+    <string name="bsct_conn_desc_blocked" translatable="true">blokeret på %1$s%2$s</string>
+    <string name="bsct_conn_rule_explanation" translatable="true">&lt;u>#1&lt;/u>: Blokerer en app fra at forbinde til internettet.\n&lt;u>#2&lt;/u>: Blokerer enhver app fra tilslutning til en bestemt IP.\n&lt;u>#3&lt;/u>: Blokerer alle forbindelser, når enheden er låst (Universel firewall).\n&lt;u>#4&lt;/u>: Blokerer enhver app, der ikke er i brug (Universel firewall).\n&lt;u>#5&lt;/u>: Blokerer forbindelser, når kildeapp\'en er ukendt (Universel firewall).\n&lt;u>#6&lt;/u>: Blokerer al UDP-trafik undtagen DNS (Universel firewall).\n&lt;u>#7&lt;/u>: Blokér forbindelser, når DNS omgås (Universel firewall).</string>
+    <string name="bypass_dns_firewall" translatable="true">omgå dns &amp; firewall</string>
+    <string name="bypass_universal" translatable="true">omgå universel</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Besvar"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Afvis"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Læg på"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Indgående opkald"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Igangværende opkald"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Et indgående opkald screenes"</string>
+    <string name="character_counter_content_description">Du har brugt %1$d ud af %2$d tegn</string>
+    <string name="character_counter_overflowed_content_description">Du har brugt %1$d tegn og dermed overskredet tegnbegrænsningen på %2$d.</string>
+    <string name="clear_text_end_icon_content_description">Ryd tekst</string>
+    <string msgid="5912733858573823945" name="confirm_device_credential_password">"Brug adgangskode"</string>
+    <string name="conn_track_clear_logs_message" translatable="true">Dette sletter kun netværkslogfiler, men ikke firewall-regler. Dette kan ikke omgøres. Vil du fortsætte?</string>
+    <string name="conn_track_clear_logs_title" translatable="true">Slet alle netværkslogfiler?</string>
+    <string name="conn_track_clear_rule_logs_message" translatable="true">Dette vil kun slette netværkslogfiler for den aktuelle firewall-regel. Dette kan ikke omgøres. Vil du fortsætte?</string>
+    <string name="conn_track_clear_rule_logs_title" translatable="true">Slet logfiler for denne regel?</string>
+    <string msgid="6083905920877235314" name="copy">"Kopiér"</string>
+    <string name="custom_url_error_invalid_url" translatable="true">Ugyldig URL</string>
+    <string name="default_dns_name" translatable="true">RDNS standard</string>
+    <string msgid="4776854077120974966" name="default_error_msg">"Ukendt fejl"</string>
+    <string name="dns_desc" translatable="true">Vælg mellem 190+ lister for at stoppe annoncer, trackere og malware.</string>
+    <string description="The message will be shown when the DNS is connected" name="dns_explanation_connected" translatable="true">Tilsluttet RethinkDNS og firewall</string>
+    <string name="dns_explanation_dns_connected" translatable="true">Tilsluttet RethinkDNS</string>
+    <string name="dns_explanation_firewall_connected" translatable="true">Tilsluttet firewall</string>
+    <string name="dns_firewall_mode_info_explanation_new" translatable="true">Alle ovenstående + omgå internetcensur.</string>
+    <string name="dns_mode_info_explanation_new" translatable="true">Overvåg, blokér og kryptér DNS-anmodninger.</string>
+    <string name="dns_mode_info_title" translatable="true">DNS</string>
+    <string name="dns_mode_notification_title" translatable="true">Beskyttet! Tilsluttet hurtig og sikker DNS.</string>
+    <string name="dns_query_clear_logs_message" translatable="true">Dette sletter DNS-logfiler på enhenden. Dette kan ikke omgøres. Vil du fortsætte?</string>
+    <string name="dns_query_clear_logs_title" translatable="true">Slet alle DNS-logfiler?</string>
+    <string name="dns_title" translatable="true">Blokér reklamer &amp; malware med DNS</string>
+    <string name="error_a11y_label">Fejl: ugyldig</string>
+    <string name="error_icon_content_description">Fejl</string>
+    <string name="exclude" translatable="true">ekskludér</string>
+    <string msgid="2427401033573778270" name="expand_button_title">"Avanceret"</string>
+    <string name="exposed_dropdown_menu_content_description">Vis rullemenuen</string>
+    <string msgid="1072308044213194243" name="fingerprint_dialog_touch_sensor">"Sæt finger på fingeraftrykslæser"</string>
+    <string msgid="8216738333501875566" name="fingerprint_error_hw_not_available">"Hardwaren til fingeraftryk er ikke tilgængelig."</string>
+    <string msgid="6306988885793029438" name="fingerprint_error_hw_not_present">"Denne enhed har ingen fingeraftrykslæser"</string>
+    <string msgid="7291787166416782245" name="fingerprint_error_lockout">"Der var for mange forsøg Prøv igen senere."</string>
+    <string msgid="7520712796891883488" name="fingerprint_error_no_fingerprints">"Der er ikke registreret nogen fingeraftryk."</string>
+    <string msgid="7627716295344353987" name="fingerprint_error_user_canceled">"Fingeraftrykshandlingen blev annulleret af brugeren."</string>
+    <string msgid="3873359464293253009" name="fingerprint_not_recognized">"Ikke genkendt"</string>
+    <string name="finish" translatable="true">Fuldfør</string>
+    <string name="firewall_desc" translatable="true">Kontrollér apps\' internetbrug; begræns forbindelser baseret på app- eller netværksaktivitet.</string>
+    <string name="firewall_mode_info_explanation_new" translatable="true">Overvåg netværksaktivitet og beskyt enhver app eller IP-adresse bag en firewall.</string>
+    <string name="firewall_mode_info_title" translatable="true">Firewall</string>
+    <string name="firewall_mode_notification_title" translatable="true">Beskyttet! Tilsluttet firewall.</string>
+    <string name="firewall_rules" translatable="true">Netværksregler</string>
+    <string name="firewall_title" translatable="true">Beskyt din Android-enhed med firewall</string>
+    <string msgid="3791785319221634505" name="generic_error_no_device_credential">"Der er ikke angivet pinkode, mønster eller adgangskode."</string>
+    <string msgid="1807436368654974044" name="generic_error_no_keyguard">"Denne enhed understøtter ikke pinkode, mønster eller adgangskode."</string>
+    <string msgid="7309881387583143581" name="generic_error_user_canceled">"Godkendelsen er annulleret af brugeren."</string>
+    <string name="hybrid_mode_info_title" translatable="true">DNS + firewall</string>
+    <string name="hybrid_mode_notification_title" translatable="true">Beskyttet! Tilsluttet DNS + firewall.</string>
+    <string name="hybrid_mode_with_proxy_notification_title" translatable="true">Beskyttet! Tilsluttet DNS + firewall + proxy.</string>
+    <string name="icon_content_description">Ikon for dialogboks</string>
+    <string name="isolate" translatable="true">isolér</string>
+    <string name="item_view_role_description">Fane</string>
+    <string name="lbl_action" translatable="true">Handling</string>
+    <string name="lbl_action_required" translatable="true">Handling krævet</string>
+    <string name="lbl_active" translatable="true">Aktiv</string>
+    <string name="lbl_add" translatable="true">tilføj</string>
+    <string name="lbl_addresses" translatable="true">Adresser</string>
+    <string name="lbl_all" translatable="true">Alle</string>
+    <string name="lbl_allowed" translatable="true">Tilladt</string>
+    <string name="lbl_allowed_ips" translatable="true">Tilladte IP\'er</string>
+    <string name="lbl_anonymous" translatable="true">anonym</string>
+    <string name="lbl_app_wise" translatable="true">pr app</string>
+    <string name="lbl_applications" translatable="true">Applikationer</string>
+    <string name="lbl_apply" translatable="true">Anvend</string>
+    <string name="lbl_auto" translatable="true">(auto)</string>
+    <string name="lbl_blocked" translatable="true">Blokeret</string>
+    <string name="lbl_cache" translatable="true">Cache</string>
+    <string name="lbl_cancel" translatable="true">Annullér</string>
+    <string name="lbl_configure" translatable="true">Konfigurér</string>
+    <string name="lbl_connect" translatable="true">Tilslut</string>
+    <string name="lbl_create" translatable="true">Opret</string>
+    <string name="lbl_criteria" translatable="true">Kriterier</string>
+    <string name="lbl_day" translatable="true">dag</string>
+    <string name="lbl_default" translatable="true">Standard</string>
+    <string name="lbl_delete" translatable="true">Slet</string>
+    <string name="lbl_disabled" translatable="true">Deaktiveret</string>
+    <string name="lbl_dismiss" translatable="true">Afvis</string>
+    <string name="lbl_dns_servers" translatable="true">DNS-servere</string>
+    <string name="lbl_domain" translatable="true">Domæne</string>
+    <string name="lbl_domain_rules" translatable="true">Domæneregler</string>
+    <string name="lbl_experimental" translatable="true">(eksperimentel)</string>
+    <string name="lbl_fast" translatable="true">hurtig</string>
+    <string name="lbl_generated" translatable="true">(genereret)</string>
+    <string name="lbl_hop" translatable="true">Relæer</string>
+    <string name="lbl_hour" translatable="true">t</string>
+    <string name="lbl_http" translatable="true">HTTP</string>
+    <string name="lbl_http_socks5" translatable="true">HTTPS &amp; SOCKS5</string>
+    <string name="lbl_idle" translatable="true">Inaktiv</string>
+    <string name="lbl_import" translatable="true">Importér</string>
+    <string name="lbl_inactive" translatable="true">Inaktiv</string>
+    <string name="lbl_include" translatable="true">Inkludér</string>
+    <string name="lbl_insecure" translatable="true">(usikker)</string>
+    <string name="lbl_ip_rules" translatable="true">IP-regler</string>
+    <string name="lbl_last" translatable="true">Sidst</string>
+    <string name="lbl_logs" translatable="true">logfiler</string>
+    <string name="lbl_manual" translatable="true">Vejledning</string>
+    <string name="lbl_maybe_blocked" translatable="true">Måske blokeret</string>
+    <string name="lbl_min" translatable="true">min</string>
+    <string name="lbl_mtu" translatable="true">MTU</string>
+    <string name="lbl_network" translatable="true">netværk</string>
+    <string name="lbl_notification" translatable="true">notifikation</string>
+    <string name="lbl_on_device" translatable="true">på enheden</string>
+    <string name="lbl_optional" translatable="true">(valgfri)</string>
+    <string name="lbl_overall" translatable="true">Samlet</string>
+    <string name="lbl_peer" translatable="true">Peer</string>
+    <string name="lbl_private" translatable="true">privat</string>
+    <string name="lbl_private_key" translatable="true">Privat nøgle</string>
+    <string name="lbl_proceed" translatable="true">Fortsæt</string>
+    <string name="lbl_protos" translatable="true">protos</string>
+    <string name="lbl_public_key" translatable="true">Offentlig nøgle</string>
+    <string name="lbl_qr_code" translatable="true">QR-kode</string>
+    <string name="lbl_random" translatable="true">(tilfældig)</string>
+    <string name="lbl_remove" translatable="true">Fjern</string>
+    <string name="lbl_rules" translatable="true">regler</string>
+    <string name="lbl_save" translatable="true">gem</string>
+    <string name="lbl_sec" translatable="true">sek</string>
+    <string name="lbl_secure" translatable="true">sikker</string>
+    <string name="lbl_select_all" translatable="true">vælg alle</string>
+    <string name="lbl_service_providers" translatable="true">Serviceudbydere</string>
+    <string name="lbl_slow" translatable="true">langsom</string>
+    <string name="lbl_socks5" translatable="true">SOCKS5</string>
+    <string name="lbl_split" translatable="true">Opdel</string>
+    <string name="lbl_starting" translatable="true">Starter</string>
+    <string name="lbl_status" translatable="true">Status</string>
+    <string name="lbl_stopped" translatable="true">Stoppet</string>
+    <string name="lbl_test" translatable="true">test</string>
+    <string name="lbl_unselected" translatable="true">Ikke valgt</string>
+    <string name="lbl_very" translatable="true">meget</string>
+    <string name="lbl_wildcard" translatable="true">Wildcard</string>
+    <string name="lbl_wireguard" translatable="true">WireGuard</string>
+    <string name="m3_loading_indicator_content_description">Indlæser</string>
+    <string name="m3_overflow_linear_layout_button_content_description">Prikmenu</string>
+    <string name="m3_overflow_linear_layout_button_tooltip_text">Flere valgmuligheder</string>
+    <string name="material_clock_toggle_content_description">Vælg AM eller PM</string>
+    <string name="material_hour_24h_suffix">%1$s timer</string>
+    <string name="material_hour_selection">Vælg time</string>
+    <string name="material_hour_suffix">klokken %1$s</string>
+    <string name="material_minute_selection">Vælg minutter</string>
+    <string name="material_minute_suffix">%1$s minutter</string>
+    <string name="material_slider_range_end">Slut på interval</string>
+    <string name="material_slider_range_start">Start på interval</string>
+    <string name="material_slider_value">Værdi</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Skift til urtilstand for at angive klokkeslæt.</string>
+    <string name="material_timepicker_clock_mode_tooltip">Skift til urtilstand</string>
+    <string name="material_timepicker_hour">Time</string>
+    <string name="material_timepicker_hour_error">Timetal skal være 1-12</string>
+    <string name="material_timepicker_hour_error_24h">Timetal skal være 0-23</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_minute_error">Minuttal skal være 0-59</string>
+    <string name="material_timepicker_pm">e.m.</string>
+    <string name="material_timepicker_select_time">Vælg tidspunkt</string>
+    <string name="material_timepicker_text_input_mode_description">Skift til teksttilstand for at angive klokkeslæt.</string>
+    <string name="material_timepicker_text_input_mode_tooltip">Skift til input-tilstand for tekst</string>
+    <string name="memory_notification_text">Rethink oplever lav hukommelse. Systemhandlinger kan være begrænsede.</string>
+    <string name="mtrl_badge_numberless_content_description">Ny notifikation</string>
+    <string name="mtrl_button_collapsed_content_description">Skjult</string>
+    <string name="mtrl_button_expanded_content_description">Udvidet</string>
+    <string name="mtrl_button_overflow_icon_content_description">Prikmenu</string>
+    <string name="mtrl_button_snackbar_close_content_description">Luk</string>
+    <string name="mtrl_checkbox_state_description_checked">Markeret</string>
+    <string name="mtrl_checkbox_state_description_indeterminate">Delvist markeret</string>
+    <string name="mtrl_checkbox_state_description_unchecked">Ikke markeret</string>
+    <string name="mtrl_chip_close_icon_content_description">Fjern %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns1:ignore="PluralsCandidate">Flere end %1$d nye notifikationer</string>
+    <string name="mtrl_picker_a11y_next_month">Skift til næste måned</string>
+    <string name="mtrl_picker_a11y_prev_month">Skift til forrige måned</string>
+    <string name="mtrl_picker_announce_current_range_selection">Valg af startdato: %1$s – Valg af slutdato: %2$s</string>
+    <string name="mtrl_picker_announce_current_selection">Aktuelt valg: %1$s</string>
+    <string name="mtrl_picker_announce_current_selection_none">ingen</string>
+    <string name="mtrl_picker_cancel">Annuller</string>
+    <string name="mtrl_picker_confirm">OK</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Vælg dato</string>
+    <string name="mtrl_picker_date_header_unselected">Valgt dato</string>
+    <string name="mtrl_picker_day_of_week_column_header">%1$s</string>
+    <string name="mtrl_picker_end_date_description">Slutdato %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ugyldigt format.</string>
+    <string name="mtrl_picker_invalid_format_example">Eksempel: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Brug: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ugyldigt interval.</string>
+    <string name="mtrl_picker_navigate_to_current_year_description">Gå til indeværende år %1$d</string>
+    <string name="mtrl_picker_navigate_to_year_description">Gå til år %1$d</string>
+    <string name="mtrl_picker_next_month_tooltip">Næste måned</string>
+    <string name="mtrl_picker_out_of_range">Uden for interval: %1$s</string>
+    <string name="mtrl_picker_pane_title_calendar_view">Kalendervisning</string>
+    <string name="mtrl_picker_pane_title_year_view">Årsvisning</string>
+    <string name="mtrl_picker_prev_month_tooltip">Forrige måned</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Startdato – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Slutdato</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Vælg interval</string>
+    <string name="mtrl_picker_range_header_unselected">Startdato – Slutdato</string>
+    <string name="mtrl_picker_save">Gem</string>
+    <string name="mtrl_picker_start_date_description">Startdato %1$s</string>
+    <string name="mtrl_picker_text_input_date_hint">Dato</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Slutdato</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Startdato</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">å</string>
+    <string name="mtrl_picker_today_description">I dag %1$s</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Skift til input-tilstand for kalender</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode_tooltip">Skift til kalender</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Skift til kalendervisning</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Skift til input-tilstand for tekst</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode_tooltip">Skift til tekstindtastning</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Skift til årsvisning</string>
+    <string name="mtrl_timepicker_cancel">Annuller</string>
+    <string name="mtrl_timepicker_confirm">OK</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Naviger op"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Åbn sidemenuen"</string>
+    <string name="next" translatable="true">Næste</string>
+    <string msgid="6573031135582639649" name="not_set">"Ikke angivet"</string>
+    <string name="notification_action_dns_firewall_mode" translatable="true">DNS + firewall</string>
+    <string name="notification_action_dns_mode" translatable="true">DNS</string>
+    <string name="notification_action_pause_vpn" translatable="true">SÆT PÅ PAUSE</string>
+    <string name="notification_action_resume_vpn" translatable="true">FORTSÆT</string>
+    <string name="notification_action_stop_vpn" translatable="true">STOP</string>
+    <string description="Indicates what will happen if the user taps the notification." name="notification_content" translatable="true">Tryk for at ændre beskyttelsesindstilling</string>
+    <string name="password_toggle_content_description">Vis adgangskode</string>
+    <string name="pause_mode_notification_title" translatable="true">Sat på pause! Blokerede apps vil forsat være beskyttet af firewall.</string>
+    <string name="pause_title_desc" translatable="true">tager en lur…</string>
+    <string msgid="6685851473431805375" name="preference_copied">"\"<xliff:g id="SUMMARY">%1$s</xliff:g>\" blev kopieret til udklipsholderen."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Søg"</string>
+    <string name="searchview_clear_text_content_description">Ryd tekst</string>
+    <string name="searchview_navigation_content_description">Tilbage</string>
+    <string name="settings_title_desc" translatable="true">En yderst brugerdefinerbar DNS og Firewall</string>
+    <string name="side_sheet_accessibility_pane_title">Felt i siden</string>
+    <string name="skip" translatable="true">Spring over</string>
+    <string name="slide_1_desc" translatable="true">Rethink er open source-software understøttet af Mozilla Builders MVP-program, FOSS United Foundation.</string>
+    <string name="slide_1_title" translatable="true">Gratis og open source</string>
+    <string name="slide_2_desc" translatable="true">Rethink er den nemmeste måde at overvåge netværksaktivitet, omgå internetcensur og beskyt apps med en firewall på din Android-enhed.</string>
+    <string name="slide_2_title" translatable="true">Velkommen</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="status_dns_error" translatable="true">dns-fejl</string>
+    <string name="status_dns_server_down" translatable="true">dns-server nede</string>
+    <string description="This is a large message in a scary color.  It indicates that DNS queries can be surveilled or modified in transit." name="status_exposed" translatable="true">ikke beskyttet</string>
+    <string description="This text appears if the connection is currently not working correctly. [CHAR_LIMIT=NONE]" name="status_failing" translatable="true">fejlet</string>
+    <string name="status_no_internet" translatable="true">ingen internetadgang</string>
+    <string name="status_no_network" translatable="true">intet netværk</string>
+    <string description="This is a large message in a reassuring color. It indicates that DNS queries can&apos;t be surveilled or modified in transit." name="status_protected" translatable="true">beskyttet</string>
+    <string name="status_protected_with_http" translatable="true">beskyttet med http proxy</string>
+    <string name="status_protected_with_http_private_dns" translatable="true">beskyttet med http proxy &amp; privat dns</string>
+    <string name="status_protected_with_private_dns" translatable="true">beskyttet med privat dns</string>
+    <string name="status_protected_with_proxy" translatable="true">beskyttet med proxy</string>
+    <string name="status_protected_with_proxy_private_dns" translatable="true">beskyttet med proxy &amp; privat dns</string>
+    <string name="status_protected_with_socks5" translatable="true">beskyttet med socks proxy</string>
+    <string name="status_protected_with_socks5_private_dns" translatable="true">beskyttet med socks5 &amp; privat dns</string>
+    <string name="status_protected_with_tor" translatable="true">beskyttet med tor</string>
+    <string name="status_protected_with_tor_private_dns" translatable="true">beskyttet med tor &amp; privat dns</string>
+    <string name="status_protected_with_wg" translatable="true">beskyttet med wireguard</string>
+    <string name="status_protected_with_wg_private_dns" translatable="true">beskyttet med wireguard &amp; privat dns</string>
+    <string description="This is similar to dns_on, but the protection is being provided by the operating system, not by Rethink.  It is not color-highlighted." name="status_strict" translatable="true">privat dns er aktiveret</string>
+    <string description="This text appears during the connection process if Rethink needs user permission or the phone is offline." name="status_waiting" translatable="true">venter</string>
+    <string msgid="9167775378838880170" name="summary_collapsed_preference_list">"<xliff:g id="CURRENT_ITEMS">%1$s</xliff:g>, <xliff:g id="ADDED_ITEMS">%2$s</xliff:g>"</string>
+    <string name="title_about" translatable="true">Om</string>
+    <string name="title_settings" translatable="true">Indstillinger</string>
+    <string name="title_statistics" translatable="true">Statistik</string>
+    <string name="txt_home" translatable="true">Hjem</string>
+    <string name="universal_firewall_explanation" translatable="true">Anvend firewall-regler på alle programmer baseret på enhedshændelser, f.eks. firewall når enheden er låst, eller når en bestemt app ikke er i brug.</string>
+    <string name="untracked" translatable="true">ikke tracket</string>
+    <string msgid="3140233346420563315" name="v7_preference_off">"FRA"</string>
+    <string msgid="89551595707643515" name="v7_preference_on">"TIL"</string>
+    <string description="Status indicator text shown in a warning notification." name="warning_title" translatable="true">Advarsel: Rethink er blevet deaktiveret</string>
+    <string name="wireguard_desc" translatable="true">Kryptér din internettrafik med WireGuard. Vælg forskellige ruter for forskellige apps.</string>
+    <string name="wireguard_title" translatable="true">Sikkert internet med WireGuard</string>
+    <string name="zxing_app_name">Barcode Scanner</string>
+    <string name="zxing_button_ok">OK</string>
+    <string name="zxing_msg_camera_framework_bug">Beklager, Android-kameraet er stødt på et problem. Du skal muligvis genstarte enheden.</string>
+    <string name="zxing_msg_default_status">Placér en stregkode inden i firkanten for at aflæse den.</string>
+</resources>
