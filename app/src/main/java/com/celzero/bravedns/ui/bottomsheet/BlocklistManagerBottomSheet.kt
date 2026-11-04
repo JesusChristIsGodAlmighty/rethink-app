@@ -135,79 +135,79 @@ class BlocklistManagerBottomSheet : BaseBottomSheetDialogFragment() {
             .show()
     }
 
-    // F224: nested (NOT inner) adapter — inner classes are prohibited as members of
-// classes that extend framework Activity/Fragment types under Kotlin 2.x ("'Class'
-// is prohibited here", CI run 41791839017). Row actions are delivered via callbacks.
-class BlocklistAdapter(
-    private val onToggle: (CustomBlocklistEntry, Boolean) -> Unit,
-    private val onMove: (Int, Int) -> Unit,
-    private val onRemove: (CustomBlocklistEntry) -> Unit,
-) : RecyclerView.Adapter<BlocklistAdapter.VH>() {
-    private var items: List<CustomBlocklistEntry> = emptyList()
-
-    fun submit(newItems: List<CustomBlocklistEntry>) {
-        items = newItems
-        notifyDataSetChanged()
-    }
-
-    class VH(val ib: ItemBlocklistManagerBinding) : RecyclerView.ViewHolder(ib.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val ib = ItemBlocklistManagerBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return VH(ib)
-    }
-
-    override fun getItemCount(): Int = items.size
-
-    override fun onBindViewHolder(holder: VH, position: Int) {
-        val entry = items[position]
-        val ctx = holder.ib.root.context
-        holder.ib.iblmTitle.text = entry.title
-        holder.ib.iblmSubtitle.text = if (entry.sourceUrl.isNotBlank()) {
-            entry.sourceUrl
-        } else if (entry.kind == CustomBlocklistEntry.KIND_REFRESHABLE) {
-            ctx.getString(R.string.f224_bm_kind_refreshable)
-        } else {
-            ctx.getString(R.string.f224_bm_kind_user_added)
-        }
-
-        // programmatic updates must not fire the listener
-        holder.ib.iblmSwitch.setOnCheckedChangeListener(null)
-        holder.ib.iblmSwitch.isChecked = entry.isSelected
-        holder.ib.iblmSwitch.setOnCheckedChangeListener { _, checked ->
-            val pos = holder.bindingAdapterPosition
-            if (pos == RecyclerView.NO_POSITION) return@setOnCheckedChangeListener
-            onToggle(items[pos], checked)
-        }
-
-        holder.ib.iblmMoveUp.isEnabled = position > 0
-        holder.ib.iblmMoveUp.alpha = if (position > 0) 1f else 0.3f
-        holder.ib.iblmMoveUp.setOnClickListener {
-            val pos = holder.bindingAdapterPosition
-            if (pos > 0) onMove(pos, pos - 1)
-        }
-
-        holder.ib.iblmMoveDown.isEnabled = position < itemCount - 1
-        holder.ib.iblmMoveDown.alpha = if (position < itemCount - 1) 1f else 0.3f
-        holder.ib.iblmMoveDown.setOnClickListener {
-            val pos = holder.bindingAdapterPosition
-            if (pos in 0 until itemCount - 1) onMove(pos, pos + 1)
-        }
-
-        // refreshable entries mirror upstream tags; only custom lists are removable
-        val removable = entry.kind == CustomBlocklistEntry.KIND_USER_ADDED
-        holder.ib.iblmRemove.visibility = if (removable) View.VISIBLE else View.INVISIBLE
-        holder.ib.iblmRemove.setOnClickListener {
-            val pos = holder.bindingAdapterPosition
-            if (pos != RecyclerView.NO_POSITION) onRemove(items[pos])
-        }
-    }
-}
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+        // F224: nested (NOT inner) adapter — inner classes are prohibited as members of
+    // classes that extend framework Activity/Fragment types under Kotlin 2.x ("'Class'
+    // is prohibited here", CI run 41791839017). Row actions are delivered via callbacks.
+    class BlocklistAdapter(
+        private val onToggle: (CustomBlocklistEntry, Boolean) -> Unit,
+        private val onMove: (Int, Int) -> Unit,
+        private val onRemove: (CustomBlocklistEntry) -> Unit,
+    ) : RecyclerView.Adapter<BlocklistAdapter.VH>() {
+        private var items: List<CustomBlocklistEntry> = emptyList()
+
+        fun submit(newItems: List<CustomBlocklistEntry>) {
+            items = newItems
+            notifyDataSetChanged()
+        }
+
+        class VH(val ib: ItemBlocklistManagerBinding) : RecyclerView.ViewHolder(ib.root)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+            val ib = ItemBlocklistManagerBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+            return VH(ib)
+        }
+
+        override fun getItemCount(): Int = items.size
+
+        override fun onBindViewHolder(holder: VH, position: Int) {
+            val entry = items[position]
+            val ctx = holder.ib.root.context
+            holder.ib.iblmTitle.text = entry.title
+            holder.ib.iblmSubtitle.text = if (entry.sourceUrl.isNotBlank()) {
+                entry.sourceUrl
+            } else if (entry.kind == CustomBlocklistEntry.KIND_REFRESHABLE) {
+                ctx.getString(R.string.f224_bm_kind_refreshable)
+            } else {
+                ctx.getString(R.string.f224_bm_kind_user_added)
+            }
+
+            // programmatic updates must not fire the listener
+            holder.ib.iblmSwitch.setOnCheckedChangeListener(null)
+            holder.ib.iblmSwitch.isChecked = entry.isSelected
+            holder.ib.iblmSwitch.setOnCheckedChangeListener { _, checked ->
+                val pos = holder.bindingAdapterPosition
+                if (pos == RecyclerView.NO_POSITION) return@setOnCheckedChangeListener
+                onToggle(items[pos], checked)
+            }
+
+            holder.ib.iblmMoveUp.isEnabled = position > 0
+            holder.ib.iblmMoveUp.alpha = if (position > 0) 1f else 0.3f
+            holder.ib.iblmMoveUp.setOnClickListener {
+                val pos = holder.bindingAdapterPosition
+                if (pos > 0) onMove(pos, pos - 1)
+            }
+
+            holder.ib.iblmMoveDown.isEnabled = position < itemCount - 1
+            holder.ib.iblmMoveDown.alpha = if (position < itemCount - 1) 1f else 0.3f
+            holder.ib.iblmMoveDown.setOnClickListener {
+                val pos = holder.bindingAdapterPosition
+                if (pos in 0 until itemCount - 1) onMove(pos, pos + 1)
+            }
+
+            // refreshable entries mirror upstream tags; only custom lists are removable
+            val removable = entry.kind == CustomBlocklistEntry.KIND_USER_ADDED
+            holder.ib.iblmRemove.visibility = if (removable) View.VISIBLE else View.INVISIBLE
+            holder.ib.iblmRemove.setOnClickListener {
+                val pos = holder.bindingAdapterPosition
+                if (pos != RecyclerView.NO_POSITION) onRemove(items[pos])
+            }
+        }
     }
 }
