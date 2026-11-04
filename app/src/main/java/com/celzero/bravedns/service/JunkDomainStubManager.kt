@@ -16,9 +16,7 @@
 package com.celzero.bravedns.service
 
 import android.content.Context
-import com.celzero.bravedns.database.EventSource
 import com.celzero.bravedns.util.Logger
-import com.celzero.bravedns.database.EventType
 import com.celzero.firestack.backend.Backend
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,8 +32,8 @@ import java.io.File
  * What it does: maintains a list of domains that apps probe purely to check whether the
  * network is "really up" (connectivity checks, captive-portal probes, SDK presence pings).
  * When [isStubbed] answers true, the DNS pipeline (TunDnsManager.decideQuery) routes the
- * query to Backend.Reject so the Go core synthesizes a local NXDOMAIN immediately instead
- * of leaking the probe to the internet. Apps that consult these domains see "offline"
+ * query to Backend.BlockAll — this codebase's local-reject transport (firestack exposes no
+ * Backend.Reject constant) — so the probe never leaks to the internet. Apps that consult these domains see "offline"
  * without the user's real traffic ever touching those hosts. This is the foundational,
  * no-server-required building block for F01 (Fake-Online Simulator): stubbing junk probes
  * first means fewer dead-signal requests racing the probe responder later.
@@ -128,7 +126,7 @@ object JunkDomainStubManager {
                         }
                     }
                 } ?: SEED_DOMAINS
-                EventLogger.log(EventType.SYSTEM_EVENT, message = "F04: loaded ${stubs.size} junk-domain stubs", source = EventSource.SERVICE)
+                Logger.i(TAG, "F04: loaded ${stubs.size} junk-domain stubs")
             } catch (e: Exception) {
                 // fall back to the seed list; never let a corrupt file disable the engine
                 stubs = SEED_DOMAINS
@@ -214,12 +212,13 @@ object JunkDomainStubManager {
     const val STUB_BRANCH = "junk-stub-reject"
 
     /**
-     * The transport decision applied when a query is stubbed: Reject makes the Go core
-     * answer locally (synthetic NXDOMAIN) with zero network egress. Exposed as a tiny pure
-     * function so both the live path and the connection simulator share identical semantics.
+     * The transport decision applied when a query is stubbed: BlockAll is the id every
+     * firewall-block branch in TunDnsManager uses, i.e. this codebase's local-reject
+     * transport (firestack has no Backend.Reject constant). Exposed as a tiny pure function
+     * so both the live path and the connection simulator share identical semantics.
      */
     fun rejectedDecision(uid: Int, fqdn: String, isIfaceCellular: Boolean, ssid: String?) =
         com.celzero.bravedns.tunnel.TunDnsManager.DnsDecision(
-            uid, Pair(Backend.Reject, ""), fqdn, false, isIfaceCellular, ssid, STUB_BRANCH
+            uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, STUB_BRANCH
         )
 }

@@ -240,8 +240,9 @@ object TunDnsManager: KoinComponent {
         // egressing to the internet. Off by default; gated by persistentState pref.
         if (persistentState.f04JunkDomainStubsEnabled && JunkDomainStubManager.isStubbed(d.fqdn)) {
             logd("onQuery: ${d.fqdn} is a junk-domain stub, rejecting locally")
-            // Backend.Reject: the Go core synthesizes a local response with zero egress
-            val r = makeDecision(uid, Pair(Backend.Reject, ""), d.fqdn, false, d.isIfaceCellular, d.ssid, BRANCH_JUNK_STUB)
+            // firestack has no Backend.Reject constant; BlockAll is this codebase's
+            // local-reject transport (same id used by every firewall block branch)
+            val r = makeDecision(uid, Pair(Backend.BlockAll, ""), d.fqdn, false, d.isIfaceCellular, d.ssid, BRANCH_JUNK_STUB)
             return checkUserAllowedDnsQtypes(r, d.qtype)
         }
 
