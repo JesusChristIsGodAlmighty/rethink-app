@@ -3090,4 +3090,26 @@
     <!-- F192 One-Tap Unblock From Log -->
     <string name="f192_unblock_action" translatable="false">Unblock</string>
     <string name="f192_unblocked_toast" translatable="false">%s unblocked (trusted)</string>
+
+    <!-- F224 Blocklist Manager -->
+    <string name="f224_blocklist_manager_heading" translatable="false">Blocklist manager</string>
+    <string name="f224_blocklist_manager_desc" translatable="false">Add, remove, reorder and toggle blocklists from one screen</string>
+    <string name="f224_bm_title" translatable="false">Blocklists</string>
+    <string name="f224_bm_add" translatable="false">Add list</string>
+    <string name="f224_bm_add_dialog_title" translatable="false">Add a blocklist</string>
+    <string name="f224_bm_add_dialog_name_hint" translatable="false">Name (e.g. oisd full)</string>
+    <string name="f224_bm_add_dialog_url_hint" translatable="false">URL (https://…)</string>
+    <string name="f224_bm_add_dialog_positive" translatable="false">Add</string>
+    <string name="f224_bm_add_dialog_negative" translatable="false">Cancel</string>
+    <string name="f224_bm_invalid_input" translatable="false">Enter a name and a valid http(s) URL</string>
+    <string name="f224_bm_added" translatable="false">Blocklist added</string>
+    <string name="f224_bm_removed" translatable="false">Blocklist removed</string>
+    <string name="f224_bm_empty" translatable="false">No blocklists yet. Tap “Add list” to get started.</string>
+    <string name="f224_bm_kind_user_added" translatable="false">Custom</string>
+    <string name="f224_bm_kind_refreshable" translatable="false">Rethink</string>
+    <string name="f224_bm_move_up" translatable="false">Move up</string>
+    <string name="f224_bm_move_down" translatable="false">Move down</string>
+    <string name="f224_bm_remove" translatable="false">Remove</string>
+    <string name="f224_bm_remove_confirm_title" translatable="false">Remove blocklist?</string>
+    <string name="f224_bm_remove_confirm_message" translatable="false">%s will be removed from the manager. Existing downloaded data is untouched.</string>
 </resources>

@@ -44,6 +44,7 @@ import com.celzero.bravedns.ui.activity.DnsListActivity
 import com.celzero.bravedns.ui.activity.PauseActivity
 import com.celzero.bravedns.ui.activity.SmartDnsListActivity
 import com.celzero.bravedns.ui.bottomsheet.BlockFreeDnsModeBottomSheet
+import com.celzero.bravedns.ui.bottomsheet.BlocklistManagerBottomSheet
 import com.celzero.bravedns.ui.bottomsheet.DnsRecordTypesBottomSheet
 import com.celzero.bravedns.ui.bottomsheet.LocalBlocklistsBottomSheet
 import com.celzero.bravedns.util.Logger
