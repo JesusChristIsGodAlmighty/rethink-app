@@ -185,7 +185,7 @@ class ConnTrackerBottomSheet : BaseBottomSheetDialogFragment(), KoinComponent {
         b.bsConnRuleRowDomain.visibility = View.VISIBLE
         b.bsConnDomainRuleAddress.text = domain
         renderDomainRuleState(status)
-        updateUnblockChip(DomainRulesManager.Status.NONE, uid)
+        updateUnblockChip(status, uid)
         b.bsConnDnsCacheText.visibility = View.VISIBLE
         b.bsConnDnsCacheText.text = domain
     }
@@ -546,6 +546,8 @@ class ConnTrackerBottomSheet : BaseBottomSheetDialogFragment(), KoinComponent {
         b.bsConnRuleRowApp.setOnClickListener { showAppRuleOptionsDialog() }
         b.bsConnRuleRowIp.setOnClickListener { cycleIpRule() }
         b.bsConnRuleRowDomain.setOnClickListener { cycleDomainRule() }
+        // F192: one tap on the log sheet's unblock chip trusts the blocked domain
+        b.bsConnUnblockChip.setOnClickListener { oneTapUnblock() }
     }
 
     /**

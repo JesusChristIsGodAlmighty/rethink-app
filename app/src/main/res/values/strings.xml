@@ -3086,4 +3086,8 @@
     <string name="connection_check_steps_heading" translatable="false">Reason chain</string>
     <string name="connection_check_err_domain" translatable="false">Enter a domain to check</string>
     <string name="connection_check_err_ip" translatable="false">Enter a valid IP address</string>
+
+    <!-- F192 One-Tap Unblock From Log -->
+    <string name="f192_unblock_action" translatable="false">Unblock</string>
+    <string name="f192_unblocked_toast" translatable="false">%s unblocked (trusted)</string>
 </resources>
