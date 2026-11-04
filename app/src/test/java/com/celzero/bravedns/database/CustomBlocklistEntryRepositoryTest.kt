@@ -183,4 +183,59 @@ class CustomBlocklistEntryRepositoryTest {
         assertEquals(11, inserted!![0].value) // tag 10 already mirrored -> not re-inserted
         assertEquals(CustomBlocklistEntry.KIND_REFRESHABLE, inserted!![0].kind)
     }
+
+    // ---- F225 Explicit Update Indicator: updateFreshness pure logic ----
+
+    @Test
+    fun `updateFreshness never when no successful refresh recorded`() {
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.NEVER,
+            CustomBlocklistEntryRepository.updateFreshness(0L, 1_700_000_000_000L))
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.NEVER,
+            CustomBlocklistEntryRepository.updateFreshness(-5L, 1_700_000_000_000L))
+    }
+
+    @Test
+    fun `updateFreshness fresh within one hour`() {
+        val now = 1_700_000_000_000L
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.FRESH,
+            CustomBlocklistEntryRepository.updateFreshness(now - 30L * 60_000L, now))
+        // boundary: exactly one hour old is still FRESH (<=)
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.FRESH,
+            CustomBlocklistEntryRepository.updateFreshness(now - CustomBlocklistEntryRepository.ONE_HOUR_MS, now))
+    }
+
+    @Test
+    fun `updateFreshness today between one hour and one day`() {
+        val now = 1_700_000_000_000L
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.TODAY,
+            CustomBlocklistEntryRepository.updateFreshness(now - (CustomBlocklistEntryRepository.ONE_HOUR_MS + 1L), now))
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.TODAY,
+            CustomBlocklistEntryRepository.updateFreshness(now - CustomBlocklistEntryRepository.ONE_DAY_MS, now))
+    }
+
+    @Test
+    fun `updateFreshness this week between one and seven days`() {
+        val now = 1_700_000_000_000L
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.THIS_WEEK,
+            CustomBlocklistEntryRepository.updateFreshness(now - (CustomBlocklistEntryRepository.ONE_DAY_MS + 1L), now))
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.THIS_WEEK,
+            CustomBlocklistEntryRepository.updateFreshness(now - CustomBlocklistEntryRepository.SEVEN_DAYS_MS, now))
+    }
+
+    @Test
+    fun `updateFreshness stale beyond seven days`() {
+        val now = 1_700_000_000_000L
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.STALE,
+            CustomBlocklistEntryRepository.updateFreshness(now - (CustomBlocklistEntryRepository.SEVEN_DAYS_MS + 1L), now))
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.STALE,
+            CustomBlocklistEntryRepository.updateFreshness(1L, now))
+    }
+
+    @Test
+    fun `updateFreshness future-dated ts counts as fresh not error`() {
+        val now = 1_700_000_000_000L
+        // clock skew: refresh ts in the future -> negative age -> FRESH
+        assertEquals(CustomBlocklistEntryRepository.UpdateFreshness.FRESH,
+            CustomBlocklistEntryRepository.updateFreshness(now + 60L * 60_000L, now))
+    }
 }
