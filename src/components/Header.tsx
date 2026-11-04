@@ -15,7 +15,8 @@ import {
   Radio,
   ShieldCheck,
   Layers,
-  Scale
+  Scale,
+  Network
 } from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
@@ -40,6 +41,7 @@ interface HeaderProps {
   onOpenContentDisarm: () => void;
   onOpenLegalDisclaimer: () => void;
   onOpenSecurityAudit: () => void;
+  onOpenAdvancedNetwork: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -67,6 +69,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenContentDisarm,
   onOpenLegalDisclaimer,
   onOpenSecurityAudit,
+  onOpenAdvancedNetwork,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -243,6 +246,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <ShieldCheck className="w-3 h-3 text-emerald-400" />
             <span>Security Audit (F883)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* F940-F970 Advanced Network & Transport Engine */}
+          <button
+            onClick={onOpenAdvancedNetwork}
+            className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors shrink-0 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-500/30"
+          >
+            <Network className="w-3 h-3 text-cyan-400" />
+            <span>Advanced Net (F962)</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 
