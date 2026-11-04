@@ -17,7 +17,8 @@ import {
   Layers,
   Scale,
   Network,
-  Activity
+  Activity,
+  Keyboard
 } from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
@@ -44,6 +45,7 @@ interface HeaderProps {
   onOpenSecurityAudit: () => void;
   onOpenAdvancedNetwork: () => void;
   onOpenVariableEngine: () => void;
+  onOpenKeyboardStylometry: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -73,6 +75,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSecurityAudit,
   onOpenAdvancedNetwork,
   onOpenVariableEngine,
+  onOpenKeyboardStylometry,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -269,6 +272,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Activity className="w-3 h-3 text-rose-400" />
             <span>Variable Engine (F868)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* F908-F916 Sovereign Keyboard & Stylometry Studio */}
+          <button
+            onClick={onOpenKeyboardStylometry}
+            className="flex items-center gap-1 text-amber-400 hover:text-amber-300 font-semibold transition-colors shrink-0 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-500/30"
+          >
+            <Keyboard className="w-3 h-3 text-amber-400" />
+            <span>Keyboard &amp; Stylometry (F908)</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 

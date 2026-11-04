@@ -43,6 +43,7 @@ import { LegalDisclaimerModal } from './components/LegalDisclaimerModal';
 import { SecurityAuditModal } from './components/SecurityAuditModal';
 import { AdvancedNetworkModal } from './components/AdvancedNetworkModal';
 import { VariableEngineModal } from './components/VariableEngineModal';
+import { KeyboardStylometryModal } from './components/KeyboardStylometryModal';
 
 import { 
   INITIAL_MODULES, 
@@ -126,6 +127,7 @@ export default function App() {
   const [isSecurityAuditOpen, setIsSecurityAuditOpen] = useState(false);
   const [isAdvancedNetworkOpen, setIsAdvancedNetworkOpen] = useState(false);
   const [isVariableEngineOpen, setIsVariableEngineOpen] = useState(false);
+  const [isKeyboardStylometryOpen, setIsKeyboardStylometryOpen] = useState(false);
   const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
   const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
   const [floatingHudActive, setFloatingHudActive] = useState(false);
@@ -317,6 +319,7 @@ export default function App() {
         onOpenSecurityAudit={() => setIsSecurityAuditOpen(true)}
         onOpenAdvancedNetwork={() => setIsAdvancedNetworkOpen(true)}
         onOpenVariableEngine={() => setIsVariableEngineOpen(true)}
+        onOpenKeyboardStylometry={() => setIsKeyboardStylometryOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -763,6 +766,13 @@ export default function App() {
         <VariableEngineModal
           isOpen={isVariableEngineOpen}
           onClose={() => setIsVariableEngineOpen(false)}
+        />
+      )}
+
+      {isKeyboardStylometryOpen && (
+        <KeyboardStylometryModal
+          isOpen={isKeyboardStylometryOpen}
+          onClose={() => setIsKeyboardStylometryOpen(false)}
         />
       )}
 
