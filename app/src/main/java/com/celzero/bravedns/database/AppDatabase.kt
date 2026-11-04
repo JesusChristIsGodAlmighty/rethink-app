@@ -56,9 +56,10 @@ import com.celzero.bravedns.util.Constants
         SubscriptionStateHistory::class,
         CountryConfig::class,
         SponsorEntity::class,
-        SmartDnsEndpoint::class
+        SmartDnsEndpoint::class,
+        CustomBlocklistEntry::class
     ],
-    version = 36,
+    version = 37,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -187,6 +188,7 @@ abstract class AppDatabase : RoomDatabase() {
                 .addMigrations(MIGRATION_33_34)
                 .addMigrations(MIGRATION_34_35)
                 .addMigrations(MIGRATION_35_36)
+                .addMigrations(MIGRATION_36_37)
                 .build()
 
         private val roomCallback: Callback =
@@ -1593,6 +1595,30 @@ abstract class AppDatabase : RoomDatabase() {
                 }
             }
 
+        // F224 Blocklist Manager: user's one-screen list curation table.
+        // Plain CREATE TABLE (no Room auto-migration for new entities);
+        // column types must match what Room generates for CustomBlocklistEntry.
+        private val MIGRATION_36_37: Migration =
+            object : Migration(36, 37) {
+                override fun migrate(db: SupportSQLiteDatabase) {
+                    db.execSQL(
+                        "CREATE TABLE IF NOT EXISTS `CustomBlocklistEntry` (" +
+                            "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                            "`kind` TEXT NOT NULL, " +
+                            "`title` TEXT NOT NULL, " +
+                            "`sourceUrl` TEXT NOT NULL, " +
+                            "`author` TEXT NOT NULL, " +
+                            "`description` TEXT NOT NULL, " +
+                            "`value` INTEGER NOT NULL, " +
+                            "`isSelected` INTEGER NOT NULL, " +
+                            "`sortOrder` INTEGER NOT NULL, " +
+                            "`addedAtTs` INTEGER NOT NULL, " +
+                            "`updatedAtTs` INTEGER NOT NULL, " +
+                            "`schemaVersion` INTEGER NOT NULL)"
+                    )
+                }
+            }
+
         // ref: stackoverflow.com/a/57204285
         private fun doesColumnExistInTable(
             db: SupportSQLiteDatabase,
@@ -1668,6 +1694,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun countryConfigDAO(): CountryConfigDAO
 
     abstract fun smartDnsEndpointDao(): SmartDnsEndpointDAO
+
+    // F224 Blocklist Manager
+    abstract fun customBlocklistEntryDao(): CustomBlocklistEntryDao
 
     fun appInfoRepository() = AppInfoRepository(appInfoDAO())
 
