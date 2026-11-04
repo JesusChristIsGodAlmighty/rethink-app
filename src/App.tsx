@@ -42,6 +42,7 @@ import { ContentDisarmModal } from './components/ContentDisarmModal';
 import { LegalDisclaimerModal } from './components/LegalDisclaimerModal';
 import { SecurityAuditModal } from './components/SecurityAuditModal';
 import { AdvancedNetworkModal } from './components/AdvancedNetworkModal';
+import { VariableEngineModal } from './components/VariableEngineModal';
 
 import { 
   INITIAL_MODULES, 
@@ -124,6 +125,7 @@ export default function App() {
   const [isLegalDisclaimerOpen, setIsLegalDisclaimerOpen] = useState(false);
   const [isSecurityAuditOpen, setIsSecurityAuditOpen] = useState(false);
   const [isAdvancedNetworkOpen, setIsAdvancedNetworkOpen] = useState(false);
+  const [isVariableEngineOpen, setIsVariableEngineOpen] = useState(false);
   const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
   const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
   const [floatingHudActive, setFloatingHudActive] = useState(false);
@@ -314,6 +316,7 @@ export default function App() {
         onOpenLegalDisclaimer={() => setIsLegalDisclaimerOpen(true)}
         onOpenSecurityAudit={() => setIsSecurityAuditOpen(true)}
         onOpenAdvancedNetwork={() => setIsAdvancedNetworkOpen(true)}
+        onOpenVariableEngine={() => setIsVariableEngineOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -753,6 +756,13 @@ export default function App() {
         <AdvancedNetworkModal
           isOpen={isAdvancedNetworkOpen}
           onClose={() => setIsAdvancedNetworkOpen(false)}
+        />
+      )}
+
+      {isVariableEngineOpen && (
+        <VariableEngineModal
+          isOpen={isVariableEngineOpen}
+          onClose={() => setIsVariableEngineOpen(false)}
         />
       )}
 

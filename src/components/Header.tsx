@@ -16,7 +16,8 @@ import {
   ShieldCheck,
   Layers,
   Scale,
-  Network
+  Network,
+  Activity
 } from 'lucide-react';
 import { ActiveProfile } from '../types/serf';
 
@@ -42,6 +43,7 @@ interface HeaderProps {
   onOpenLegalDisclaimer: () => void;
   onOpenSecurityAudit: () => void;
   onOpenAdvancedNetwork: () => void;
+  onOpenVariableEngine: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -70,6 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenLegalDisclaimer,
   onOpenSecurityAudit,
   onOpenAdvancedNetwork,
+  onOpenVariableEngine,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -256,6 +259,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Network className="w-3 h-3 text-cyan-400" />
             <span>Advanced Net (F962)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* F868-F878 Variable Change Visualization Engine */}
+          <button
+            onClick={onOpenVariableEngine}
+            className="flex items-center gap-1 text-rose-400 hover:text-rose-300 font-semibold transition-colors shrink-0 bg-rose-950/40 px-2 py-0.5 rounded border border-rose-500/30"
+          >
+            <Activity className="w-3 h-3 text-rose-400" />
+            <span>Variable Engine (F868)</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 
