@@ -93,7 +93,7 @@ export interface NetworkPacket {
 export interface FieldOverride {
   key: string;
   label: string;
-  category: 'Hardware' | 'Cellular' | 'App Identity' | 'Environment';
+  category: 'Hardware' | 'Cellular' | 'SIM' | 'App Identity' | 'Environment';
   currentRealValue: string;
   fakeValue: string;
   active: boolean;

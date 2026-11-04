@@ -2039,5 +2039,55 @@ export const INITIAL_FIELD_OVERRIDES = [
     active: true,
     queriesCount: 57,
     description: 'Masks microscopic factory gyroscope silicon flaws (F1002).'
+  },
+  {
+    key: 'iccid_to_apps',
+    label: 'SIM ICCID Serial (App Level)',
+    category: 'SIM' as const,
+    currentRealValue: '89014103211118510720',
+    fakeValue: '89014103998877665544',
+    active: true,
+    queriesCount: 28,
+    description: 'Reported to third-party SDKs; defeats carrier SIM serial tracking (F995).'
+  },
+  {
+    key: 'gsf_id',
+    label: 'Google Services Framework (GSF) ID',
+    category: 'App Identity' as const,
+    currentRealValue: '3d8a4e921b77c082',
+    fakeValue: 'Rotated Ephemeral GSF-Token',
+    active: true,
+    queriesCount: 84,
+    description: 'Rotates FCM tokens and GSF identifiers to block cross-app telemetry profiling (F996).'
+  },
+  {
+    key: 'nfc_uid',
+    label: 'NFC Emulation Hardware UID',
+    category: 'Hardware' as const,
+    currentRealValue: '04:7A:B2:1C:88:40',
+    fakeValue: '04:XX:XX:XX:XX:XX (Randomized)',
+    active: true,
+    queriesCount: 6,
+    description: 'Randomizes hardware NFC UID broadcast during tap/reader transactions (F1003).'
+  },
+  {
+    key: 'usb_descriptor',
+    label: 'USB Host Device Descriptor',
+    category: 'Hardware' as const,
+    currentRealValue: 'Google Pixel 9 Pro (SN: 34182910)',
+    fakeValue: 'Generic MTP Device (SN: 00000000)',
+    active: true,
+    queriesCount: 4,
+    description: 'Masks phone model and serial reported to connected computers via USB (F1004).'
+  },
+  {
+    key: 'esim_eid',
+    label: 'eSIM EID Identifier',
+    category: 'SIM' as const,
+    currentRealValue: '89049032000001000000031892110294',
+    fakeValue: '89049032000000000000000000000000',
+    active: true,
+    queriesCount: 15,
+    description: 'Masks embedded UICC 32-digit identifier reported to unprivileged apps (F1005).'
   }
 ];

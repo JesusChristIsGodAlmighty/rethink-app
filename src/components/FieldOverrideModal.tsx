@@ -50,11 +50,22 @@ export const FieldOverrideModal: React.FC<FieldOverrideModalProps> = ({
       rand = Array.from({ length: 6 }, () => Math.floor(Math.random() * 256).toString(16).padStart(2, '0').toUpperCase()).join(':');
     } else if (key === 'imei_to_apps') {
       rand = '35' + Array.from({ length: 13 }, () => Math.floor(Math.random() * 10)).join('');
-    } else if (key === 'android_id') {
+    } else if (key === 'iccid_to_apps') {
+      rand = '8901410' + Array.from({ length: 13 }, () => Math.floor(Math.random() * 10)).join('');
+    } else if (key === 'android_id' || key === 'gsf_id') {
       rand = Array.from({ length: 16 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+    } else if (key === 'nfc_uid') {
+      rand = '04:' + Array.from({ length: 6 }, () => Math.floor(Math.random() * 256).toString(16).padStart(2, '0').toUpperCase()).join(':');
+    } else if (key === 'usb_descriptor') {
+      const models = ['Generic MTP Phone', 'Android ADB Device', 'Generic Multimedia Host', 'Linux USB Peripheral'];
+      rand = models[Math.floor(Math.random() * models.length)] + ' (SN: ' + Math.floor(10000000 + Math.random() * 90000000) + ')';
+    } else if (key === 'esim_eid') {
+      rand = '890490' + Array.from({ length: 26 }, () => Math.floor(Math.random() * 10)).join('');
     } else if (key === 'bluetooth_name') {
       const names = ['Android Device', 'Pixel Phone', 'Galaxy Model', 'Generic Audio Receiver'];
       rand = names[Math.floor(Math.random() * names.length)];
+    } else if (key === 'sensor_calibration') {
+      rand = 'Calibrated Gaussian Jitter (σ = ' + (0.001 + Math.random() * 0.003).toFixed(5) + ')';
     } else {
       rand = 'Dynamic Synthetic ' + Math.floor(Math.random() * 1000);
     }
