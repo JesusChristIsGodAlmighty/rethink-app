@@ -1019,7 +1019,9 @@ class TunDnsManagerTest {
         )
 
         assertEquals(TunDnsManager.BRANCH_JUNK_STUB, decision.branch)
-        assertEquals(Backend.BlockAll, decision.tid.first)
+        // F04 stubs route to Backend.Reject (local synthetic answer, zero egress),
+        // not BlockAll — see JunkDomainStubManager.rejectedDecision for the same choice
+        assertEquals(Backend.Reject, decision.tid.first)
         assertFalse(decision.noblock)
     }
 

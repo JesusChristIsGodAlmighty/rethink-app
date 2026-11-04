@@ -166,8 +166,10 @@ object JunkDomainStubManager {
         val d = normalize(domain)
         if (d.isEmpty() || stubs.contains(d)) return false
         val next = stubs + d
-        persist(context, next)
+        // update the hot snapshot first so decisions reflect the change immediately,
+        // then persist synchronously within the caller's coroutine (no fire-and-forget)
         stubs = next
+        persist(context, next)
         return true
     }
 
@@ -176,24 +178,22 @@ object JunkDomainStubManager {
         val d = normalize(domain)
         if (!stubs.contains(d)) return false
         val next = stubs - d
-        persist(context, next)
         stubs = next
+        persist(context, next)
         return true
     }
 
     /** Restore the built-in seed list, discarding user additions/removals. */
     suspend fun resetToSeeds(context: Context) {
-        persist(context, SEED_DOMAINS)
         stubs = SEED_DOMAINS
+        persist(context, SEED_DOMAINS)
     }
 
     private suspend fun persist(context: Context, domains: Set<String>) {
-        scope.launch {
-            try {
-                File(context.filesDir, FILE_NAME).writeText(serialize(SCHEMA_VERSION, domains.toList()))
-            } catch (e: Exception) {
-                Logger.e(TAG, "stub list persist failed: ${e.message}", e)
-            }
+        try {
+            File(context.filesDir, FILE_NAME).writeText(serialize(SCHEMA_VERSION, domains.toList()))
+        } catch (e: Exception) {
+            Logger.e(TAG, "stub list persist failed: ${e.message}", e)
         }
     }
 
