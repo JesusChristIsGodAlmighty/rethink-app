@@ -16,6 +16,7 @@ import com.celzero.bravedns.service.LogActivityAggregator
 import com.celzero.bravedns.service.LogActivityEvent
 import com.celzero.bravedns.service.LogActivitySource
 import com.celzero.bravedns.service.DnsLogTracker
+import com.celzero.bravedns.service.JunkDomainStubManager
 import com.celzero.bravedns.service.NetLogTracker
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.ProxyManager
@@ -72,6 +73,7 @@ object TunDnsManager: KoinComponent {
     internal const val BRANCH_GLOBAL_TRUSTED_DF = "global-trusted-df"
     internal const val BRANCH_DEFAULT_DF = "default-df"
     internal const val BRANCH_QTYPE_BLOCK = "qtype-block"
+    internal const val BRANCH_JUNK_STUB = "junk-stub-reject"
 
     internal const val BRANCH_UA_INVALID_UID = "upstream-invalid-uid"
     internal const val BRANCH_UA_CAPTIVE_PORTAL = "upstream-captive-portal"
@@ -230,6 +232,15 @@ object TunDnsManager: KoinComponent {
         if (d.isCaptivePortal) {
             logw("onQuery: captive portal active, routing ${d.fqdn} to system dns")
             val r = makeDecision(uid, Pair(Backend.System, ""), d.fqdn, true, d.isIfaceCellular, d.ssid, BRANCH_CAPTIVE_PORTAL)
+            return checkUserAllowedDnsQtypes(r, d.qtype)
+        }
+
+        // SERF F04: junk-domain stub list — connectivity probes from apps that are on the
+        // stub list get a local reject (synthetic NXDOMAIN from the Go core) instead of
+        // egressing to the internet. Off by default; gated by persistentState pref.
+        if (persistentState.f04JunkDomainStubsEnabled && JunkDomainStubManager.isStubbed(d.fqdn)) {
+            logd("onQuery: ${d.fqdn} is a junk-domain stub, rejecting locally")
+            val r = makeDecision(uid, Pair(Backend.BlockAll, ""), d.fqdn, false, d.isIfaceCellular, d.ssid, BRANCH_JUNK_STUB)
             return checkUserAllowedDnsQtypes(r, d.qtype)
         }
 

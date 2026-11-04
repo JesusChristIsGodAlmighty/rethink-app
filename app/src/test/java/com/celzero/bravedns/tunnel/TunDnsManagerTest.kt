@@ -27,6 +27,7 @@ import com.celzero.bravedns.service.DomainRulesManager
 import com.celzero.bravedns.service.FirewallManager
 import com.celzero.bravedns.service.FirewallRuleset
 import com.celzero.bravedns.service.IpRulesManager
+import com.celzero.bravedns.service.JunkDomainStubManager
 import com.celzero.bravedns.service.NetLogTracker
 import com.celzero.bravedns.service.PersistentState
 import com.celzero.bravedns.service.ProxyManager.ID_WG_BASE
@@ -975,12 +976,13 @@ class TunDnsManagerTest {
     private fun createQueryParams(
         isCaptivePortal: Boolean,
         uidStr: String = "10123",
-        qtype: Long = 1L
+        qtype: Long = 1L,
+        fqdn: String = "example.com"
     ): TunDnsManager.DnsParams {
         return TunDnsManager.DnsParams(
             origin = Backend.OriginInternal,
             uidStr = uidStr,
-            fqdn = "example.com",
+            fqdn = fqdn,
             qtype = qtype,
             isLockdown = false,
             ssid = null,
@@ -988,6 +990,83 @@ class TunDnsManagerTest {
             isCaptivePortal = isCaptivePortal
         )
     }
+
+    // region SERF F04 — junk-domain stub list
+
+    @Test
+    fun `decideQuery - f04 disabled leaves probe domain on the normal path`() = runTest {
+        stubDfModeDefaults()
+        coEvery { FirewallManager.isAnyAppBypassesDns() } returns false
+        every { persistentState.f04JunkDomainStubsEnabled } returns false
+        JunkDomainStubManager.setStubsForTest(setOf("clients3.google.com"))
+
+        val decision = TunDnsManager.decideQuery(
+            createQueryParams(isCaptivePortal = false, fqdn = "clients3.google.com")
+        )
+
+        assertNotEquals(TunDnsManager.BRANCH_JUNK_STUB, decision.branch)
+    }
+
+    @Test
+    fun `decideQuery - f04 enabled rejects stubbed probe domain locally`() = runTest {
+        stubDfModeDefaults()
+        coEvery { FirewallManager.isAnyAppBypassesDns() } returns false
+        every { persistentState.f04JunkDomainStubsEnabled } returns true
+        JunkDomainStubManager.setStubsForTest(setOf("clients3.google.com"))
+
+        val decision = TunDnsManager.decideQuery(
+            createQueryParams(isCaptivePortal = false, fqdn = "clients3.google.com")
+        )
+
+        assertEquals(TunDnsManager.BRANCH_JUNK_STUB, decision.branch)
+        assertEquals(Backend.BlockAll, decision.tid.first)
+        assertFalse(decision.noblock)
+    }
+
+    @Test
+    fun `decideQuery - f04 matches subdomains of a stub apex`() = runTest {
+        stubDfModeDefaults()
+        coEvery { FirewallManager.isAnyAppBypassesDns() } returns false
+        every { persistentState.f04JunkDomainStubsEnabled } returns true
+        JunkDomainStubManager.setStubsForTest(setOf("connectivitycheck.gstatic.com"))
+
+        val decision = TunDnsManager.decideQuery(
+            createQueryParams(isCaptivePortal = false, fqdn = "x.y.connectivitycheck.gstatic.com")
+        )
+
+        assertEquals(TunDnsManager.BRANCH_JUNK_STUB, decision.branch)
+    }
+
+    @Test
+    fun `decideQuery - f04 does not stub unrelated domains`() = runTest {
+        stubDfModeDefaults()
+        coEvery { FirewallManager.isAnyAppBypassesDns() } returns false
+        every { persistentState.f04JunkDomainStubsEnabled } returns true
+        JunkDomainStubManager.setStubsForTest(setOf("clients3.google.com"))
+
+        val decision = TunDnsManager.decideQuery(
+            createQueryParams(isCaptivePortal = false, fqdn = "notclients3.google.com.evil.example")
+        )
+
+        assertNotEquals(TunDnsManager.BRANCH_JUNK_STUB, decision.branch)
+    }
+
+    @Test
+    fun `decideQuery - captive portal takes precedence over f04 stubs`() = runTest {
+        every { appConfig.getBraveMode() } returns AppConfig.BraveMode.DNS
+        every { persistentState.getAllowedDnsRecordTypesAsEnum() } returns setOf(ResourceRecordTypes.A)
+        every { persistentState.f04JunkDomainStubsEnabled } returns true
+        JunkDomainStubManager.setStubsForTest(setOf("clients3.google.com"))
+
+        val decision = TunDnsManager.decideQuery(
+            createQueryParams(isCaptivePortal = true, fqdn = "clients3.google.com")
+        )
+
+        assertEquals(TunDnsManager.BRANCH_CAPTIVE_PORTAL, decision.branch)
+        assertEquals(Backend.System, decision.tid.first)
+    }
+
+    // endregion
 
     @Test
     fun `handleOnQuery - captive portal routes to system dns and bypasses blocklists`() = runTest {

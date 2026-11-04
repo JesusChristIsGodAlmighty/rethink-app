@@ -422,6 +422,10 @@ class PersistentState(context: Context) : SimpleKrate(context), KoinComponent {
     // route dns queries to system dns until the captive portal sign-in completes
     var useSystemDnsOnCaptivePortal by booleanPref("use_system_dns_on_captive_portal").withDefault<Boolean>(true)
 
+    // SERF F04: junk-domain stub list — reject DNS for connectivity-probe domains locally
+    // instead of leaking the probe to the network. Off by default (Module Contract 4.2.4).
+    var f04JunkDomainStubsEnabled by booleanPref("f04_junk_domain_stubs_enabled").withDefault<Boolean>(false)
+
     // different modes the rpn proxy can function, see enum RpnMode
     var rpnMode by intPref("rpn_mode").withDefault<Int>(1)
 

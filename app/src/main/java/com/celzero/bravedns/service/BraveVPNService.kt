@@ -748,6 +748,10 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Network
         // Temp-allow expiry scheduling is only relevant when VPN is active.
         FirewallManager.initTempAllowScheduler(this)
 
+        // SERF F04: warm the junk-domain stub list (off-by-default behavior gated by
+        // persistentState.f04JunkDomainStubsEnabled inside the DNS decision path).
+        JunkDomainStubManager.initialize(this)
+
         io("nlt") {
             Log.d(LOG_BATCH_LOGGER, "vpn: restart $vpnScope")
             netLogTracker.restart(vpnScope)
