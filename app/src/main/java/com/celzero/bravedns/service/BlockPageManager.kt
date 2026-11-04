@@ -15,12 +15,9 @@
  */
 package com.celzero.bravedns.service
 
-import com.celzero.bravedns.database.CustomDomain
+import android.util.Log
 import com.celzero.bravedns.util.Constants
-import com.celzero.bravedns.util.Logger
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.runBlocking
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.ServerSocket
@@ -139,7 +136,7 @@ object BlockPageManager {
         val d = host.lowercase().trim('.')
         if (d.isEmpty() || d.contains("..")) return false
         return try {
-            kotlinx.coroutines.runBlocking {
+            runBlocking {
                 // "everybody" scope: walk exact -> wildcard -> everybody rule ladder
                 if (DomainRulesManager.trustEffectiveRule(d, Constants.UID_EVERYBODY)) return@runBlocking true
                 // blocked purely by a user-list (RULE2G) has no BLOCK rule to flip;
@@ -158,7 +155,7 @@ object BlockPageManager {
                 true
             }
         } catch (e: Exception) {
-            Logger.i(TAG, "unblock failed for $d: ${e.message}")
+            Log.i(TAG, "unblock failed for $d: ${e.message}")
             false
         }
     }
@@ -251,11 +248,11 @@ $recentHtml
                 }
                 running.set(false)
             }
-            Logger.i(TAG, "block page server started on 127.0.0.1:$PORT")
+            Log.i(TAG, "block page server started on 127.0.0.1:$PORT")
         } catch (e: Exception) {
             running.set(false)
             serverSocket = null
-            Logger.e(TAG, "failed to start block page server: ${e.message}")
+            Log.e(TAG, "failed to start block page server: ${e.message}")
         }
     }
 
@@ -263,6 +260,6 @@ $recentHtml
         runCatching { serverSocket?.close() }
         serverSocket = null
         running.set(false)
-        Logger.i(TAG, "block page server stopped")
+        Log.i(TAG, "block page server stopped")
     }
 }

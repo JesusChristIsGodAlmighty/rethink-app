@@ -314,7 +314,7 @@ object TunDnsManager: KoinComponent {
                 DomainRulesManager.Status.BLOCK -> {
                     logd("onQuery: DomainRulesManager.getDomainRule($fqdn, uid=$uid) is blocked")
                     val r = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_APP_BLOCKED)
-                    maybeNoteBlocked("BRANCH_APP_BLOCKED", fqdn)
+                    maybeNoteBlocked(BRANCH_APP_BLOCKED, fqdn)
                     logd("onQuery: makeDecision(app-blocked) for $fqdn, return $r")
                     return r
                 }
@@ -336,7 +336,7 @@ object TunDnsManager: KoinComponent {
             DomainRulesManager.Status.BLOCK -> {
                 logd("onQuery: DomainRulesManager.getDomainRule($fqdn, UID_EVERYBODY) is blocked")
                 val r = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_GLOBAL_BLOCKED)
-                maybeNoteBlocked("BRANCH_GLOBAL_BLOCKED", fqdn)
+                maybeNoteBlocked(BRANCH_GLOBAL_BLOCKED, fqdn)
                 logd("onQuery: makeDecision(global-blocked) for $fqdn, return $r")
                 return r
             }
@@ -404,13 +404,13 @@ object TunDnsManager: KoinComponent {
             logd("onQuery: getDomainRule(UID_EVERYBODY) for $fqdn")
             if (globalBlock) {
                 val opts = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_NO_UID_GLOBAL_BLOCK)
-                maybeNoteBlocked("BRANCH_NO_UID_GLOBAL_BLOCK", fqdn)
+                maybeNoteBlocked(BRANCH_NO_UID_GLOBAL_BLOCK, fqdn)
                 logd("onQuery: makeDecision(no-uid-global-block) for $fqdn")
                 return opts
             }
             if (isUidPresentInAnyDnsRequest && persistentState.getBlockUnknownConnections()) {
                 val opts = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_NO_UID_UNKNOWN_BLOCK)
-                maybeNoteBlocked("BRANCH_NO_UID_UNKNOWN_BLOCK", fqdn)
+                maybeNoteBlocked(BRANCH_NO_UID_UNKNOWN_BLOCK, fqdn)
                 logd("onQuery: makeDecision(no-uid-unknown-block) for $fqdn")
                 return opts
             }
@@ -455,7 +455,7 @@ object TunDnsManager: KoinComponent {
                 }
                 DomainRulesManager.Status.BLOCK -> {
                     val opts = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_APP_BLOCKED_DF)
-                    maybeNoteBlocked("BRANCH_APP_BLOCKED_DF", fqdn)
+                    maybeNoteBlocked(BRANCH_APP_BLOCKED_DF, fqdn)
                     logd("onQuery: makeDecision(app-blocked-df) for $fqdn")
                     return opts
                 }
