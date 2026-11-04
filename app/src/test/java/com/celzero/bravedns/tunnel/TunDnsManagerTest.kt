@@ -139,6 +139,7 @@ class TunDnsManagerTest {
     @After
     fun tearDown() {
         TunDnsManager.setDnsOptsFactoryForTest(::DNSOpts) // restore real constructor
+        TunDnsManager.forceNoteBlockedForTest = false     // SERF F191 test seam
         stopKoin()
         unmockkObject(FirewallManager)
         unmockkObject(IpRulesManager)

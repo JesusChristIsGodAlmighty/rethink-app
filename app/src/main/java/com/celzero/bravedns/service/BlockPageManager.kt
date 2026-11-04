@@ -15,7 +15,12 @@
  */
 package com.celzero.bravedns.service
 
-import com.celzero.bravedns.util.KnownPorts
+import com.celzero.bravedns.database.CustomDomain
+import com.celzero.bravedns.util.Constants
+import com.celzero.bravedns.util.Logger
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.ServerSocket
@@ -27,29 +32,27 @@ import kotlin.concurrent.thread
 /**
  * F191 — Block Page (Tier 1 quick win; D3 Fake-Online design, user-facing half).
  *
- * What it does: when a DNS query is blocked at the firewall-decision stage
- * (TunDnsManager.decideQuery branches app-blocked / global-blocked / app-blocked-df),
- * instead of only answering NXDOMAIN silently, the browser can be pointed at a tiny
- * local HTTP server that serves a plain-language page explaining WHY the connection was
- * blocked and offering one-tap unblock links (which reuse the F192 trust-rule ladder via
- * [DomainRulesManager.trustEffectiveRule]). The DNS decision itself is unchanged — the
- * A/AAAA answers simply carry the loopback address so apps that retry over HTTP land on
- * the block page instead of a dead socket.
+ * What it does: serves a tiny plain-language HTML page from a loopback-only HTTP
+ * server explaining WHY a connection was blocked and offering one-tap unblock links
+ * (which reuse the F192 trust-rule ladder via [DomainRulesManager.trustEffectiveRule]
+ * and add-a-trust-override fallback). The DNS decision itself is unchanged — blocks
+ * still resolve as they did before; this module only adds the human-facing page and
+ * the record of recently-blocked domains via [noteBlocked].
  *
- * Scope boundary (section 15.1): the server binds loopback inside the VPN process and
- * only ever answers requests originating from this device's own traffic. It never
- * intercepts, alters, or observes anyone else's traffic.
+ * Scope boundary (section 15.1): the server binds 127.0.0.1 inside the VPN process
+ * and only ever answers requests originating from this device's own traffic. It
+ * never intercepts, alters, or observes anyone else's traffic.
  *
  * Module Contract (4.2): independent, removable module; off by default (4.2.4, pref
- * f191_block_page_enabled); no new permissions; attacker-influenced data (the requested
- * host/path) is HTML-escaped before rendering and capped in length (4.2.7); every failure
- * path degrades to the pre-feature behavior (plain NXDOMAIN) rather than breaking DNS.
+ * f191BlockPageEnabled); no new permissions; attacker-influenced data (the requested
+ * host/path) is HTML-escaped before rendering and capped in length (4.2.7); every
+ * failure path degrades to the pre-feature behavior rather than breaking DNS.
  *
- * Known limitation (logged in STATE section 10): firestack exposes no way to suggest IPv4
- * answers (DnsDecision.ipcsv is always ""), so with the current Go core the visible effect
- * of enabling this flag is the running server + the unblock links being reachable at
- * http://127.0.0.1:<port>/?host=<domain>. Wiring ipcsv through decideQuery is a follow-up
- * once the backend supports suggested ips (see TunDnsManager.toNsOpts TODO).
+ * Known limitation (logged in STATE section 10): firestack exposes no way to suggest
+ * IPv4 answers (DnsDecision.ipcsv is always ""), so with the current Go core browsers
+ * are not automatically redirected here; the page and its unblock links are reachable
+ * at http://127.0.0.1:<port>/?host=<domain>. Wiring ipcsv through decideQuery is a
+ * follow-up once the backend supports suggested ips (see TunDnsManager.toNsOpts TODO).
  */
 object BlockPageManager {
 
@@ -126,21 +129,39 @@ object BlockPageManager {
         }
     }
 
-    // F192 ladder: everybody-scope takes precedence when explicitly requested, else per-app
+    /**
+     * One-tap unblock from the block page (reuses the F192 ladder). Runs the DB-touching
+     * work on Dispatchers.IO via runBlocking — safe because callers are dedicated daemon
+     * request threads, never the main thread. Returns false on any failure (fail-closed:
+     * the page just shows an error-free reload instead of corrupting rules).
+     */
     internal fun handleUnblock(host: String, scope: String?): Boolean {
+        val d = host.lowercase().trim('.')
+        if (d.isEmpty() || d.contains("..")) return false
         return try {
-            val uid = if (scope == "app") UID_EVERYBODY_NOT else android.os.Process.myUid() // placeholder, see below
-            // trustEffectiveRule walks exact -> wildcard -> everybody and flips the first BLOCK
-            DomainRulesManager.trustEffectiveRule(host.lowercase(), if (scope == "everybody") UID_EVERYBODY else uidSafeAppUid())
+            kotlinx.coroutines.runBlocking {
+                // "everybody" scope: walk exact -> wildcard -> everybody rule ladder
+                if (DomainRulesManager.trustEffectiveRule(d, Constants.UID_EVERYBODY)) return@runBlocking true
+                // blocked purely by a user-list (RULE2G) has no BLOCK rule to flip;
+                // fall back to adding an explicit everybody-scope trust override,
+                // mirroring the connection-log bottom sheet behavior from F192.
+                val existing = DomainRulesManager.getObj(Constants.UID_EVERYBODY, d)
+                if (existing != null) {
+                    if (existing.status == DomainRulesManager.Status.TRUST.id) return@runBlocking false
+                    DomainRulesManager.trust(existing)
+                    return@runBlocking true
+                }
+                DomainRulesManager.addDomainRule(
+                    d, DomainRulesManager.Status.TRUST,
+                    DomainRulesManager.DomainType.DOMAIN, Constants.UID_EVERYBODY
+                )
+                true
+            }
         } catch (e: Exception) {
-            Logger.i(TAG, "unblock failed for $host: ${e.message}")
+            Logger.i(TAG, "unblock failed for $d: ${e.message}")
             false
         }
     }
-
-    private const val UID_EVERYBODY = android.os.Process.myUid() // unused placeholder guard
-    private const val UID_EVERYBODY_NOT = -1
-    private fun uidSafeAppUid(): Int = UID_EVERYBODY_NOT
 
     internal fun parseQuery(target: String): Map<String, String> {
         val q = target.substringAfter('?', "")
@@ -218,7 +239,7 @@ $recentHtml
                         thread(isDaemon = true) {
                             try {
                                 serveRequest(sock)
-                            } catch (e: Exception) {
+                            } catch (_: Exception) {
                                 // per-request failures must never kill the listener
                             } finally {
                                 runCatching { sock.close() }
@@ -244,11 +265,4 @@ $recentHtml
         running.set(false)
         Logger.i(TAG, "block page server stopped")
     }
-}
-
-private const val TAG_ALIAS = "unused"
-private object Logger {
-    // Local alias to avoid import cycle churn; delegates to the shared logger util.
-    fun i(tag: String, msg: String) = com.celzero.bravedns.util.Logger.i(tag, msg)
-    fun e(tag: String, msg: String) = com.celzero.bravedns.util.Logger.e(tag, msg)
 }

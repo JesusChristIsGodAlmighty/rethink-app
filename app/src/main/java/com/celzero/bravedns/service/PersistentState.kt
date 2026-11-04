@@ -426,6 +426,11 @@ class PersistentState(context: Context) : SimpleKrate(context), KoinComponent {
     // instead of leaking the probe to the network. Off by default (Module Contract 4.2.4).
     var f04JunkDomainStubsEnabled by booleanPref("f04_junk_domain_stubs_enabled").withDefault<Boolean>(false)
 
+    // SERF F191: block page — loopback-only HTTP server that explains blocks and offers
+    // one-tap unblock links. Off by default (Module Contract 4.2.4); when off, no socket
+    // is bound and the DNS path records nothing extra (byte-for-byte upstream behavior).
+    var f191BlockPageEnabled by booleanPref("f191_block_page_enabled").withDefault<Boolean>(false)
+
     // different modes the rpn proxy can function, see enum RpnMode
     var rpnMode by intPref("rpn_mode").withDefault<Int>(1)
 

@@ -8,6 +8,7 @@ import com.celzero.bravedns.data.ConnTrackerMetaData
 import com.celzero.bravedns.database.ConnectionTracker
 import com.celzero.bravedns.rpnproxy.RpnProxyManager
 import com.celzero.bravedns.service.ConnectionMonitor
+import com.celzero.bravedns.service.BlockPageManager
 import com.celzero.bravedns.service.DomainRulesManager
 import com.celzero.bravedns.service.FirewallManager
 import com.celzero.bravedns.service.FirewallRuleset
@@ -74,6 +75,24 @@ object TunDnsManager: KoinComponent {
     internal const val BRANCH_DEFAULT_DF = "default-df"
     internal const val BRANCH_QTYPE_BLOCK = "qtype-block"
     internal const val BRANCH_JUNK_STUB = "junk-stub-reject"
+
+    // SERF F191: records blocked lookups for the block page's "recently blocked" list.
+    // Gated by persistentState.f191BlockPageEnabled (off by default); when off this is a
+    // single boolean read and no state is touched, keeping the hot DNS path upstream-identical.
+    private fun maybeNoteBlocked(branch: String, fqdn: String) {
+        val enabled = forceNoteBlockedForTest || persistentState.f191BlockPageEnabled
+        if (!enabled) return
+        when (branch) {
+            BRANCH_APP_BLOCKED, BRANCH_GLOBAL_BLOCKED, BRANCH_APP_BLOCKED_DF,
+            BRANCH_NO_UID_GLOBAL_BLOCK, BRANCH_NO_UID_UNKNOWN_BLOCK ->
+                BlockPageManager.noteBlocked(fqdn)
+        }
+    }
+
+    // F191 test seam: the live path reads persistentState (koin-injected); unit tests
+    // that don't stand up koin can flip the gate directly. No production caller sets this.
+    @Volatile
+    internal var forceNoteBlockedForTest: Boolean = false
 
     internal const val BRANCH_UA_INVALID_UID = "upstream-invalid-uid"
     internal const val BRANCH_UA_CAPTIVE_PORTAL = "upstream-captive-portal"
@@ -295,6 +314,7 @@ object TunDnsManager: KoinComponent {
                 DomainRulesManager.Status.BLOCK -> {
                     logd("onQuery: DomainRulesManager.getDomainRule($fqdn, uid=$uid) is blocked")
                     val r = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_APP_BLOCKED)
+                    maybeNoteBlocked("BRANCH_APP_BLOCKED", fqdn)
                     logd("onQuery: makeDecision(app-blocked) for $fqdn, return $r")
                     return r
                 }
@@ -316,6 +336,7 @@ object TunDnsManager: KoinComponent {
             DomainRulesManager.Status.BLOCK -> {
                 logd("onQuery: DomainRulesManager.getDomainRule($fqdn, UID_EVERYBODY) is blocked")
                 val r = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_GLOBAL_BLOCKED)
+                maybeNoteBlocked("BRANCH_GLOBAL_BLOCKED", fqdn)
                 logd("onQuery: makeDecision(global-blocked) for $fqdn, return $r")
                 return r
             }
@@ -383,11 +404,13 @@ object TunDnsManager: KoinComponent {
             logd("onQuery: getDomainRule(UID_EVERYBODY) for $fqdn")
             if (globalBlock) {
                 val opts = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_NO_UID_GLOBAL_BLOCK)
+                maybeNoteBlocked("BRANCH_NO_UID_GLOBAL_BLOCK", fqdn)
                 logd("onQuery: makeDecision(no-uid-global-block) for $fqdn")
                 return opts
             }
             if (isUidPresentInAnyDnsRequest && persistentState.getBlockUnknownConnections()) {
                 val opts = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_NO_UID_UNKNOWN_BLOCK)
+                maybeNoteBlocked("BRANCH_NO_UID_UNKNOWN_BLOCK", fqdn)
                 logd("onQuery: makeDecision(no-uid-unknown-block) for $fqdn")
                 return opts
             }
@@ -432,6 +455,7 @@ object TunDnsManager: KoinComponent {
                 }
                 DomainRulesManager.Status.BLOCK -> {
                     val opts = makeDecision(uid, Pair(Backend.BlockAll, ""), fqdn, false, isIfaceCellular, ssid, BRANCH_APP_BLOCKED_DF)
+                    maybeNoteBlocked("BRANCH_APP_BLOCKED_DF", fqdn)
                     logd("onQuery: makeDecision(app-blocked-df) for $fqdn")
                     return opts
                 }

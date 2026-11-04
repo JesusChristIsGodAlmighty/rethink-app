@@ -752,6 +752,11 @@ class BraveVPNService : VpnService(), ConnectionMonitor.NetworkListener, Network
         // persistentState.f04JunkDomainStubsEnabled inside the DNS decision path).
         JunkDomainStubManager.initialize(this)
 
+        // SERF F191: block page server — off by default; binds loopback only when the
+        // user enables f191_block_page_enabled. Failures are swallowed inside the
+        // manager so VPN startup never depends on it (Module Contract 4.2 fail-open).
+        BlockPageManager.updateEnabledState(persistentState.f191BlockPageEnabled)
+
         io("nlt") {
             Log.d(LOG_BATCH_LOGGER, "vpn: restart $vpnScope")
             netLogTracker.restart(vpnScope)
