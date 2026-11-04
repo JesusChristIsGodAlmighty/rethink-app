@@ -1,2 +1,11 @@
 *.log
 *.zip
+.gradle/
+build/
+app/build/
+.kotlin/
+local.properties
+*.lock
+captures/
+.externalNativeBuild/
+.cxx/
