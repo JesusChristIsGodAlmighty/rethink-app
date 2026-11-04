@@ -40,6 +40,7 @@ import { HardwareRadioShieldModal } from './components/HardwareRadioShieldModal'
 import { ZeroTrustComplianceModal } from './components/ZeroTrustComplianceModal';
 import { ContentDisarmModal } from './components/ContentDisarmModal';
 import { LegalDisclaimerModal } from './components/LegalDisclaimerModal';
+import { SecurityAuditModal } from './components/SecurityAuditModal';
 
 import { 
   INITIAL_MODULES, 
@@ -120,6 +121,7 @@ export default function App() {
   const [isZeroTrustComplianceOpen, setIsZeroTrustComplianceOpen] = useState(false);
   const [isContentDisarmOpen, setIsContentDisarmOpen] = useState(false);
   const [isLegalDisclaimerOpen, setIsLegalDisclaimerOpen] = useState(false);
+  const [isSecurityAuditOpen, setIsSecurityAuditOpen] = useState(false);
   const [isConnectionPromptOpen, setIsConnectionPromptOpen] = useState(false);
   const [pendingPromptPacket, setPendingPromptPacket] = useState<NetworkPacket | null>(null);
   const [floatingHudActive, setFloatingHudActive] = useState(false);
@@ -308,6 +310,7 @@ export default function App() {
         onOpenZeroTrustCompliance={() => setIsZeroTrustComplianceOpen(true)}
         onOpenContentDisarm={() => setIsContentDisarmOpen(true)}
         onOpenLegalDisclaimer={() => setIsLegalDisclaimerOpen(true)}
+        onOpenSecurityAudit={() => setIsSecurityAuditOpen(true)}
         isExpertMode={isExpertMode}
         onToggleExpertMode={() => setIsExpertMode(!isExpertMode)}
         isEditMode={isEditMode}
@@ -733,6 +736,13 @@ export default function App() {
         <LegalDisclaimerModal
           isOpen={isLegalDisclaimerOpen}
           onClose={() => setIsLegalDisclaimerOpen(false)}
+        />
+      )}
+
+      {isSecurityAuditOpen && (
+        <SecurityAuditModal
+          isOpen={isSecurityAuditOpen}
+          onClose={() => setIsSecurityAuditOpen(false)}
         />
       )}
 

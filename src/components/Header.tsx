@@ -39,6 +39,7 @@ interface HeaderProps {
   onOpenZeroTrustCompliance: () => void;
   onOpenContentDisarm: () => void;
   onOpenLegalDisclaimer: () => void;
+  onOpenSecurityAudit: () => void;
   isExpertMode: boolean;
   onToggleExpertMode: () => void;
   isEditMode: boolean;
@@ -65,6 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenZeroTrustCompliance,
   onOpenContentDisarm,
   onOpenLegalDisclaimer,
+  onOpenSecurityAudit,
   isExpertMode,
   onToggleExpertMode,
   isEditMode,
@@ -231,6 +233,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Layers className="w-3 h-3 text-purple-400" />
             <span>CDR &amp; Media Proxy (F927)</span>
+          </button>
+          <span aria-hidden="true" className="text-slate-700">·</span>
+
+          {/* F883-F887 Security Regression & Hardening Auditor */}
+          <button
+            onClick={onOpenSecurityAudit}
+            className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors shrink-0 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30"
+          >
+            <ShieldCheck className="w-3 h-3 text-emerald-400" />
+            <span>Security Audit (F883)</span>
           </button>
           <span aria-hidden="true" className="text-slate-700">·</span>
 
