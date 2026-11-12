@@ -1,7 +1,7 @@
 # Master Project State: All-in-One Enterprise Admin & Omnipresent Communication Filter
 ## Project Architecture: From-Scratch Hybrid App (Kotlin + Native C++ JNI)
 
-> **Agent Directive:** You are an autonomous development agent executing task blocks in a cloud environment. Review the **Current Project State** and **Active Milestone** below. Execute the immediate next micro-task. Upon completion or when hitting your API/quota threshold, update this file's progress trackers and commit the code back to the repository.
+> **Agent Directive:** You are an autonomous development agent executing task blocks in a cloud environment. Review the **Current Project State**, **Mandatory Rules**, and **Active Milestone** below. Execute the immediate next micro-task. Upon completion or when hitting your API/quota threshold, update this file's progress trackers and commit the code back to the repository.
 
 ---
 
@@ -11,6 +11,16 @@
 * **Immediate Next Task:** 1.1 Multi-Module Project Structure Scaffolding
 * **System Target:** Android 15+ (API Level 35+)
 * **Languages:** Kotlin (Framework/Admin/UI/Hardware Handshakes) & Native C++ (NDK Engine/JNI Bridge/Packet Parsing)
+
+---
+
+## ⚠️ Mandatory External Code Integration Rules
+When cloning, extracting, or copying files from external GitHub repositories, every agent **must** strictly enforce these four rules before committing code:
+
+1. **Convert Languages Automatically:** If extracted source files are written in legacy Java, convert them cleanly into modern, idiomatic Kotlin before saving them into the project's `/java` or `/kotlin` directories (leave Native C/C++ files untouched).
+2. **Flatten Dependencies:** Audit the external repository's `build.gradle` or `CMakeLists.txt` files for any required third-party libraries. Append those exact dependencies to our project's build configuration so compilation never breaks.
+3. **Match Android SDK Versions:** Refactor any deprecated APIs, permissions, or manifest flags from older Android versions to strictly align with our Android 15+ (API 35+) target parameters.
+4. **Check Open-Source Licenses:** Inspect the external repository's `LICENSE` file prior to extraction. If it enforces a restrictive copyleft license (such as GPL/AGPL), halt integration, log a warning in the development logs below, and flag it for review or permissive replacement (MIT/Apache 2.0).
 
 ---
 
@@ -26,6 +36,7 @@
   - Set up lock-free ring buffers in C++ to prevent UI thread lag during deep packet analysis.
 - [ ] **1.3 Target Module Isolation (PCAPdroid Base Extraction)**
   - Clone `https://github.com` into a temporary working folder.
+  - Enforce the **4 Mandatory External Code Integration Rules** (Note: verify PCAPdroid's GPLv3 license status and log a warning/isolation boundary before copying).
   - Isolate the low-level Native C++ TCP/IP engine code (`zdtun` and packet capture components) and import them into `/app/src/main/cpp`.
 
 ### 🎛️ Phase 2: System Admin, Accessibility & Screen Overlays
@@ -69,8 +80,8 @@
 
 ## 📝 Recent Agent Development Logs
 
-### [2026-11-10] - Agent ID: [Comprehensive Pathway Mapping]
-* **Action:** Deepened the architecture roadmap to incorporate multi-channel hardware sniffing (HCI sockets, NFC, USB, Cast, ADB), low-level DNS trapping, and kernel-level Binder IPC tracking.
+### [2026-11-12] - Agent ID: [Governance Update]
+* **Action:** Added the 4 Mandatory External Code Integration Rules to enforce automatic Java-to-Kotlin conversion, dependency flattening, SDK 35 alignment, and open-source license auditing.
 * **Status:** Awaiting first agent execution cycle for task 1.1.
 * **Blocks/Issues encountered:** None.
 
