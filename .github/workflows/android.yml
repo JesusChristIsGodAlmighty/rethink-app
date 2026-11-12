@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     env:
       VARIANT: assembleWebsiteFullDebug
     steps:
@@ -46,3 +49,11 @@ jobs:
           --warning-mode all
       env:
         VARIANT: ${{ env.VARIANT }}
+        USERNAME_GITHUB: ${{ github.actor }}
+        TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+    - name: 🧪 Run Unit Tests
+      if: success()
+      run: ./gradlew testFdroidFullDebugUnitTest
+      env:
+        USERNAME_GITHUB: ${{ github.actor }}
+        TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
