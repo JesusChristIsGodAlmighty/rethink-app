@@ -1,0 +1,8 @@
+{
+  "name": "Rethink",
+  "description": "DNS over HTTPS, Per-App Firewall, WireGuard & Proxy Manager, and Network Monitor for Android.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
